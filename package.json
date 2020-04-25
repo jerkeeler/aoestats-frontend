@@ -1,22 +1,35 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "aeostats-frontend",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Aoestats frontend",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jeremy Keeler <jerkeeler@gmail.com>",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-brands-svg-icons": "^5.13.0",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.20.35",
     "gatsby-image": "^2.3.5",
+    "gatsby-plugin-google-analytics": "^2.2.5",
     "gatsby-plugin-manifest": "^2.3.7",
     "gatsby-plugin-offline": "^3.1.5",
+    "gatsby-plugin-postcss": "^2.2.4",
+    "gatsby-plugin-purgecss": "^5.0.0",
     "gatsby-plugin-react-helmet": "^3.2.5",
+    "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sharp": "^2.5.7",
+    "gatsby-plugin-sitemap": "^2.3.6",
     "gatsby-source-filesystem": "^2.2.5",
+    "gatsby-source-pg": "^0.1.4",
     "gatsby-transformer-sharp": "^2.4.7",
+    "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.0.0"
+    "react-helmet": "^6.0.0",
+    "tailwindcss": "^1.3.5"
   },
   "devDependencies": {
     "prettier": "2.0.4"
@@ -26,19 +39,21 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "build": "npx gatsby build",
+    "develop": "npx gatsby develop -p 8001",
+    "format": "npx prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "serve": "npx gatsby serve",
+    "clean": "npx gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy": "npm run build && netlify deploy",
+    "deploy:prod": "npm run build && netlify deploy --prod"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/jerkeeler/aoestats-frontend"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/jerkeeler/aoestats-frontend/issues"
   }
 }
