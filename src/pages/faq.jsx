@@ -37,9 +37,9 @@ const Faq = ({ location }) => {
         <Item question="Where do these stats come from?">
           <p>
             These stats are derived from the developer APIs provided by{' '}
-            <A to="aoe2.net">aoe2.net</A>. I would highly suggest checking out
-            that website and supporting it! It is an awesome source of data!
-            None of this would be possible without it.
+            <A to="https://aoe2.net">aoe2.net</A>. I would highly suggest
+            checking out that website and supporting it! It is an awesome source
+            of data! None of this would be possible without it.
           </p>
         </Item>
         <Item question="How frequently are these stats updated?">
