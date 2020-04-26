@@ -8,9 +8,10 @@ import SEO from '../components/SEO';
 import CivCard from '../components/CivCard';
 import Hero from '../components/Hero';
 import Warning from '../components/Warning';
+import TopCivs from '../components/TopCivs';
 
-const Homepage = ({ data }) => {
-  const node = data.postgres.allDeFilters.edges[0].node;
+const Homepage = ({ data, location }) => {
+  const node = data.postgres.filter;
   const filter = {
     combined: node.combined,
     patchVal: node.patchVal,
@@ -23,9 +24,13 @@ const Homepage = ({ data }) => {
     civStats.uniqueUnit = Civs[civStats.civNum].uniqueUnit;
   });
   const sortedStats = stats.sort((a, b) => (a.name < b.name ? -1 : 1));
+  const sortedByRate = stats.concat();
+  sortedByRate.sort((a, b) => (a.winRate < b.winRate ? 1 : -1));
+  const top5 = sortedByRate.slice(0, 5);
+  const bottom5 = sortedByRate.slice(-5);
 
   return (
-    <Layout filter={filter}>
+    <Layout location={location} filter={filter}>
       <SEO />
       <Warning>
         <p>
@@ -37,6 +42,16 @@ const Homepage = ({ data }) => {
         </p>
       </Warning>
       <Hero />
+      <div className="flex mt-3">
+        <div className="w-1/2 pr-4">
+          <h3 className="text-2xl mb-1">Highest Win Rates</h3>
+          <TopCivs filter={filter} civs={top5} />
+        </div>
+        <div className="w-1/2 pl-4">
+          <h3 className="text-2xl mb-1">Lowest Win Rates</h3>
+          <TopCivs filter={filter} civs={bottom5} />
+        </div>
+      </div>
       <div className="flex flex-wrap">
         {sortedStats.map((civStats) => (
           <CivCard key={civStats.civNum} civStats={civStats} filter={filter} />
@@ -47,36 +62,20 @@ const Homepage = ({ data }) => {
 };
 
 export const query = graphql`
-  query(
-    $combined: Boolean
-    $patchVal: String
-    $eloVal: String
-    $ladderVal: Int
-  ) {
+  query($filterId: Int!) {
     postgres {
-      allDeFilters(
-        condition: {
-          combined: $combined
-          patchVal: $patchVal
-          eloVal: $eloVal
-          ladderVal: $ladderVal
-        }
-      ) {
-        edges {
-          node {
-            id
-            patchVal
-            ladderVal
-            eloVal
-            combined
-            deCivilizationstatsByFilterId {
-              nodes {
-                winRate
-                playRate
-                civNum
-                numPlayed
-              }
-            }
+      filter: deFilterById(id: $filterId) {
+        id
+        patchVal
+        ladderVal
+        eloVal
+        combined
+        deCivilizationstatsByFilterId {
+          nodes {
+            winRate
+            playRate
+            civNum
+            numPlayed
           }
         }
       }

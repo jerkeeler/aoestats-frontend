@@ -18,6 +18,11 @@ module.exports = {
           medium: '#313131',
           dark: '#1d1d1d',
         },
+        table: {
+          border: '#32383e',
+          row1: 'rgba(255,255,255,.05)',
+          row2: 'rgb(33, 37, 41)',
+        },
       },
       fontSize: {
         xxs: '0.5rem',
@@ -32,6 +37,7 @@ module.exports = {
     borderWidth: ['responsive', 'hover'],
     margin: ['responsive', 'first', 'last'],
     cursor: ['responsive', 'hover'],
+    backgroundColor: ['responsive', 'hover', 'focus', 'odd', 'even'],
   },
   plugins: [],
 };

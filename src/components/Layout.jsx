@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
-const Layout = ({ children, filter = {} }) => {
+const Layout = ({ children, location, filter = {} }) => {
   return (
     <div className="bg-grays-dark text-white min-h-screen flex flex-col items-center">
-      <Navbar filter={filter} />
+      <Navbar location={location} filter={filter} />
       <div className="w-full max-w-screen-lg">
         <main>{children}</main>
         <Footer />

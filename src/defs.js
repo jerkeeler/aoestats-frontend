@@ -30,26 +30,28 @@ const Ladder = Object.freeze({
   4: 'Team Random Map',
 });
 
+const LadderToShortname = Object.freeze({
+  0: 'Unranked',
+  1: 'DM_1v1',
+  2: 'DM_TEAM',
+  3: 'RM_1v1',
+  4: 'RM_TEAM',
+});
+
 const Patch = Object.freeze({
   de_36202: '36202',
   de_35584: '35584',
-});
-
-const Tone = Object.freeze({
-  high: '#89f5a2',
-  medium: '#ffed68',
-  low: '#f17d59',
-  default: '#007bff',
 });
 
 const CURRENT_PATCH = Patch.de_36202;
 
 module.exports = {
   OverTimeBuckets,
+  CivSeries,
   OverTimeSeries,
   EloBracket,
   Ladder,
+  LadderToShortname,
   Patch,
-  Tone,
   CURRENT_PATCH,
 };

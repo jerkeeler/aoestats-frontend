@@ -1,6 +1,13 @@
+const { LadderToShortname } = require('./defs');
+
 const getPathFromFilter = (filter) => {
-  if (filter.combined) return `/${filter.ladderVal}`;
-  return `/${filter.ladderVal}/${filter.eloVal}`;
+  if (!('combined' in filter)) return `/${LadderToShortname[3]}`;
+  if (filter.combined) return `/${LadderToShortname[filter.ladderVal]}`;
+  return `/${LadderToShortname[filter.ladderVal]}/${filter.eloVal}`;
 };
 
-module.exports = { getPathFromFilter };
+const getCivPath = (filter, civName) => {
+  return `/civ/${civName}${getPathFromFilter(filter)}`;
+};
+
+module.exports = { getPathFromFilter, getCivPath };
