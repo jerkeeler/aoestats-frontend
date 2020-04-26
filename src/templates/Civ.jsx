@@ -18,7 +18,12 @@ import Table from '../components/typography/Table';
 import TableRow from '../components/typography/TableRow';
 import TableHeader from '../components/typography/TableHeader';
 import TableCell from '../components/typography/TableCell';
-import { CivSeries, OverTimeSeries, SortedOverTimeBuckets } from '../defs';
+import {
+  CivSeries,
+  Ladder,
+  OverTimeSeries,
+  SortedOverTimeBuckets,
+} from '../defs';
 import TopCivs from '../components/TopCivs';
 
 defaults.global.animation = false;
@@ -140,12 +145,21 @@ const Civ = ({ data, location }) => {
 
   return (
     <Layout location={location} filter={filter}>
-      <SEO />
+      <SEO
+        title={Civs[civInfo.civNum].name}
+        description={`Detailed statistics, including win rate and play rate, on the ${
+          Civs[civInfo.civNum].name
+        } civilization in Age of Empires II in the ${
+          Ladder[filter.ladderVal]
+        } ladder across ${
+          filter.eloVal || 'All'
+        } ELOs. Current win rate: ${percentage(civInfo.winRate)}%`}
+      />
       <H1>{Civs[civInfo.civNum].name}</H1>
       <HR />
       <div className="flex flex-col">
-        <div className="w-full flex">
-          <div className="w-3/12 flex flex-col items-center">
+        <div className="w-full flex flex-wrap">
+          <div className="w-full lg:w-3/12 flex flex-col items-center">
             <CivImage civId={civInfo.civNum} className="w-32 h-32" />
             <Rate
               title="Win Rate"
@@ -158,7 +172,7 @@ const Civ = ({ data, location }) => {
               textColor="text-stats"
             />
           </div>
-          <div className="w-3/12 pr-3">
+          <div className="w-full lg:w-3/12 pr-3">
             <Table>
               <thead>
                 <TableHeader>
@@ -189,7 +203,7 @@ const Civ = ({ data, location }) => {
               </tbody>
             </Table>
           </div>
-          <div className="w-6/12 flex flex-col items-center">
+          <div className="w-full lg:w-6/12 flex flex-col items-center mt-3 lg:mt-0">
             <h3 className="text-xl text-stats-medium mb-3 font-bold">
               Win Rate vs Game Length
             </h3>
@@ -200,12 +214,12 @@ const Civ = ({ data, location }) => {
             />
           </div>
         </div>
-        <div className="w-full flex">
-          <div className="w-1/2 pr-4">
+        <div className="w-full flex flex-wrap">
+          <div className="w-full md:w-1/2 md:pr-4">
             <h3 className="text-2xl mb-1">Highest Win Rates Against</h3>
             <TopCivs filter={filter} civs={top5} />
           </div>
-          <div className="w-1/2 pl-4">
+          <div className="w-full md:w-1/2 md:pl-4">
             <h3 className="text-2xl mb-1">Lowest Win Rates Against</h3>
             <TopCivs filter={filter} civs={bottom5} />
           </div>

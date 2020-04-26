@@ -8,25 +8,28 @@ import { getPathFromFilter } from '../urls';
 import BuyMeACoffee from './BuyMeACoffee';
 
 const NavItemRight = ({ className = '', children }) => (
-  <li className={`ml-6 first:ml-0 ${className}`}>{children}</li>
+  <li className={`ml-6 my-1 md:my-0 first:ml-0 ${className}`}>{children}</li>
 );
 
 const NavItemLeft = ({ className = '', children }) => (
-  <li className={`mr-6 last:mr-0 ${className}`}>{children}</li>
+  <li className={`mr-6 my-1 md:my-0 last:mr-0 ${className}`}>{children}</li>
 );
 
 const NavGroup = ({ children }) => (
-  <ul className="flex items-center">{children}</ul>
+  <ul className="flex items-center flex-wrap">{children}</ul>
 );
 
 const Navbar = ({ location, filter }) => {
   const ladderVal = filter.ladderVal ? Ladder[filter.ladderVal] : Ladder[3];
   return (
     <nav
-      className="w-full flex justify-center bg-grays-light sticky h-16 top-0
+      className="w-full flex justify-center bg-grays-light md:sticky md:h-16 top-0
   z-50 mb-6 shadow"
     >
-      <div className="max-w-screen-lg w-full flex justify-between items-center">
+      <div
+        className="max-w-screen-lg w-full flex flex-wrap md:justify-between
+      items-center px-3 lg:px-0 py-3 md:py-0"
+      >
         <NavGroup>
           <NavItemLeft>
             <GatsbyLink
@@ -47,11 +50,13 @@ const Navbar = ({ location, filter }) => {
           <NavItemRight>
             <BuyMeACoffee />
           </NavItemRight>
-          <NavItemRight className="text-xs">
+          <NavItemRight className="md:text-xs">
             Patch: {CURRENT_PATCH}
           </NavItemRight>
-          <NavItemRight className="text-xs">Ladder: {ladderVal}</NavItemRight>
-          <NavItemRight className="text-xs">
+          <NavItemRight className="md:text-xs">
+            Ladder: {ladderVal}
+          </NavItemRight>
+          <NavItemRight className="md:text-xs">
             <EloPicker location={location} filter={filter} />
           </NavItemRight>
         </NavGroup>

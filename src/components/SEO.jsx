@@ -7,7 +7,7 @@ function SEO({
   description,
   lang,
   meta,
-  title = 'Age of Empires 2 Civilization Statistics',
+  title = 'Age of Empires II Civilization Statistics',
 }) {
   const { site } = useStaticQuery(
     graphql`

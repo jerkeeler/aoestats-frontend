@@ -8,7 +8,7 @@ const Layout = ({ children, location, filter = {} }) => {
   return (
     <div className="bg-grays-dark text-white min-h-screen flex flex-col items-center">
       <Navbar location={location} filter={filter} />
-      <div className="w-full max-w-screen-lg">
+      <div className="w-full max-w-screen-lg p-2">
         <main>{children}</main>
         <Footer />
       </div>

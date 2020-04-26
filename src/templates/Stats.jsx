@@ -15,6 +15,7 @@ import TableHeader from '../components/typography/TableHeader';
 import { leftPad, getWinRateClass } from '../formatting';
 import HR from '../components/typography/HR';
 import H1 from '../components/typography/H1';
+import { Ladder } from '../defs';
 
 const StatRow = ({ filter, civ }) => (
   <TableRow>
@@ -90,7 +91,12 @@ const Stats = ({ location, data }) => {
 
   return (
     <Layout location={location} filter={filter}>
-      <SEO />
+      <SEO
+        title="Stats"
+        description={`Side by side comparisons of Age of Empires II civilizations including win rate, play rate, and age timings for the ${
+          Ladder[filter.ladderVal]
+        } ladder across ${filter.eloVal || 'All'} ELOs.`}
+      />
       <H1>Aggregate Civ Stats</H1>
       <HR />
       <Table>

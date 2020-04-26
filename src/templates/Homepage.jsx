@@ -42,12 +42,12 @@ const Homepage = ({ data, location }) => {
         </p>
       </Warning>
       <Hero />
-      <div className="flex mt-3">
-        <div className="w-1/2 pr-4">
+      <div className="flex flex-wrap mt-3">
+        <div className="w-full lg:w-1/2 lg:pr-4">
           <h3 className="text-2xl mb-1">Highest Win Rates</h3>
           <TopCivs filter={filter} civs={top5} />
         </div>
-        <div className="w-1/2 pl-4">
+        <div className="w-full lg:w-1/2 lg:pl-4">
           <h3 className="text-2xl mb-1">Lowest Win Rates</h3>
           <TopCivs filter={filter} civs={bottom5} />
         </div>
