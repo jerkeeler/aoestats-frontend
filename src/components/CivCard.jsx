@@ -18,13 +18,13 @@ const CivCard = ({ civStats, filter }) => (
         <div className="flex flex-col flex-grow pl-2 text-white">
           <p className="text-xxs">Win Rate</p>
           <PercentBar
-            min={0.35}
-            max={0.6}
+            min={0.3}
+            max={0.7}
             current={civStats.winRate}
             tone={`bg-${getWinRateClass(civStats.winRate)}`}
           />
           <p className="mt-2 text-xxs">Play Rate</p>
-          <PercentBar max={0.1} current={civStats.playRate} tone="bg-stats" />
+          <PercentBar max={0.15} current={civStats.playRate} tone="bg-stats" />
         </div>
       </div>
       <div className="mt-2 flex justify-between items-end">
