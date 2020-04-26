@@ -2,8 +2,8 @@
     base = ""
     publish = "public/"
 
-#[[redirects]]
-#    from = "https://aoestats.netlify.app/*"
-#    to = "https://aoestats.io/:splat"
-#    status = 301
-#    force = true
+[[redirects]]
+    from = "https://aoestats.netlify.app/*"
+    to = "https://aoestats.io/:splat"
+    status = 301
+    force = true
