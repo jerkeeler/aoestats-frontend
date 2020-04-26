@@ -6,6 +6,14 @@ const OverTimeBuckets = Object.freeze({
   LATE: '60+',
 });
 
+const SortedOverTimeBuckets = [
+  OverTimeBuckets.EARLY,
+  OverTimeBuckets.EARLY_MED,
+  OverTimeBuckets.MED,
+  OverTimeBuckets.LATE_MED,
+  OverTimeBuckets.LATE,
+];
+
 const CivSeries = Object.freeze({
   win_rate_vs_civs: 'win_rate_vs_civs',
 });
@@ -47,6 +55,7 @@ const CURRENT_PATCH = Patch.de_36202;
 
 module.exports = {
   OverTimeBuckets,
+  SortedOverTimeBuckets,
   CivSeries,
   OverTimeSeries,
   EloBracket,

@@ -36,6 +36,7 @@ module.exports = {
     borderStyle: ['responsive', 'hover'],
     borderWidth: ['responsive', 'hover'],
     margin: ['responsive', 'first', 'last'],
+    padding: ['responsive', 'first', 'last'],
     cursor: ['responsive', 'hover'],
     backgroundColor: ['responsive', 'hover', 'focus', 'odd', 'even'],
   },

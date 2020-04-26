@@ -21,3 +21,12 @@ export function getWinRateClass(winRate) {
 export function percentage(value) {
   return (value * 100).toFixed(2);
 }
+
+export function formatDate(dateVal) {
+  const lP = (val) => leftPad(val.toString(), 2, '0');
+  return `${lP(dateVal.getUTCDate())}/${lP(
+    dateVal.getUTCMonth() + 1,
+  )}/${dateVal.getUTCFullYear()} at ${lP(dateVal.getUTCHours())}:${lP(
+    dateVal.getUTCMinutes(),
+  )} UTC`;
+}
