@@ -1,16 +1,25 @@
 import React from 'react';
+import { percentage } from '../formatting';
 
-const PercentBar = ({ className = '', max, total, current, tone }) => {
+const PercentBar = ({
+  className = '',
+  min = 0,
+  max = 1,
+  total = 1,
+  current,
+  tone,
+}) => {
+  const width = (current - min) / (max - min);
   return (
     <div
       className={`rounded w-full bg-white h-3 relative overflow-hidden ${className}`}
     >
       <div
         className={`rounded h-3 absolute top-0 left-0 z-0 ${tone}`}
-        style={{ width: `${(current / max) * 100}%` }}
+        style={{ width: `${percentage(width)}%` }}
       />
       <p className="text-xxs z-10 text-center text-black relative">
-        {((current / total) * 100).toFixed(2)}%
+        {percentage(current / total)}%
       </p>
     </div>
   );

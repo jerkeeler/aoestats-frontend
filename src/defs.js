@@ -1,16 +1,14 @@
 const OverTimeBuckets = Object.freeze({
   EARLY: '<20',
   EARLY_MED: '20-30',
-  MED: '30-45',
-  LATE_MED: '45-60',
-  LATE: '60+',
+  MED: '30-40',
+  LATE: '40+',
 });
 
 const SortedOverTimeBuckets = [
   OverTimeBuckets.EARLY,
   OverTimeBuckets.EARLY_MED,
   OverTimeBuckets.MED,
-  OverTimeBuckets.LATE_MED,
   OverTimeBuckets.LATE,
 ];
 

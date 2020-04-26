@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 
 import CivImage from './CivImage';
 import PercentBar from './PercentBar';
-import { Tone } from '../defs';
 import { getCivPath } from '../urls';
 import { getWinRateClass, numberWithCommas } from '../formatting';
 
@@ -19,18 +18,13 @@ const CivCard = ({ civStats, filter }) => (
         <div className="flex flex-col flex-grow pl-2 text-white">
           <p className="text-xxs">Win Rate</p>
           <PercentBar
-            total={1}
-            max={1}
+            min={0.35}
+            max={0.6}
             current={civStats.winRate}
             tone={`bg-${getWinRateClass(civStats.winRate)}`}
           />
           <p className="mt-2 text-xxs">Play Rate</p>
-          <PercentBar
-            total={1}
-            max={0.18}
-            current={civStats.playRate}
-            tone="bg-stats"
-          />
+          <PercentBar max={0.1} current={civStats.playRate} tone="bg-stats" />
         </div>
       </div>
       <div className="mt-2 flex justify-between items-end">

@@ -5,6 +5,7 @@ import Link from './Link';
 import { CURRENT_PATCH, Ladder } from '../defs';
 import EloPicker from './EloPicker';
 import { getPathFromFilter } from '../urls';
+import BuyMeACoffee from './BuyMeACoffee';
 
 const NavItemRight = ({ className = '', children }) => (
   <li className={`ml-6 first:ml-0 ${className}`}>{children}</li>
@@ -43,6 +44,9 @@ const Navbar = ({ location, filter }) => {
           </NavItemLeft>
         </NavGroup>
         <NavGroup>
+          <NavItemRight>
+            <BuyMeACoffee />
+          </NavItemRight>
           <NavItemRight className="text-xs">
             Patch: {CURRENT_PATCH}
           </NavItemRight>

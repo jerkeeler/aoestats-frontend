@@ -4,7 +4,6 @@ import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { EloBracket, LadderToShortname } from '../defs';
-import { getPathFromFilter } from '../urls';
 
 const getUrl = (location, filter, eloBracket = null) => {
   const currentPath = location.pathname;
@@ -32,7 +31,7 @@ const DropdownItem = ({ children, to }) => (
 const Dropdown = ({ location, filter }) => (
   <ul
     className="absolute top-100 left-0 bg-white text-black min-w-full text-center
-    mt-2 flex flex-col text-base rounded bg-gray-100"
+    mt-2 flex flex-col text-base rounded bg-gray-100 shadow border border-gray-200"
   >
     <DropdownItem to={getUrl(location, filter)}>All</DropdownItem>
     {Object.entries(EloBracket).map(([key, value]) => (
@@ -53,7 +52,7 @@ const EloPicker = ({ location, filter }) => {
     [timer],
   );
 
-  const setVal = (newVal, timeout = 500) => {
+  const setVal = (newVal, timeout = 300) => {
     if (timer) clearTimeout(timer);
     const newTimer = setTimeout(() => setModal(newVal), timeout);
     setTimer(newTimer);
