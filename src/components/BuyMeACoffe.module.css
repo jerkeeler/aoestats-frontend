@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 .bmc-button svg {
   height: 27px !important;
   width: 35px !important;
@@ -43,3 +44,4 @@
   opacity: 0.85 !important;
   color: #FFFFFF !important;
 }
+/* purgecss end ignore */

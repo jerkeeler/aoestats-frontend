@@ -7,10 +7,14 @@ import { EloBracket, LadderToShortname } from '../defs';
 
 const getUrl = (location, filter, eloBracket = null) => {
   const currentPath = location.pathname;
-  let start = '';
+  let start = '/';
   const sliceVal = filter.combined ? -1 : -2;
   if (currentPath.startsWith('/civ') || currentPath.startsWith('/stats'))
-    start = currentPath.split('/').slice(0, sliceVal).join('/');
+    start = currentPath
+      .split('/')
+      .filter((p) => p !== '')
+      .slice(0, sliceVal)
+      .join('/');
   if (!('combined' in filter) && !eloBracket)
     return `${start}/${LadderToShortname[3]}`;
   if (!('combined' in filter) && eloBracket)
@@ -30,7 +34,7 @@ const DropdownItem = ({ children, to }) => (
 
 const Dropdown = ({ location, filter }) => (
   <ul
-    className="absolute top-100 left-0 bg-white text-black min-w-full text-center
+    className="absolute top-100 left-0 bg-white text-black min-w-ful text-center
     mt-2 flex flex-col text-base rounded bg-gray-100 shadow border border-gray-200"
   >
     <DropdownItem to={getUrl(location, filter)}>All</DropdownItem>
@@ -58,14 +62,15 @@ const EloPicker = ({ location, filter }) => {
     setTimer(newTimer);
   };
   return (
-    <span
-      className="hover:cursor-pointer relative"
+    <div
+      // style={{ top: -1 }}
+      className="hover:cursor-pointer relative flex"
       onMouseEnter={() => setVal(true, 0)}
       onMouseLeave={() => setVal(false)}
       onClick={() => setVal(!modal, 0)}
     >
       Elo: {filter.eloVal || 'All'}{' '}
-      <span className="w-4 overflow-hidden">
+      <span className="inline-block ml-1 w-4 h-4 overflow-hidden">
         <FontAwesomeIcon
           icon={faCaretDown}
           className="text-primary"
@@ -73,7 +78,7 @@ const EloPicker = ({ location, filter }) => {
         />
       </span>
       {modal && <Dropdown location={location} filter={filter} />}
-    </span>
+    </div>
   );
 };
 
