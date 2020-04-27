@@ -24,11 +24,10 @@ const Footer = () => {
         last updated: {formatDate(buildTime)}
       </p>
       <p className="text-xs">
-        aoestats isn't endorsed by Microsoft Inc.x. and doesn't reflect the
-        views or opinions of Microsoft Inc. or anyone officially involved in
-        producing or managing Age of Empires II and its various expansions. Age
-        of Empires II, and its various expansions, are trademarks or registered
-        trademarks of Microsoft, Inc.
+        aoestats isn't endorsed by Microsoft Inc. and doesn't reflect the views
+        or opinions of Microsoft Inc. or anyone officially involved in producing
+        or managing Age of Empires II DE. Age of Empires II DE, and its various
+        expansions, are trademarks or registered trademarks of Microsoft, Inc.
       </p>
     </footer>
   );
