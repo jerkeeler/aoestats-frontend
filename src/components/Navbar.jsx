@@ -8,7 +8,9 @@ import { getPathFromFilter } from '../urls';
 import BuyMeACoffee from './BuyMeACoffee';
 
 const NavItemRight = ({ className = '', children }) => (
-  <li className={`ml-6 my-1 md:my-0 first:ml-0 ${className}`}>{children}</li>
+  <li className={`mr-3 md:mr-0 md:ml-3 my-1 md:my-0 first:ml-0 ${className}`}>
+    {children}
+  </li>
 );
 
 const NavItemLeft = ({ className = '', children }) => (
@@ -51,10 +53,10 @@ const Navbar = ({ location, filter }) => {
             <BuyMeACoffee />
           </NavItemRight>
           <NavItemRight className="md:text-xs">
-            Patch: {CURRENT_PATCH}
+            Patch: <b>{CURRENT_PATCH}</b>
           </NavItemRight>
           <NavItemRight className="md:text-xs">
-            Ladder: {ladderVal}
+            Ladder: <b>{ladderVal}</b>
           </NavItemRight>
           <NavItemRight className="md:text-xs">
             <EloPicker location={location} filter={filter} />

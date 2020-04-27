@@ -69,7 +69,7 @@ const EloPicker = ({ location, filter }) => {
       onMouseLeave={() => setVal(false)}
       onClick={() => setVal(!modal, 0)}
     >
-      Elo: {filter.eloVal || 'All'}{' '}
+      Elo: <b className="ml-1">{filter.eloVal || 'All'} </b>
       <span className="inline-block ml-1 w-4 h-4 overflow-hidden">
         <FontAwesomeIcon
           icon={faCaretDown}

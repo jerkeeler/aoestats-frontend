@@ -35,10 +35,10 @@ const Homepage = ({ data, location }) => {
       <Warning>
         <p>
           DE stats are now live! Note that these are <u>preliminary</u> stats as
-          the data is still new. These are subject to change (hopefully not
-          drastically) in the near future. I need to do further validation and
-          cleaning on the dataset. Some features are <strong>disabled</strong>{' '}
-          while I transition to DE stats.
+          the data is still new. These are subject to change (not drastically)
+          in the near future. I need to do further validation and cleaning on
+          the dataset. Some features are <strong>disabled</strong> while I
+          transition to DE stats.
         </p>
       </Warning>
       <Hero />

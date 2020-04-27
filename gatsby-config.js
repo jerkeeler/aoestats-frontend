@@ -3,7 +3,7 @@ require('dotenv').config();
 module.exports = {
   siteMetadata: {
     title: `aoestats`,
-    description: `aoestats aggregates the latest ranked matches for Age of Empires II and provides in-depth statistics on a civilization basis; stats include: win rate, play rate, win rate vs. game length, and many more.`,
+    description: `aoestats aggregates the latest ranked matches for Age of Empires II and provides in-depth statistics on a civilization basis; stats include: win rate, play rate, win rate vs. game length, and more!`,
     author: `@jerkeeler`,
     siteUrl: `https://aoestats.io`,
   },
