@@ -7,3 +7,180 @@
     to = "https://aoestats.io/:splat"
     status = 301
     force = true
+
+# Redirect all old civ endpoints to the RM_1v1 ladder
+[[redirects]]
+    from = "/civ/Aztecs"
+    to = "/civ/Aztecs/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Berbers"
+    to = "/civ/Berbers/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Britons"
+    to = "/civ/Britons/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Bulgarians"
+    to = "/civ/Bulgarians/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Burmese"
+    to = "/civ/Burmese/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Byzantines"
+    to = "/civ/Byzantines/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Celts"
+    to = "/civ/Celts/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Chinese"
+    to = "/civ/Chinese/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Cumans"
+    to = "/civ/Cumans/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Ethiopians"
+    to = "/civ/Ethiopians/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Franks"
+    to = "/civ/Franks/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Goths"
+    to = "/civ/Goths/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Huns"
+    to = "/civ/Huns/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Incas"
+    to = "/civ/Incas/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Indians"
+    to = "/civ/Indians/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Italians"
+    to = "/civ/Italians/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Japanese"
+    to = "/civ/Japanese/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Khmer"
+    to = "/civ/Khmer/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Koreans"
+    to = "/civ/Koreans/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Lithuanians"
+    to = "/civ/Lithuanians/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Magyars"
+    to = "/civ/Magyars/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Malay"
+    to = "/civ/Malay/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Malians"
+    to = "/civ/Malians/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Mayans"
+    to = "/civ/Mayans/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Mongols"
+    to = "/civ/Mongols/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Persians"
+    to = "/civ/Persians/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Portuguese"
+    to = "/civ/Portuguese/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Saracens"
+    to = "/civ/Saracens/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Slavs"
+    to = "/civ/Slavs/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Spanish"
+    to = "/civ/Spanish/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Tatars"
+    to = "/civ/Tatars/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Teutons"
+    to = "/civ/Teutons/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Turks"
+    to = "/civ/Turks/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Vietnamese"
+    to = "/civ/Vietnamese/RM_1v1"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/civ/Vikings"
+    to = "/civ/Vikings/RM_1v1"
+    status = 301
+    force = true
