@@ -1,0 +1,420 @@
+{
+  "maps": [
+    {
+      "id": 9,
+      "name": "Arabia"
+    },
+    {
+      "id": 10,
+      "name": "Archipelago"
+    },
+    {
+      "id": 11,
+      "name": "Baltic"
+    },
+    {
+      "id": 12,
+      "name": "Black Forest"
+    },
+    {
+      "id": 13,
+      "name": "Coastal"
+    },
+    {
+      "id": 14,
+      "name": "Continental"
+    },
+    {
+      "id": 15,
+      "name": "Crater Lake"
+    },
+    {
+      "id": 16,
+      "name": "Fortress"
+    },
+    {
+      "id": 17,
+      "name": "Gold Rush"
+    },
+    {
+      "id": 18,
+      "name": "Highland"
+    },
+    {
+      "id": 19,
+      "name": "Islands"
+    },
+    {
+      "id": 20,
+      "name": "Mediterranean"
+    },
+    {
+      "id": 21,
+      "name": "Migration"
+    },
+    {
+      "id": 22,
+      "name": "Rivers"
+    },
+    {
+      "id": 23,
+      "name": "Team Islands"
+    },
+    {
+      "id": 24,
+      "name": "Full Random"
+    },
+    {
+      "id": 25,
+      "name": "Scandinavia"
+    },
+    {
+      "id": 26,
+      "name": "Mongolia"
+    },
+    {
+      "id": 27,
+      "name": "Yucatan"
+    },
+    {
+      "id": 28,
+      "name": "Salt Marsh"
+    },
+    {
+      "id": 29,
+      "name": "Arena"
+    },
+    {
+      "id": 31,
+      "name": "Oasis"
+    },
+    {
+      "id": 32,
+      "name": "Ghost Lake"
+    },
+    {
+      "id": 33,
+      "name": "Nomad"
+    },
+    {
+      "id": 49,
+      "name": "Iberia"
+    },
+    {
+      "id": 50,
+      "name": "Britain"
+    },
+    {
+      "id": 51,
+      "name": "Mideast"
+    },
+    {
+      "id": 52,
+      "name": "Texas"
+    },
+    {
+      "id": 53,
+      "name": "Italy"
+    },
+    {
+      "id": 54,
+      "name": "Central America"
+    },
+    {
+      "id": 55,
+      "name": "France"
+    },
+    {
+      "id": 56,
+      "name": "Norse Lands"
+    },
+    {
+      "id": 57,
+      "name": "Sea of Japan (East Sea)"
+    },
+    {
+      "id": 58,
+      "name": "Byzantium"
+    },
+    {
+      "id": 59,
+      "name": "Custom"
+    },
+    {
+      "id": 60,
+      "name": "Random Land Map"
+    },
+    {
+      "id": 62,
+      "name": "Random Real World Map"
+    },
+    {
+      "id": 63,
+      "name": "Blind Random"
+    },
+    {
+      "id": 65,
+      "name": "Random Special Map"
+    },
+    {
+      "id": 66,
+      "name": "Random Special Map"
+    },
+    {
+      "id": 67,
+      "name": "Acropolis"
+    },
+    {
+      "id": 68,
+      "name": "Budapest"
+    },
+    {
+      "id": 69,
+      "name": "Cenotes"
+    },
+    {
+      "id": 70,
+      "name": "City of Lakes"
+    },
+    {
+      "id": 71,
+      "name": "Golden Pit"
+    },
+    {
+      "id": 72,
+      "name": "Hideout"
+    },
+    {
+      "id": 73,
+      "name": "Hill Fort"
+    },
+    {
+      "id": 74,
+      "name": "Lombardia"
+    },
+    {
+      "id": 75,
+      "name": "Steppe"
+    },
+    {
+      "id": 76,
+      "name": "Valley"
+    },
+    {
+      "id": 77,
+      "name": "MegaRandom"
+    },
+    {
+      "id": 78,
+      "name": "Hamburger"
+    },
+    {
+      "id": 79,
+      "name": "CtR Random"
+    },
+    {
+      "id": 80,
+      "name": "CtR Monsoon"
+    },
+    {
+      "id": 81,
+      "name": "CtR Pyramid Descent"
+    },
+    {
+      "id": 82,
+      "name": "CtR Spiral"
+    },
+    {
+      "id": 83,
+      "name": "Kilimanjaro"
+    },
+    {
+      "id": 84,
+      "name": "Mountain Pass"
+    },
+    {
+      "id": 85,
+      "name": "Nile Delta"
+    },
+    {
+      "id": 86,
+      "name": "Serengeti"
+    },
+    {
+      "id": 87,
+      "name": "Socotra"
+    },
+    {
+      "id": 88,
+      "name": "Amazon"
+    },
+    {
+      "id": 89,
+      "name": "China"
+    },
+    {
+      "id": 90,
+      "name": "Horn of Africa"
+    },
+    {
+      "id": 91,
+      "name": "India"
+    },
+    {
+      "id": 92,
+      "name": "Madagascar"
+    },
+    {
+      "id": 93,
+      "name": "West Africa"
+    },
+    {
+      "id": 94,
+      "name": "Bohemia"
+    },
+    {
+      "id": 95,
+      "name": "Earth"
+    },
+    {
+      "id": 96,
+      "name": "Canyons"
+    },
+    {
+      "id": 97,
+      "name": "Enemy Archipelago"
+    },
+    {
+      "id": 98,
+      "name": "Enemy Islands"
+    },
+    {
+      "id": 99,
+      "name": "Far Out"
+    },
+    {
+      "id": 100,
+      "name": "Front Line"
+    },
+    {
+      "id": 101,
+      "name": "Inner Circle"
+    },
+    {
+      "id": 102,
+      "name": "Motherland"
+    },
+    {
+      "id": 103,
+      "name": "Open Plains"
+    },
+    {
+      "id": 104,
+      "name": "Ring of Water"
+    },
+    {
+      "id": 105,
+      "name": "Snakepit"
+    },
+    {
+      "id": 106,
+      "name": "The Eye"
+    },
+    {
+      "id": 107,
+      "name": "Australia"
+    },
+    {
+      "id": 108,
+      "name": "Indochina"
+    },
+    {
+      "id": 109,
+      "name": "Indonesia"
+    },
+    {
+      "id": 110,
+      "name": "Strait of Malacca"
+    },
+    {
+      "id": 111,
+      "name": "Philippines"
+    },
+    {
+      "id": 112,
+      "name": "Bog Islands"
+    },
+    {
+      "id": 113,
+      "name": "Mangrove Jungle"
+    },
+    {
+      "id": 114,
+      "name": "Pacific Islands"
+    },
+    {
+      "id": 115,
+      "name": "Sandbank"
+    },
+    {
+      "id": 116,
+      "name": "Water Nomad"
+    },
+    {
+      "id": 117,
+      "name": "Jungle Islands"
+    },
+    {
+      "id": 118,
+      "name": "Holy Line"
+    },
+    {
+      "id": 119,
+      "name": "Border Stones"
+    },
+    {
+      "id": 120,
+      "name": "Yin Yang"
+    },
+    {
+      "id": 121,
+      "name": "Jungle Lanes"
+    },
+    {
+      "id": 122,
+      "name": "Alpine Lakes"
+    },
+    {
+      "id": 123,
+      "name": "Bogland"
+    },
+    {
+      "id": 124,
+      "name": "Mountain Ridge"
+    },
+    {
+      "id": 125,
+      "name": "Ravines"
+    },
+    {
+      "id": 126,
+      "name": "Wolf Hill"
+    },
+    {
+      "id": 132,
+      "name": "Antarctica"
+    },
+    {
+      "id": 137,
+      "name": "Custom Map Pool"
+    },
+    {
+      "id": 139,
+      "name": "Golden Swamp"
+    },
+    {
+      "id": 140,
+      "name": "Four Lakes"
+    }
+  ]
+}
