@@ -7,7 +7,6 @@ import { Civs } from '../data';
 import SEO from '../components/SEO';
 import CivCard from '../components/CivCard';
 import Hero from '../components/Hero';
-import Warning from '../components/Warning';
 import TopCivs from '../components/TopCivs';
 
 const Homepage = ({ data, location }) => {
@@ -32,15 +31,6 @@ const Homepage = ({ data, location }) => {
   return (
     <Layout location={location} filter={filter}>
       <SEO />
-      <Warning>
-        <p>
-          DE stats are now live! Note that these are <u>preliminary</u> stats as
-          the data is still new. These are subject to change (not drastically)
-          in the near future. I need to do further validation and cleaning on
-          the dataset. Some features are <strong>disabled</strong> while I
-          transition to DE stats.
-        </p>
-      </Warning>
       <Hero />
       <div className="flex flex-wrap mt-3">
         <div className="w-full lg:w-1/2 lg:pr-4">
