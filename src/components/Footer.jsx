@@ -9,19 +9,26 @@ const Seperator = () => <span className="mx-2">|</span>;
 const Footer = () => {
   const data = useStaticQuery(graphql`
     query {
-      siteBuildMetadata {
-        buildTime
+      postgres {
+        allDeLadderstats {
+          nodes {
+            updatedAt
+          }
+        }
       }
     }
   `);
-  const buildTime = new Date(data.siteBuildMetadata.buildTime);
+  const lastUpdatedTime = data.postgres.allDeLadderstats.nodes
+    .map((node) => new Date(node.updatedAt))
+    .reduce((a, b) => (a > b ? a : b));
+
   return (
     <footer className="flex flex-col items-center text-center pb-6">
       <hr className="my-6 w-9/12 border-gray-800" />
       <p className="mb-6">
         © aoestats 2019 <Seperator /> Made by{' '}
         <A to="https://twitter.com/jerkeeler">jerbot</A> <Seperator /> Stats
-        last updated: {formatDate(buildTime)}
+        last updated: {formatDate(lastUpdatedTime)}
       </p>
       <p className="text-xs">
         aoestats isn't endorsed by Microsoft Inc. and doesn't reflect the views

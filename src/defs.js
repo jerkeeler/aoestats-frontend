@@ -22,11 +22,17 @@ const OverTimeSeries = Object.freeze({
 
 const EloBracket = Object.freeze({
   LOW: '<1000',
-  LOW_MED: '1000-1100',
-  MED: '1100-1300',
-  HIGH_MED: '1300-1650',
+  MED: '1000-1250',
+  HIGH_MED: '1250-1650',
   HIGH: '1650+',
 });
+
+const SortedEloBrackets = [
+  EloBracket.LOW,
+  EloBracket.MED,
+  EloBracket.HIGH_MED,
+  EloBracket.HIGH,
+];
 
 const Ladder = Object.freeze({
   0: 'Unranked',
@@ -57,6 +63,7 @@ module.exports = {
   CivSeries,
   OverTimeSeries,
   EloBracket,
+  SortedEloBrackets,
   Ladder,
   LadderToShortname,
   Patch,

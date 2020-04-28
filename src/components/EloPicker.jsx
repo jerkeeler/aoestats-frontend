@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import { EloBracket, LadderToShortname } from '../defs';
+import { SortedEloBrackets, LadderToShortname } from '../defs';
 
 const getUrl = (location, filter, eloBracket = null) => {
   const currentPath = location.pathname;
@@ -38,8 +38,8 @@ const Dropdown = ({ location, filter }) => (
     mt-2 flex flex-col text-base rounded bg-gray-100 shadow border border-gray-200"
   >
     <DropdownItem to={getUrl(location, filter)}>All</DropdownItem>
-    {Object.entries(EloBracket).map(([key, value]) => (
-      <DropdownItem to={getUrl(location, filter, value)} key={key}>
+    {SortedEloBrackets.map((value) => (
+      <DropdownItem to={getUrl(location, filter, value)} key={value}>
         {value}
       </DropdownItem>
     ))}
