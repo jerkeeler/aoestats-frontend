@@ -184,3 +184,8 @@
     to = "/civ/Vikings/RM_1v1"
     status = 301
     force = true
+[[redirects]]
+    from = "/stats"
+    to = "/stats/RM_1v1"
+    status = 301
+    force = true
