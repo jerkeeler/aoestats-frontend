@@ -5,17 +5,25 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { Civs } from '../data';
 import Img from 'gatsby-image';
 
-const CivImage = ({ className = '', civId }) => {
+const CivImage = ({ className = '', civId, uniqueUnit = false }) => {
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: { relativeDirectory: { eq: "units" } }) {
-        edges {
-          node {
-            name
-            childImageSharp {
-              fluid(maxWidth: 200) {
-                ...GatsbyImageSharpFluid
-              }
+      units: allFile(filter: { relativeDirectory: { eq: "units" } }) {
+        nodes {
+          name
+          childImageSharp {
+            fluid(maxWidth: 200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      crests: allFile(filter: { relativeDirectory: { eq: "civ_crests" } }) {
+        nodes {
+          name
+          childImageSharp {
+            fluid(maxWidth: 200) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -24,15 +32,17 @@ const CivImage = ({ className = '', civId }) => {
   `);
 
   const civInfo = Civs[civId];
-  const imagesByName = {};
-  data.allFile.edges.map((node) => (imagesByName[node.node.name] = node.node));
+  const uuImgsByName = {};
+  const crestsByName = {};
+  data.units.nodes.map((node) => (uuImgsByName[node.name] = node));
+  data.crests.nodes.map((node) => (crestsByName[node.name] = node));
 
+  const fluid = uniqueUnit
+    ? uuImgsByName[civInfo.uniqueUnit]
+    : crestsByName[civInfo.name];
+  const alt = uniqueUnit ? civInfo.uniqueUnit : civInfo.name;
   return (
-    <Img
-      className={className}
-      fluid={imagesByName[civInfo.uniqueUnit].childImageSharp.fluid}
-      alt={civInfo.uniqueUnit}
-    />
+    <Img className={className} fluid={fluid.childImageSharp.fluid} alt={alt} />
   );
 };
 

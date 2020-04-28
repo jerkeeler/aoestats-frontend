@@ -21,7 +21,7 @@ module.exports = {
         background_color: `#1b96b4`,
         theme_color: `#24d1f8`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/images/aoestats.png`, // This path is relative to the root of the site.
       },
     },
     {
