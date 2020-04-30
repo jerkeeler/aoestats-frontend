@@ -12,14 +12,15 @@ const Footer = () => {
       postgres {
         allDeLadderstats {
           nodes {
-            updatedAt
+            lastUpdate
           }
         }
       }
     }
   `);
   const lastUpdatedTime = data.postgres.allDeLadderstats.nodes
-    .map((node) => new Date(node.updatedAt))
+    .filter((node) => node !== null)
+    .map((node) => new Date(node.lastUpdate))
     .reduce((a, b) => (a > b ? a : b));
 
   return (

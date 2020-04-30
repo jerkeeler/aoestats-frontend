@@ -8,6 +8,7 @@ import SEO from '../components/SEO';
 import CivCard from '../components/CivCard';
 import Hero from '../components/Hero';
 import TopCivs from '../components/TopCivs';
+import Info from '../components/Info';
 
 const Homepage = ({ data, location }) => {
   const node = data.postgres.filter;
@@ -31,6 +32,20 @@ const Homepage = ({ data, location }) => {
   return (
     <Layout location={location} filter={filter}>
       <SEO />
+      <Info>
+        <p>
+          Patch{' '}
+          <a
+            href="https://www.ageofempires.com/news/aoe2de-update-36906/"
+            rel="noopener noreferrer"
+            className="font-bold underline"
+          >
+            36906
+          </a>{' '}
+          has been released! We are gathering stats and will update this site
+          when enough matches have been played.
+        </p>
+      </Info>
       <Hero />
       <div className="flex flex-wrap mt-3">
         <div className="w-full lg:w-1/2 lg:pr-4">

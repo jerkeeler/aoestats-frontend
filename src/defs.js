@@ -14,6 +14,7 @@ const SortedOverTimeBuckets = [
 
 const CivSeries = Object.freeze({
   win_rate_vs_civs: 'win_rate_vs_civs',
+  win_rate_for_maps: 'win_rate_for_maps',
 });
 
 const OverTimeSeries = Object.freeze({
@@ -51,6 +52,7 @@ const LadderToShortname = Object.freeze({
 });
 
 const Patch = Object.freeze({
+  de_36906: '36906',
   de_36202: '36202',
   de_35584: '35584',
 });

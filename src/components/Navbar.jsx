@@ -42,7 +42,7 @@ const Navbar = ({ location, filter }) => {
             </GatsbyLink>
           </NavItemLeft>
           <NavItemLeft>
-            <Link to={`/stats${getPathFromFilter(filter)}`}>Stats</Link>
+            <Link to={`/stats${getPathFromFilter(filter)}`}>Civs</Link>
           </NavItemLeft>
           <NavItemLeft>
             <Link to="/faq">FAQ</Link>

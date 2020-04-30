@@ -2,419 +2,523 @@
   "maps": [
     {
       "id": 9,
-      "name": "Arabia"
+      "displayName": "Arabia",
+      "name": "arabia"
     },
     {
       "id": 10,
-      "name": "Archipelago"
+      "displayName": "Archipelago",
+      "name":  "archipelago"
     },
     {
       "id": 11,
-      "name": "Baltic"
+      "displayName": "Baltic",
+      "name":  "baltic"
     },
     {
       "id": 12,
-      "name": "Black Forest"
+      "displayName": "Black Forest",
+      "name":  "black_forest"
     },
     {
       "id": 13,
-      "name": "Coastal"
+      "displayName": "Coastal",
+      "name":  "coastal"
     },
     {
       "id": 14,
-      "name": "Continental"
+      "displayName": "Continental",
+      "name":  "continental"
     },
     {
       "id": 15,
-      "name": "Crater Lake"
+      "displayName": "Crater Lake",
+      "name":  "crater_lake"
     },
     {
       "id": 16,
-      "name": "Fortress"
+      "displayName": "Fortress",
+      "name":  "fortress"
     },
     {
       "id": 17,
-      "name": "Gold Rush"
+      "displayName": "Gold Rush",
+      "name":  "gold_rush"
     },
     {
       "id": 18,
-      "name": "Highland"
+      "displayName": "Highland",
+      "name":  "highland"
     },
     {
       "id": 19,
-      "name": "Islands"
+      "displayName": "Islands",
+      "name":  "islands"
     },
     {
       "id": 20,
-      "name": "Mediterranean"
+      "displayName": "Mediterranean",
+      "name":  "mediterranean"
     },
     {
       "id": 21,
-      "name": "Migration"
+      "displayName": "Migration",
+      "name":  "migration"
     },
     {
       "id": 22,
-      "name": "Rivers"
+      "displayName": "Rivers",
+      "name":  "rivers"
     },
     {
       "id": 23,
-      "name": "Team Islands"
+      "displayName": "Team Islands",
+      "name":  "team_islands"
     },
     {
       "id": 24,
-      "name": "Full Random"
+      "displayName": "Full Random",
+      "name":  "full_random"
     },
     {
       "id": 25,
-      "name": "Scandinavia"
+      "displayName": "Scandinavia",
+      "name":  "scandinavia"
     },
     {
       "id": 26,
-      "name": "Mongolia"
+      "displayName": "Mongolia",
+      "name":  "mongolia"
     },
     {
       "id": 27,
-      "name": "Yucatan"
+      "displayName": "Yucatan",
+      "name":  "yucatan"
     },
     {
       "id": 28,
-      "name": "Salt Marsh"
+      "displayName": "Salt Marsh",
+      "name":  "salt_marsh"
     },
     {
       "id": 29,
-      "name": "Arena"
+      "displayName": "Arena",
+      "name":  "arena"
     },
     {
       "id": 31,
-      "name": "Oasis"
+      "displayName": "Oasis",
+      "name":  "oasis"
     },
     {
       "id": 32,
-      "name": "Ghost Lake"
+      "displayName": "Ghost Lake",
+      "name":  "ghost_lake"
     },
     {
       "id": 33,
-      "name": "Nomad"
+      "displayName": "Nomad",
+      "name":  "nomad"
     },
     {
       "id": 49,
-      "name": "Iberia"
+      "displayName": "Iberia",
+      "name":  "iberia"
     },
     {
       "id": 50,
-      "name": "Britain"
+      "displayName": "Britain",
+      "name":  "britain"
     },
     {
       "id": 51,
-      "name": "Mideast"
+      "displayName": "Mideast",
+      "name":  "mideast"
     },
     {
       "id": 52,
-      "name": "Texas"
+      "displayName": "Texas",
+      "name":  "texas"
     },
     {
       "id": 53,
-      "name": "Italy"
+      "displayName": "Italy",
+      "name":  "italy"
     },
     {
       "id": 54,
-      "name": "Central America"
+      "displayName": "Central America",
+      "name":  "central_america"
     },
     {
       "id": 55,
-      "name": "France"
+      "displayName": "France",
+      "name":  "france"
     },
     {
       "id": 56,
-      "name": "Norse Lands"
+      "displayName": "Norse Lands",
+      "name":  "norse_lands"
     },
     {
       "id": 57,
-      "name": "Sea of Japan (East Sea)"
+      "displayName": "Sea of Japan (East Sea)",
+      "name":  "sea_of_japan"
     },
     {
       "id": 58,
-      "name": "Byzantium"
+      "displayName": "Byzantium",
+      "name":  "byzantium"
     },
     {
       "id": 59,
-      "name": "Custom"
+      "displayName": "Custom",
+      "name":  "custom"
     },
     {
       "id": 60,
-      "name": "Random Land Map"
+      "displayName": "Random Land Map",
+      "name":  "random_land_map"
     },
     {
       "id": 62,
-      "name": "Random Real World Map"
+      "displayName": "Random Real World Map",
+      "name":  "random_real_world_map"
     },
     {
       "id": 63,
-      "name": "Blind Random"
+      "displayName": "Blind Random",
+      "name":  "blind_random"
     },
     {
       "id": 65,
-      "name": "Random Special Map"
+      "displayName": "Random Special Map",
+      "name":  "random_special_map"
     },
     {
       "id": 66,
-      "name": "Random Special Map"
+      "displayName": "Random Special Map",
+      "name":  "random_special_map"
     },
     {
       "id": 67,
-      "name": "Acropolis"
+      "displayName": "Acropolis",
+      "name":  "acropolis"
     },
     {
       "id": 68,
-      "name": "Budapest"
+      "displayName": "Budapest",
+      "name":  "budapest"
     },
     {
       "id": 69,
-      "name": "Cenotes"
+      "displayName": "Cenotes",
+      "name":  "cenotes"
     },
     {
       "id": 70,
-      "name": "City of Lakes"
+      "displayName": "City of Lakes",
+      "name":  "city_of_lakes"
     },
     {
       "id": 71,
-      "name": "Golden Pit"
+      "displayName": "Golden Pit",
+      "name":  "golden_pit"
     },
     {
       "id": 72,
-      "name": "Hideout"
+      "displayName": "Hideout",
+      "name":  "hideout"
     },
     {
       "id": 73,
-      "name": "Hill Fort"
+      "displayName": "Hill Fort",
+      "name":  "hill_fort"
     },
     {
       "id": 74,
-      "name": "Lombardia"
+      "displayName": "Lombardia",
+      "name":  "lombardia"
     },
     {
       "id": 75,
-      "name": "Steppe"
+      "displayName": "Steppe",
+      "name":  "steppe"
     },
     {
       "id": 76,
-      "name": "Valley"
+      "displayName": "Valley",
+      "name":  "valley"
     },
     {
       "id": 77,
-      "name": "MegaRandom"
+      "displayName": "MegaRandom",
+      "name":  "megarandom"
     },
     {
       "id": 78,
-      "name": "Hamburger"
+      "displayName": "Hamburger",
+      "name":  "hamburger"
     },
     {
       "id": 79,
-      "name": "CtR Random"
+      "displayName": "CtR Random",
+      "name":  "ctr_random"
     },
     {
       "id": 80,
-      "name": "CtR Monsoon"
+      "displayName": "CtR Monsoon",
+      "name":  "ctr_monsoon"
     },
     {
       "id": 81,
-      "name": "CtR Pyramid Descent"
+      "displayName": "CtR Pyramid Descent",
+      "name":  "ctr_pyramid_descent"
     },
     {
       "id": 82,
-      "name": "CtR Spiral"
+      "displayName": "CtR Spiral",
+      "name":  "ctr_spiral"
     },
     {
       "id": 83,
-      "name": "Kilimanjaro"
+      "displayName": "Kilimanjaro",
+      "name":  "kilimanjaro"
     },
     {
       "id": 84,
-      "name": "Mountain Pass"
+      "displayName": "Mountain Pass",
+      "name":  "mountain_pass"
     },
     {
       "id": 85,
-      "name": "Nile Delta"
+      "displayName": "Nile Delta",
+      "name":  "nile_delta"
     },
     {
       "id": 86,
-      "name": "Serengeti"
+      "displayName": "Serengeti",
+      "name":  "serengeti"
     },
     {
       "id": 87,
-      "name": "Socotra"
+      "displayName": "Socotra",
+      "name":  "socotra"
     },
     {
       "id": 88,
-      "name": "Amazon"
+      "displayName": "Amazon",
+      "name":  "amazon"
     },
     {
       "id": 89,
-      "name": "China"
+      "displayName": "China",
+      "name":  "china"
     },
     {
       "id": 90,
-      "name": "Horn of Africa"
+      "displayName": "Horn of Africa",
+      "name":  "horn_of_africa"
     },
     {
       "id": 91,
-      "name": "India"
+      "displayName": "India",
+      "name":  "india"
     },
     {
       "id": 92,
-      "name": "Madagascar"
+      "displayName": "Madagascar",
+      "name":  "madagascar"
     },
     {
       "id": 93,
-      "name": "West Africa"
+      "displayName": "West Africa",
+      "name":  "west_africa"
     },
     {
       "id": 94,
-      "name": "Bohemia"
+      "displayName": "Bohemia",
+      "name":  "bohemia"
     },
     {
       "id": 95,
-      "name": "Earth"
+      "displayName": "Earth",
+      "name":  "earth"
     },
     {
       "id": 96,
-      "name": "Canyons"
+      "displayName": "Canyons",
+      "name":  "canyons"
     },
     {
       "id": 97,
-      "name": "Enemy Archipelago"
+      "displayName": "Enemy Archipelago",
+      "name":  "enemy_archipelago"
     },
     {
       "id": 98,
-      "name": "Enemy Islands"
+      "displayName": "Enemy Islands",
+      "name":  "enemy_islands"
     },
     {
       "id": 99,
-      "name": "Far Out"
+      "displayName": "Far Out",
+      "name":  "far_out"
     },
     {
       "id": 100,
-      "name": "Front Line"
+      "displayName": "Front Line",
+      "name":  "front_line"
     },
     {
       "id": 101,
-      "name": "Inner Circle"
+      "displayName": "Inner Circle",
+      "name":  "inner_circle"
     },
     {
       "id": 102,
-      "name": "Motherland"
+      "displayName": "Motherland",
+      "name":  "motherland"
     },
     {
       "id": 103,
-      "name": "Open Plains"
+      "displayName": "Open Plains",
+      "name":  "open_plains"
     },
     {
       "id": 104,
-      "name": "Ring of Water"
+      "displayName": "Ring of Water",
+      "name":  "ring_of_water"
     },
     {
       "id": 105,
-      "name": "Snakepit"
+      "displayName": "Snakepit",
+      "name":  "snakepit"
     },
     {
       "id": 106,
-      "name": "The Eye"
+      "displayName": "The Eye",
+      "name":  "the_eye"
     },
     {
       "id": 107,
-      "name": "Australia"
+      "displayName": "Australia",
+      "name":  "australia"
     },
     {
       "id": 108,
-      "name": "Indochina"
+      "displayName": "Indochina",
+      "name":  "indochina"
     },
     {
       "id": 109,
-      "name": "Indonesia"
+      "displayName": "Indonesia",
+      "name":  "indonesia"
     },
     {
       "id": 110,
-      "name": "Strait of Malacca"
+      "displayName": "Strait of Malacca",
+      "name":  "strait_of_malacca"
     },
     {
       "id": 111,
-      "name": "Philippines"
+      "displayName": "Philippines",
+      "name":  "philippines"
     },
     {
       "id": 112,
-      "name": "Bog Islands"
+      "displayName": "Bog Islands",
+      "name":  "bog_islands"
     },
     {
       "id": 113,
-      "name": "Mangrove Jungle"
+      "displayName": "Mangrove Jungle",
+      "name":  "mangrove_jungle"
     },
     {
       "id": 114,
-      "name": "Pacific Islands"
+      "displayName": "Pacific Islands",
+      "name":  "pacific_islands"
     },
     {
       "id": 115,
-      "name": "Sandbank"
+      "displayName": "Sandbank",
+      "name":  "sandbank"
     },
     {
       "id": 116,
-      "name": "Water Nomad"
+      "displayName": "Water Nomad",
+      "name":  "water_nomad"
     },
     {
       "id": 117,
-      "name": "Jungle Islands"
+      "displayName": "Jungle Islands",
+      "name":  "jungle_islands"
     },
     {
       "id": 118,
-      "name": "Holy Line"
+      "displayName": "Holy Line",
+      "name":  "holy_line"
     },
     {
       "id": 119,
-      "name": "Border Stones"
+      "displayName": "Border Stones",
+      "name":  "border_stones"
     },
     {
       "id": 120,
-      "name": "Yin Yang"
+      "displayName": "Yin Yang",
+      "name":  "yin_yang"
     },
     {
       "id": 121,
-      "name": "Jungle Lanes"
+      "displayName": "Jungle Lanes",
+      "name":  "jungle_lanes"
     },
     {
       "id": 122,
-      "name": "Alpine Lakes"
+      "displayName": "Alpine Lakes",
+      "name":  "alpine_lakes"
     },
     {
       "id": 123,
-      "name": "Bogland"
+      "displayName": "Bogland",
+      "name":  "bogland"
     },
     {
       "id": 124,
-      "name": "Mountain Ridge"
+      "displayName": "Mountain Ridge",
+      "name":  "mountain_ridge"
     },
     {
       "id": 125,
-      "name": "Ravines"
+      "displayName": "Ravines",
+      "name":  "ravines"
     },
     {
       "id": 126,
-      "name": "Wolf Hill"
+      "displayName": "Wolf Hill",
+      "name":  "wolf_hill"
     },
     {
       "id": 132,
-      "name": "Antarctica"
+      "displayName": "Antarctica",
+      "name":  "antarctica"
     },
     {
       "id": 137,
-      "name": "Custom Map Pool"
+      "displayName": "Custom Map Pool",
+      "name":  "custom_map_pool"
     },
     {
       "id": 139,
-      "name": "Golden Swamp"
+      "displayName": "Golden Swamp",
+      "name":  "golden_swamp"
     },
     {
       "id": 140,
-      "name": "Four Lakes"
+      "displayName": "Four Lakes",
+      "name":  "four_lakes"
     }
   ]
 }

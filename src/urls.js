@@ -10,4 +10,8 @@ const getCivPath = (filter, civName) => {
   return `/civ/${civName}${getPathFromFilter(filter)}`;
 };
 
-module.exports = { getPathFromFilter, getCivPath };
+const getMapPath = (filter, mapName) => {
+  return `/map/${mapName}${getPathFromFilter(filter)}`;
+};
+
+module.exports = { getPathFromFilter, getCivPath, getMapPath };

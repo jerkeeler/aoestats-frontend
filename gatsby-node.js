@@ -1,8 +1,12 @@
 const path = require(`path`);
 
 const { civilizations } = require('./src/data/civilizations.json');
+const { maps } = require('./src/data/maps.json');
 const { CURRENT_PATCH } = require('./src/defs');
 const { getPathFromFilter } = require('./src/urls');
+
+const mapsById = {};
+maps.forEach((m) => (mapsById[m.id] = m));
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -22,6 +26,16 @@ exports.createPages = async ({ graphql, actions }) => {
                 winRate
                 playRate
                 civNum
+                numPlayed
+                series
+              }
+            }
+            deMapstatsByFilterId {
+              nodes {
+                id
+                winRate
+                playRate
+                mapNum
                 numPlayed
                 series
               }
@@ -82,5 +96,13 @@ exports.createPages = async ({ graphql, actions }) => {
         context: { ...context, civStatsId: filterStats.id },
       });
     });
+
+    // filter.deMapstatsByFilterId.nodes.forEach((mapStat) => {
+    //   createPage({
+    //     path: `/map/${mapsById[mapStat.id]}${pagePath}`,
+    //     component: path.resolve('./src/templates/Map.jsx'),
+    //     context: { ...context, mapStatsId: mapStat.id },
+    //   });
+    // });
   });
 };

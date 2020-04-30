@@ -25,6 +25,7 @@ import {
   SortedOverTimeBuckets,
 } from '../defs';
 import TopCivs from '../components/TopCivs';
+import CivMapRates from '../components/CivMapRates';
 
 defaults.global.animation = false;
 defaults.global.defaultFontColor = '#fff';
@@ -51,16 +52,16 @@ const Civ = ({ data, location }) => {
   };
   const civInfo = data.postgres.stats;
   const civWinRates = civInfo.series[CivSeries.win_rate_vs_civs];
-  const flatRates = Object.entries(civWinRates)
+  const flatCivWinRates = Object.entries(civWinRates)
     .map(([key, value]) => ({
       winRate: value.value,
       name: key,
       civNum: CivsByName[key].id,
     }))
     .filter((civ) => civInfo.civNum !== civ.civNum);
-  flatRates.sort((a, b) => (a.winRate < b.winRate ? 1 : -1));
-  const top5 = flatRates.slice(0, 5);
-  const bottom5 = flatRates.slice(-5);
+  flatCivWinRates.sort((a, b) => (a.winRate < b.winRate ? 1 : -1));
+  const top5 = flatCivWinRates.slice(0, 5);
+  const bottom5 = flatCivWinRates.slice(-5);
 
   const winRatesOverTime = civInfo.series[OverTimeSeries.win_rate_over_time];
   const overTimedata = SortedOverTimeBuckets.map((bucket) =>
@@ -223,6 +224,13 @@ const Civ = ({ data, location }) => {
             <h3 className="text-2xl mb-1">Lowest Win Rates Against</h3>
             <TopCivs filter={filter} civs={bottom5} />
           </div>
+        </div>
+        <div className="w-full mt-3">
+          <h3 className="text-2xl mb-1">Win Rate by Map</h3>
+          <CivMapRates
+            filter={filter}
+            mapStats={civInfo.series[CivSeries.win_rate_for_maps]}
+          />
         </div>
       </div>
     </Layout>
