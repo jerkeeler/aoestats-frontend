@@ -9,18 +9,18 @@ import TableRow from './typography/TableRow';
 import { getWinRateClass, percentage } from '../formatting';
 import MapImage from './MapImage';
 import { getMapPath } from '../urls';
+import TableHeaderCell from './typography/TableHeaderCell';
 
 const MapRow = ({ filter, mapInfo }) => (
   <TableRow>
     <TableCell>
       <MapImage mapNum={mapInfo.mapNum} className="w-16 h-16 mr-2" />{' '}
-      <p>{mapInfo.displayName}</p>
-      {/*<Link*/}
-      {/*  to={getMapPath(filter, mapInfo.name)}*/}
-      {/*  className="ml-2 hover:text-primary"*/}
-      {/*>*/}
-      {/*  {mapInfo.displayName}*/}
-      {/*</Link>*/}
+      <Link
+        to={getMapPath(filter, mapInfo.name)}
+        className="ml-2 hover:text-primary"
+      >
+        {mapInfo.displayName}
+      </Link>
     </TableCell>
     <TableCell className={`text-${getWinRateClass(mapInfo.winRate)}`}>
       {percentage(mapInfo.winRate)}%
@@ -39,12 +39,10 @@ const CivMapRates = ({ filter, mapStats }) => {
 
   return (
     <Table>
-      <thead>
-        <TableHeader>
-          <TableCell border={false}>Map Name</TableCell>
-          <TableCell border={false}>Win Rate</TableCell>
-        </TableHeader>
-      </thead>
+      <TableHeader>
+        <TableHeaderCell>Map Name</TableHeaderCell>
+        <TableHeaderCell>Win Rate</TableHeaderCell>
+      </TableHeader>
       <tbody>
         {flatMapWinRates.map((m) => (
           <MapRow key={m.mapNum} filter={filter} mapInfo={m} />

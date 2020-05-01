@@ -1,27 +1,13 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 
 import A from './typography/A';
 import { formatDate } from '../formatting';
+import useLastUpdatedTime from '../hooks/useLastUpdatedTime';
 
 const Seperator = () => <span className="mx-2">|</span>;
 
 const Footer = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      postgres {
-        allDeLadderstats {
-          nodes {
-            lastUpdate
-          }
-        }
-      }
-    }
-  `);
-  const lastUpdatedTime = data.postgres.allDeLadderstats.nodes
-    .filter((node) => node !== null)
-    .map((node) => new Date(node.lastUpdate))
-    .reduce((a, b) => (a > b ? a : b));
+  const lastUpdatedTime = useLastUpdatedTime();
 
   return (
     <footer className="flex flex-col items-center text-center pb-6">

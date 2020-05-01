@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { graphql, Link } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
@@ -16,6 +14,10 @@ import { leftPad, getWinRateClass } from '../formatting';
 import HR from '../components/typography/HR';
 import H1 from '../components/typography/H1';
 import { Ladder } from '../defs';
+import SortIndicator from '../components/SortIndicator';
+import useSort from '../hooks/useSort';
+import TableHeaderCell from '../components/typography/TableHeaderCell';
+import { createFilter } from '../utils';
 
 const StatRow = ({ filter, civ }) => (
   <TableRow>
@@ -43,25 +45,9 @@ const StatRow = ({ filter, civ }) => (
   </TableRow>
 );
 
-const SortIndicator = ({
-  sortVal,
-  currentSortVal,
-  sortDirection,
-  className = '',
-}) => {
-  const icon = sortDirection === 1 ? faCaretUp : faCaretDown;
-  if (sortVal !== currentSortVal) return null;
-  return <FontAwesomeIcon icon={icon} size="sm" className={className} />;
-};
-
 const Stats = ({ location, data }) => {
   const node = data.postgres.filter;
-  const filter = {
-    combined: node.combined,
-    patchVal: node.patchVal,
-    eloVal: node.eloVal,
-    ladderVal: node.ladderVal,
-  };
+  const filter = createFilter(data);
   const stats = node.deCivilizationstatsByFilterId.nodes;
   stats.forEach((civStats) => {
     civStats.name = Civs[civStats.civNum].name;
@@ -70,92 +56,72 @@ const Stats = ({ location, data }) => {
       civStats.avgGameLength.minutes * 60 +
       (civStats.avgGameLength.seconds || 0);
   });
-  stats.sort((a, b) => (a.name < b.name ? -1 : 1));
 
-  const [tableStats, setTableStats] = useState(stats.concat());
-  const [sortDirection, setSortDirection] = useState(-1);
-  const [sortVal, setSortVal] = useState('name');
-
-  const onClick = (newSortVal) => {
-    let newSortDirection = sortDirection;
-    if (newSortVal !== sortVal) newSortDirection = 1;
-    else newSortDirection *= -1;
-    setSortVal(newSortVal);
-    setSortDirection(newSortDirection);
-
-    tableStats.sort((a, b) =>
-      a[newSortVal] < b[newSortVal] ? newSortDirection : -1 * newSortDirection,
-    );
-    setTableStats(tableStats.concat());
-  };
+  const { onClick, tableStats, sortDirection, sortVal } = useSort({
+    initialStats: stats,
+  });
 
   return (
     <Layout location={location} filter={filter}>
       <SEO
-        title="Stats"
+        title="Civs"
         description={`Side by side comparisons of Age of Empires II civilizations including win rate, play rate, and age timings for the ${
           Ladder[filter.ladderVal]
         } ladder across ${filter.eloVal || 'All'} ELOs.`}
       />
-      <H1>Aggregate Civ Stats</H1>
+      <H1>Civ Stats</H1>
       <HR />
       <Table>
-        <thead className="font-bold">
-          <TableHeader>
-            <TableCell
-              className="hover:cursor-pointer"
-              border={false}
-              onClick={() => onClick('name')}
-            >
-              Civilization
-              <SortIndicator
-                className="ml-3"
-                sortVal="name"
-                currentSortVal={sortVal}
-                sortDirection={sortDirection}
-              />
-            </TableCell>
-            <TableCell
-              className="justify-end hover:cursor-pointer"
-              border={false}
-              onClick={() => onClick('winRate')}
-            >
-              <SortIndicator
-                className="mr-3"
-                sortVal="winRate"
-                currentSortVal={sortVal}
-                sortDirection={sortDirection}
-              />
-              Win Rate
-            </TableCell>
-            <TableCell
-              className="justify-end hover:cursor-pointer"
-              border={false}
-              onClick={() => onClick('playRate')}
-            >
-              <SortIndicator
-                className="mr-3"
-                sortVal="playRate"
-                currentSortVal={sortVal}
-                sortDirection={sortDirection}
-              />
-              Play Rate
-            </TableCell>
-            <TableCell
-              className="justify-end hover:cursor-pointer"
-              border={false}
-              onClick={() => onClick('totalSeconds')}
-            >
-              <SortIndicator
-                className="mr-3"
-                sortVal="totalSeconds"
-                currentSortVal={sortVal}
-                sortDirection={sortDirection}
-              />
-              Game Length
-            </TableCell>
-          </TableHeader>
-        </thead>
+        <TableHeader>
+          <TableHeaderCell
+            className="hover:cursor-pointer"
+            onClick={() => onClick('name')}
+          >
+            Civilization
+            <SortIndicator
+              className="ml-3"
+              sortVal="name"
+              currentSortVal={sortVal}
+              sortDirection={sortDirection}
+            />
+          </TableHeaderCell>
+          <TableHeaderCell
+            className="justify-end hover:cursor-pointer"
+            onClick={() => onClick('winRate')}
+          >
+            <SortIndicator
+              className="mr-3"
+              sortVal="winRate"
+              currentSortVal={sortVal}
+              sortDirection={sortDirection}
+            />
+            Win Rate
+          </TableHeaderCell>
+          <TableHeaderCell
+            className="justify-end hover:cursor-pointer"
+            onClick={() => onClick('playRate')}
+          >
+            <SortIndicator
+              className="mr-3"
+              sortVal="playRate"
+              currentSortVal={sortVal}
+              sortDirection={sortDirection}
+            />
+            Play Rate
+          </TableHeaderCell>
+          <TableHeaderCell
+            className="justify-end hover:cursor-pointer"
+            onClick={() => onClick('totalSeconds')}
+          >
+            <SortIndicator
+              className="mr-3"
+              sortVal="totalSeconds"
+              currentSortVal={sortVal}
+              sortDirection={sortDirection}
+            />
+            Game Length
+          </TableHeaderCell>
+        </TableHeader>
         <tbody>
           {tableStats.map((civ) => (
             <StatRow key={civ.civNum} civ={civ} filter={filter} />

@@ -8,6 +8,7 @@ import TableHeader from './typography/TableHeader';
 import Table from './typography/Table';
 import CivImage from './CivImage';
 import { getWinRateClass } from '../formatting';
+import TableHeaderCell from './typography/TableHeaderCell';
 
 const CivRow = ({ filter, civ }) => (
   <TableRow>
@@ -28,12 +29,10 @@ const CivRow = ({ filter, civ }) => (
 
 const TopCivs = ({ filter, civs }) => (
   <Table>
-    <thead>
-      <TableHeader>
-        <TableCell border={false}>Civilization</TableCell>
-        <TableCell border={false}>Win Rate</TableCell>
-      </TableHeader>
-    </thead>
+    <TableHeader>
+      <TableHeaderCell>Civilization</TableHeaderCell>
+      <TableHeaderCell>Win Rate</TableHeaderCell>
+    </TableHeader>
     <tbody>
       {civs.map((civ) => (
         <CivRow key={civ.civNum} civ={civ} filter={filter} />

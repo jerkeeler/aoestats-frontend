@@ -82,6 +82,12 @@ exports.createPages = async ({ graphql, actions }) => {
       context,
     });
 
+    createPage({
+      path: `/maps${pagePath}`,
+      component: path.resolve('./src/templates/MapStats.jsx'),
+      context,
+    });
+
     civilizations.forEach((civ) => {
       const filteredStats = filter.deCivilizationstatsByFilterId.nodes.filter(
         (stats) => stats.civNum === civ.id,
@@ -97,12 +103,12 @@ exports.createPages = async ({ graphql, actions }) => {
       });
     });
 
-    // filter.deMapstatsByFilterId.nodes.forEach((mapStat) => {
-    //   createPage({
-    //     path: `/map/${mapsById[mapStat.id]}${pagePath}`,
-    //     component: path.resolve('./src/templates/Map.jsx'),
-    //     context: { ...context, mapStatsId: mapStat.id },
-    //   });
-    // });
+    filter.deMapstatsByFilterId.nodes.forEach((mapStat) => {
+      createPage({
+        path: `/map/${mapsById[mapStat.mapNum].name}${pagePath}`,
+        component: path.resolve('./src/templates/Map.jsx'),
+        context: { ...context, mapStatsId: mapStat.id },
+      });
+    });
   });
 };

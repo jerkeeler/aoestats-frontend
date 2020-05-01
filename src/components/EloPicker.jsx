@@ -5,11 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { SortedEloBrackets, LadderToShortname } from '../defs';
 
+const allowedPages = ['/civ', '/stats', '/maps', '/map'];
+
 const getUrl = (location, filter, eloBracket = null) => {
   const currentPath = location.pathname;
   let start = '/';
   const sliceVal = filter.combined ? -1 : -2;
-  if (currentPath.startsWith('/civ') || currentPath.startsWith('/stats'))
+  const startsWith = allowedPages.reduce(
+    (prev, cur) => prev || currentPath.startsWith(cur),
+    false,
+  );
+  if (startsWith)
     start = currentPath
       .split('/')
       .filter((p) => p !== '')

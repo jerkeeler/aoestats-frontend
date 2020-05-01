@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
@@ -7,6 +6,7 @@ import HR from '../components/typography/HR';
 import H1 from '../components/typography/H1';
 import A from '../components/typography/A';
 import { formatDate } from '../formatting';
+import useLastUpdatedTime from '../hooks/useLastUpdatedTime';
 
 const Item = ({ question, children }) => (
   <div className="w-full md:w-1/2 p-6 text-gray-900 flex">
@@ -19,14 +19,7 @@ const Item = ({ question, children }) => (
 );
 
 const Faq = ({ location }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      siteBuildMetadata {
-        buildTime
-      }
-    }
-  `);
-  const buildTime = new Date(data.siteBuildMetadata.buildTime);
+  const lastUpdatedTime = useLastUpdatedTime();
 
   return (
     <Layout location={location}>
@@ -49,7 +42,7 @@ const Faq = ({ location }) => {
           </p>
           <p>
             Stats last updated:{' '}
-            <span className="font-bold">{formatDate(buildTime)}</span>
+            <span className="font-bold">{formatDate(lastUpdatedTime)}</span>
           </p>
         </Item>
         <Item question="How can I support you?">

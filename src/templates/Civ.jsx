@@ -26,30 +26,15 @@ import {
 } from '../defs';
 import TopCivs from '../components/TopCivs';
 import CivMapRates from '../components/CivMapRates';
+import Rate from '../components/Rate';
+import TableHeaderCell from '../components/typography/TableHeaderCell';
+import { createFilter } from '../utils';
 
 defaults.global.animation = false;
 defaults.global.defaultFontColor = '#fff';
 
-const Rate = ({ title, value, textColor }) => (
-  <div className="w-full px-6 py-3 last:pt-0">
-    <div
-      className="bg-grays-medium p-3 border border-white flex flex-col
-      items-center"
-    >
-      <h3 className="text-3xl">{title}</h3>
-      <p className={`text-2xl ${textColor}`}>{value}%</p>
-    </div>
-  </div>
-);
-
 const Civ = ({ data, location }) => {
-  const node = data.postgres.filter;
-  const filter = {
-    combined: node.combined,
-    patchVal: node.patchVal,
-    eloVal: node.eloVal,
-    ladderVal: node.ladderVal,
-  };
+  const filter = createFilter(data);
   const civInfo = data.postgres.stats;
   const civWinRates = civInfo.series[CivSeries.win_rate_vs_civs];
   const flatCivWinRates = Object.entries(civWinRates)
@@ -165,46 +150,17 @@ const Civ = ({ data, location }) => {
             <Rate
               title="Win Rate"
               value={percentage(civInfo.winRate)}
+              games={civInfo.numWon}
               textColor={`text-${getWinRateClass(civInfo.winRate)}`}
             />
             <Rate
               title="Play Rate"
               value={percentage(civInfo.playRate)}
+              games={civInfo.numPlayed}
               textColor="text-stats"
             />
           </div>
-          <div className="w-full lg:w-3/12 pr-3">
-            <Table>
-              <thead>
-                <TableHeader>
-                  <TableCell border={false}>Stat</TableCell>
-                  <TableCell border={false}>Value</TableCell>
-                </TableHeader>
-              </thead>
-              <tbody>
-                <TableRow>
-                  <TableCell>Game Length</TableCell>
-                  <TableCell className="font-mono">
-                    {civInfo.avgGameLength.minutes}:
-                    {leftPad(`${civInfo.avgGameLength.seconds || 0}`, 2, '0')}
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Games Won</TableCell>
-                  <TableCell className="font-mono">
-                    {numberWithCommas(civInfo.numWon)}
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Games Analyzed</TableCell>
-                  <TableCell className="font-mono">
-                    {numberWithCommas(civInfo.gamesAnalyzed)}
-                  </TableCell>
-                </TableRow>
-              </tbody>
-            </Table>
-          </div>
-          <div className="w-full lg:w-6/12 flex flex-col items-center mt-3 lg:mt-0">
+          <div className="w-full lg:w-9/12 flex flex-col items-center mt-3 lg:mt-0">
             <h3 className="text-xl text-stats-medium mb-3 font-bold">
               Win Rate vs Game Length
             </h3>

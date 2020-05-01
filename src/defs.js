@@ -17,6 +17,11 @@ const CivSeries = Object.freeze({
   win_rate_for_maps: 'win_rate_for_maps',
 });
 
+const MapSeries = Object.freeze({
+  win_rate_for_civs: 'win_rate_for_civs',
+  play_rate_for_civs: 'play_rate_for_civs',
+});
+
 const OverTimeSeries = Object.freeze({
   win_rate_over_time: 'win_rate_over_time',
 });
@@ -58,11 +63,14 @@ const Patch = Object.freeze({
 });
 
 const CURRENT_PATCH = Patch.de_36202;
+// const CURRENT_PATCH = Patch.de_36906;
+const PREVIOUS_PATCH = Patch.de_36202;
 
 module.exports = {
   OverTimeBuckets,
   SortedOverTimeBuckets,
   CivSeries,
+  MapSeries,
   OverTimeSeries,
   EloBracket,
   SortedEloBrackets,
@@ -70,4 +78,5 @@ module.exports = {
   LadderToShortname,
   Patch,
   CURRENT_PATCH,
+  PREVIOUS_PATCH,
 };

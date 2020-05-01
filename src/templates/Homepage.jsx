@@ -9,15 +9,11 @@ import CivCard from '../components/CivCard';
 import Hero from '../components/Hero';
 import TopCivs from '../components/TopCivs';
 import Info from '../components/Info';
+import { createFilter } from '../utils';
 
 const Homepage = ({ data, location }) => {
+  const filter = createFilter(data);
   const node = data.postgres.filter;
-  const filter = {
-    combined: node.combined,
-    patchVal: node.patchVal,
-    eloVal: node.eloVal,
-    ladderVal: node.ladderVal,
-  };
   const stats = node.deCivilizationstatsByFilterId.nodes;
   stats.forEach((civStats) => {
     civStats.name = Civs[civStats.civNum].name;

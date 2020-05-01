@@ -45,6 +45,9 @@ const Navbar = ({ location, filter }) => {
             <Link to={`/stats${getPathFromFilter(filter)}`}>Civs</Link>
           </NavItemLeft>
           <NavItemLeft>
+            <Link to={`/maps${getPathFromFilter(filter)}`}>Maps</Link>
+          </NavItemLeft>
+          <NavItemLeft>
             <Link to="/faq">FAQ</Link>
           </NavItemLeft>
         </NavGroup>
