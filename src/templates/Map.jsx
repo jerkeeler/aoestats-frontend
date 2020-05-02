@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import { CivsByName, Maps } from '../data';
 import Layout from '../components/Layout';
@@ -14,11 +14,12 @@ import TableHeaderCell from '../components/typography/TableHeaderCell';
 import TableRow from '../components/typography/TableRow';
 import TableCell from '../components/typography/TableCell';
 import { createFilter } from '../utils';
-import { MapSeries } from '../defs';
+import { Ladder, MapSeries } from '../defs';
 import CivImage from '../components/CivImage';
 import { getCivPath } from '../urls';
 import useSort from '../hooks/useSort';
 import SortIndicator from '../components/SortIndicator';
+import SEO from '../components/SEO';
 
 const StatsRow = ({ civData, filter }) => (
   <TableRow>
@@ -65,6 +66,14 @@ const MapPage = ({ data, location }) => {
 
   return (
     <Layout filter={filter} location={location}>
+      <SEO
+        title={mapInfo.displayName}
+        description={`Arabia: civ win rates and play rates for the map ${
+          mapInfo.displayName
+        } and ladder ${Ladder[filter.ladderVal]} across ${
+          filter.eloVal || 'All'
+        } ELOs.`}
+      />
       <H1>{mapInfo.displayName}</H1>
       <HR />
       <div className="flex flex-wrap">
