@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { percentage } from '../formatting';
 
 const PercentBar = ({

@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Line, defaults } from 'react-chartjs-2';
 
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
@@ -8,16 +7,7 @@ import H1 from '../components/typography/H1';
 import HR from '../components/typography/HR';
 import { Civs, CivsByName } from '../data';
 import CivImage from '../components/CivImage';
-import {
-  getWinRateClass,
-  leftPad,
-  numberWithCommas,
-  percentage,
-} from '../formatting';
-import Table from '../components/typography/Table';
-import TableRow from '../components/typography/TableRow';
-import TableHeader from '../components/typography/TableHeader';
-import TableCell from '../components/typography/TableCell';
+import { getWinRateClass, percentage } from '../formatting';
 import {
   CivSeries,
   Ladder,
@@ -27,11 +17,8 @@ import {
 import TopCivs from '../components/TopCivs';
 import CivMapRates from '../components/CivMapRates';
 import Rate from '../components/Rate';
-import TableHeaderCell from '../components/typography/TableHeaderCell';
 import { createFilter } from '../utils';
-
-defaults.global.animation = false;
-defaults.global.defaultFontColor = '#fff';
+import LineGraph from '../components/LineGraph';
 
 const Civ = ({ data, location }) => {
   const filter = createFilter(data);
@@ -53,81 +40,20 @@ const Civ = ({ data, location }) => {
     percentage(winRatesOverTime[bucket].value),
   );
 
-  const graphData = {
-    labels: SortedOverTimeBuckets,
-    datasets: [
-      {
-        label: Civs[civInfo.civNum].name,
-        fill: true,
-        lineTension: 0.1,
-        backgroundColor: 'rgba(36, 209, 248, 0.3)',
-        borderColor: 'rgb(36, 209, 248)',
-        hoverBackgroundColor: 'rgb(36, 209, 248)',
-        borderCapStyle: 'butt',
-        borderDash: [],
-        borderDashOffset: 0.0,
-        borderJoinStyle: 'miter',
-        pointBorderColor: 'rgb(36, 209, 248)',
-        pointBorderWidth: 1,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: 'rgb(36, 209, 248)',
-        pointHoverBorderWidth: 2,
-        pointRadius: 3,
-        pointHitRadius: 10,
-        data: overTimedata,
-      },
-      {
-        label: `${filter.eloVal || 'All'} Avg`,
-        fill: true,
-        lineTension: 0.1,
-        backgroundColor: 'rgba(220, 220, 220, 0.3)',
-        borderColor: 'rgb(220, 220, 220)',
-        hoverBackgroundColor: 'rgb(220, 220, 220)',
-        borderCapStyle: 'butt',
-        borderDash: [],
-        borderDashOffset: 0.0,
-        borderJoinStyle: 'miter',
-        pointBorderColor: 'rgb(220, 220, 220)',
-        pointBorderWidth: 1,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: 'rgb(220, 220, 220)',
-        pointHoverBorderWidth: 2,
-        pointRadius: 3,
-        pointHitRadius: 10,
-        data: Array(SortedOverTimeBuckets.length).fill(50),
-      },
-    ],
-  };
-  const graphOptions = {
-    animation: false,
-    responsive: true,
-    scales: {
-      yAxes: [
-        {
-          scaleLabel: {
-            display: true,
-            labelString: 'win rate (%)',
-          },
-          ticks: {
-            maxTicksLimit: 6,
-          },
-        },
-      ],
-      xAxes: [
-        {
-          scaleLabel: {
-            display: true,
-            labelString: 'game length (minutes)',
-          },
-        },
-      ],
+  const datasets = [
+    {
+      data: overTimedata,
+      label: Civs[civInfo.civNum].name,
+      color: 'rgb(36, 209, 248)',
+      backgroundColor: 'rgba(36, 209, 248, 0.3)',
     },
-  };
-
-  const legendOptions = {
-    position: 'bottom',
-    fontColor: '#fff',
-  };
+    {
+      data: Array(SortedOverTimeBuckets.length).fill(50),
+      label: `${filter.eloVal || 'All'} Avg`,
+      color: 'rgb(220, 220, 220)',
+      backgroundColor: 'rgba(220, 220, 220, 0.3)',
+    },
+  ];
 
   return (
     <Layout location={location} filter={filter}>
@@ -164,10 +90,11 @@ const Civ = ({ data, location }) => {
             <h3 className="text-xl text-stats-medium mb-3 font-bold">
               Win Rate vs Game Length
             </h3>
-            <Line
-              data={graphData}
-              options={graphOptions}
-              legend={legendOptions}
+            <LineGraph
+              datasets={datasets}
+              labels={SortedOverTimeBuckets}
+              xAxesLabel="game length (minutes)"
+              yAxesLabel="win rate (%)"
             />
           </div>
         </div>

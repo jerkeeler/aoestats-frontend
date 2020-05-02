@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import { SortedEloBrackets, LadderToShortname } from '../defs';
+
+import { LadderToShortname, SortedEloBrackets } from '../defs';
 
 const allowedPages = ['/civ', '/stats', '/maps', '/map'];
 

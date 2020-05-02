@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 
 import { Civs } from '../data';
-import Img from 'gatsby-image';
 
 const CivImage = ({ className = '', civId, uniqueUnit = false }) => {
   const data = useStaticQuery(graphql`
