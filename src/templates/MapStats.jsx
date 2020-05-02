@@ -49,6 +49,7 @@ const MapStats = ({ data, location }) => {
     ...Maps[m.mapNum],
     totalSeconds: m.avgGameLength.minutes * 60 + (m.avgGameLength.seconds || 0),
   }));
+  mapStats.sort((a, b) => (a.name > b.name ? 1 : -1));
 
   const { onClick, tableStats, sortVal, sortDirection } = useSort({
     initialStats: mapStats,

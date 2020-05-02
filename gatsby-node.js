@@ -13,7 +13,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     query {
       postgres {
-        allDeFilters {
+        allDeFilters(condition: { patchVal: "${CURRENT_PATCH}" } ) {
           nodes {
             id
             patchVal
