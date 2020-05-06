@@ -9,6 +9,7 @@ import Table from './typography/Table';
 import CivImage from './CivImage';
 import { getWinRateClass } from '../formatting';
 import TableHeaderCell from './typography/TableHeaderCell';
+import ChangeIndicator from './ChangeIndicator';
 
 const CivRow = ({ filter, civ }) => (
   <TableRow>
@@ -23,6 +24,13 @@ const CivRow = ({ filter, civ }) => (
     </TableCell>
     <TableCell className={`font-mono text-${getWinRateClass(civ.winRate)}`}>
       <span>{(civ.winRate * 100).toFixed(2)}%</span>
+      {civ.previous && (
+        <ChangeIndicator
+          newVal={civ.winRate}
+          oldVal={civ.previous.winRate}
+          className="ml-4"
+        />
+      )}
     </TableCell>
   </TableRow>
 );

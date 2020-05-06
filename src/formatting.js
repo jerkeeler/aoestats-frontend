@@ -18,6 +18,12 @@ export function getWinRateClass(winRate) {
   return 'stats-low';
 }
 
+export function getChangeRateClass(percentChange) {
+  if (percentChange >= 5) return 'stats-high';
+  if (percentChange <= -5) return 'stats-low';
+  return 'white';
+}
+
 export function percentage(value) {
   return (value * 100).toFixed(2);
 }

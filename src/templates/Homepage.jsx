@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-
 import { Civs } from '../data';
 import SEO from '../components/SEO';
 import CivCard from '../components/CivCard';
@@ -13,11 +12,18 @@ import { createFilter } from '../utils';
 
 const Homepage = ({ data, location }) => {
   const filter = createFilter(data);
+  const previousStats = {};
+  data.postgres.previousFilter.deCivilizationstatsByFilterId.nodes.forEach(
+    (p) => {
+      previousStats[p.civNum] = p;
+    },
+  );
   const node = data.postgres.filter;
   const stats = node.deCivilizationstatsByFilterId.nodes;
   stats.forEach((civStats) => {
     civStats.name = Civs[civStats.civNum].name;
     civStats.uniqueUnit = Civs[civStats.civNum].uniqueUnit;
+    civStats.previous = previousStats[civStats.civNum];
   });
   const sortedStats = stats.sort((a, b) => (a.name < b.name ? -1 : 1));
   const sortedByRate = stats.concat();
@@ -63,7 +69,7 @@ const Homepage = ({ data, location }) => {
 };
 
 export const query = graphql`
-  query($filterId: Int!) {
+  query($filterId: Int!, $previousFilterId: Int!) {
     postgres {
       filter: deFilterById(id: $filterId) {
         id
@@ -71,6 +77,16 @@ export const query = graphql`
         ladderVal
         eloVal
         combined
+        deCivilizationstatsByFilterId {
+          nodes {
+            winRate
+            playRate
+            civNum
+            numPlayed
+          }
+        }
+      }
+      previousFilter: deFilterById(id: $previousFilterId) {
         deCivilizationstatsByFilterId {
           nodes {
             winRate

@@ -1,8 +1,9 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
 import { numberWithCommas } from '../formatting';
+import { CURRENT_PATCH } from '../defs';
 
 const Hero = () => {
   const data = useStaticQuery(graphql`
@@ -16,7 +17,12 @@ const Hero = () => {
       }
       matches: postgres {
         allDeMatches(
-          condition: { flagged: false, leaderboardId: 3, patchVal: "36202" }
+          condition: {
+            flagged: false
+            leaderboardId: 3
+            patchVal: "36906"
+            addedToAverage: true
+          }
         ) {
           totalCount
         }
@@ -33,7 +39,7 @@ const Hero = () => {
         <h1 className="text-6xl">aoestats</h1>
         <p className="text-xl">
           Over <u>{numberWithCommas(data.matches.allDeMatches.totalCount)}</u>{' '}
-          DE matches on patch 36202 analyzed!
+          DE matches on patch {CURRENT_PATCH} analyzed!
         </p>
       </div>
       <Img

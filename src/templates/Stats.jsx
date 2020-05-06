@@ -10,7 +10,7 @@ import TableCell from '../components/typography/TableCell';
 import CivImage from '../components/CivImage';
 import { getCivPath } from '../urls';
 import TableHeader from '../components/typography/TableHeader';
-import { leftPad, getWinRateClass } from '../formatting';
+import { getWinRateClass, leftPad } from '../formatting';
 import HR from '../components/typography/HR';
 import H1 from '../components/typography/H1';
 import { Ladder } from '../defs';
@@ -18,6 +18,7 @@ import SortIndicator from '../components/SortIndicator';
 import useSort from '../hooks/useSort';
 import TableHeaderCell from '../components/typography/TableHeaderCell';
 import { createFilter } from '../utils';
+import ChangeIndicator from '../components/ChangeIndicator';
 
 const StatRow = ({ filter, civ }) => (
   <TableRow>
@@ -55,12 +56,22 @@ const Stats = ({ location, data }) => {
   const node = data.postgres.filter;
   const filter = createFilter(data);
   const stats = node.deCivilizationstatsByFilterId.nodes;
+  const previousStats = {};
+  data.postgres.previousFilter.deCivilizationstatsByFilterId.nodes.forEach(
+    (p) => {
+      p.totalSeconds =
+        p.avgGameLength.minutes * 60 + (p.avgGameLength.seconds || 0);
+      previousStats[p.civNum] = p;
+    },
+  );
+
   stats.forEach((civStats) => {
     civStats.name = Civs[civStats.civNum].name;
     civStats.uniqueUnit = Civs[civStats.civNum].uniqueUnit;
     civStats.totalSeconds =
       civStats.avgGameLength.minutes * 60 +
       (civStats.avgGameLength.seconds || 0);
+    civStats.previous = previousStats[civStats.civNum];
   });
 
   const { onClick, tableStats, sortDirection, sortVal } = useSort({
@@ -144,7 +155,7 @@ const Stats = ({ location, data }) => {
 };
 
 export const query = graphql`
-  query($filterId: Int!) {
+  query($filterId: Int!, $previousFilterId: Int!) {
     postgres {
       filter: deFilterById(id: $filterId) {
         id
@@ -152,6 +163,20 @@ export const query = graphql`
         ladderVal
         eloVal
         combined
+        deCivilizationstatsByFilterId {
+          nodes {
+            winRate
+            playRate
+            civNum
+            numPlayed
+            avgGameLength {
+              seconds
+              minutes
+            }
+          }
+        }
+      }
+      previousFilter: deFilterById(id: $previousFilterId) {
         deCivilizationstatsByFilterId {
           nodes {
             winRate

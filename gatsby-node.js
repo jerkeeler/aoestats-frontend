@@ -2,7 +2,7 @@ const path = require(`path`);
 
 const { civilizations } = require('./src/data/civilizations.json');
 const { maps } = require('./src/data/maps.json');
-const { CURRENT_PATCH } = require('./src/defs');
+const { CURRENT_PATCH, PREVIOUS_PATCH } = require('./src/defs');
 const { getPathFromFilter } = require('./src/urls');
 
 const mapsById = {};
@@ -13,7 +13,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     query {
       postgres {
-        allDeFilters(condition: { patchVal: "${CURRENT_PATCH}" } ) {
+        currentFilters: allDeFilters(condition: {patchVal: "${CURRENT_PATCH}"}) {
           nodes {
             id
             patchVal
@@ -23,21 +23,34 @@ exports.createPages = async ({ graphql, actions }) => {
             deCivilizationstatsByFilterId {
               nodes {
                 id
-                winRate
-                playRate
                 civNum
-                numPlayed
-                series
               }
             }
             deMapstatsByFilterId {
               nodes {
                 id
-                winRate
-                playRate
                 mapNum
-                numPlayed
-                series
+              }
+            }
+          }
+        }
+        previousFilters: allDeFilters(condition: {patchVal: "${PREVIOUS_PATCH}"}) {
+          nodes {
+            id
+            patchVal
+            ladderVal
+            eloVal
+            combined
+            deCivilizationstatsByFilterId {
+              nodes {
+                id
+                civNum
+              }
+            }
+            deMapstatsByFilterId {
+              nodes {
+                id
+                mapNum
               }
             }
           }
@@ -46,14 +59,25 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  const filters = result.data.postgres.allDeFilters.nodes;
+  const filters = result.data.postgres.currentFilters.nodes;
+  const previousFilters = result.data.postgres.previousFilters.nodes;
   filters.forEach((filter) => {
+    const filteredPreviousFilters = previousFilters.filter(
+      (f) =>
+        f.ladderVal === filter.ladderVal &&
+        f.eloVal === filter.eloVal &&
+        f.combined === filter.combined,
+    );
+    if (filteredPreviousFilters.length !== 1)
+      throw new Error(`Could not find previous filter to match ${filter.id}`);
+    const previousFilter = filteredPreviousFilters[0];
     const context = {
       patchVal: filter.patchVal,
       ladderVal: filter.ladderVal,
       eloVal: filter.eloVal,
       combined: filter.combined,
       filterId: filter.id,
+      previousFilterId: previousFilter.id,
     };
     const pagePath = getPathFromFilter(filter);
     console.log(`Creating page ${pagePath}`);
