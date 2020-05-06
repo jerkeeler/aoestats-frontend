@@ -92,22 +92,40 @@ exports.createPages = async ({ graphql, actions }) => {
       const filteredStats = filter.deCivilizationstatsByFilterId.nodes.filter(
         (stats) => stats.civNum === civ.id,
       );
+      const previousFilteredStats = previousFilter.deCivilizationstatsByFilterId.nodes.filter(
+        (stats) => stats.civNum === civ.id,
+      );
       if (filteredStats.length !== 1)
         throw new Error('Multiple civ stats for filter!');
+      if (previousFilteredStats.length !== 1)
+        throw new Error('Multiple previous civ stats for filter!');
       const filterStats = filteredStats[0];
+      const previousStats = previousFilteredStats[0];
 
       createPage({
         path: `/civ/${civ.name}${pagePath}`,
         component: path.resolve('./src/templates/Civ.jsx'),
-        context: { ...context, civStatsId: filterStats.id },
+        context: {
+          ...context,
+          civStatsId: filterStats.id,
+          previousCivStatsId: previousStats.id,
+        },
       });
     });
 
     filter.deMapstatsByFilterId.nodes.forEach((mapStat) => {
+      const previousMapStats = previousFilter.deMapstatsByFilterId.nodes.filter(
+        (stats) => stats.mapNum === mapStat.mapNum,
+      );
+      if (previousMapStats.length > 1)
+        throw new Error('Multiple previous map stats found!');
+      const previousMapStatsId =
+        previousMapStats.length === 1 ? previousMapStats[0].id : -1;
+
       createPage({
         path: `/map/${mapsById[mapStat.mapNum].name}${pagePath}`,
         component: path.resolve('./src/templates/Map.jsx'),
-        context: { ...context, mapStatsId: mapStat.id },
+        context: { ...context, mapStatsId: mapStat.id, previousMapStatsId },
       });
     });
   });

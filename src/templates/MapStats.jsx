@@ -113,7 +113,11 @@ const MapStats = ({ data, location }) => {
           </TableHeader>
           <tbody>
             {tableStats.map((mapStat) => (
-              <StatsRow mapStats={mapStat} filter={filter} />
+              <StatsRow
+                key={mapStat.mapNum}
+                mapStats={mapStat}
+                filter={filter}
+              />
             ))}
           </tbody>
         </Table>
@@ -123,9 +127,29 @@ const MapStats = ({ data, location }) => {
 };
 
 export const query = graphql`
-  query($filterId: Int!) {
+  query($filterId: Int!, $previousFilterId: Int!) {
     postgres {
       filter: deFilterById(id: $filterId) {
+        id
+        patchVal
+        ladderVal
+        eloVal
+        combined
+        deMapstatsByFilterId {
+          nodes {
+            winRate
+            playRate
+            mapNum
+            series
+            numPlayed
+            avgGameLength {
+              seconds
+              minutes
+            }
+          }
+        }
+      }
+      previousFilter: deFilterById(id: $previousFilterId) {
         id
         patchVal
         ladderVal

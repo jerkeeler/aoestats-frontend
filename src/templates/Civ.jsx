@@ -13,6 +13,7 @@ import {
   Ladder,
   OverTimeSeries,
   SortedOverTimeBuckets,
+  SortedPatches,
 } from '../defs';
 import TopCivs from '../components/TopCivs';
 import CivMapRates from '../components/CivMapRates';
@@ -20,9 +21,14 @@ import Rate from '../components/Rate';
 import { createFilter } from '../utils';
 import LineGraph from '../components/LineGraph';
 
+const GraphTitle = ({ children }) => (
+  <h3 className="text-xl text-stats-medium mb-3 mt-3 font-bold">{children}</h3>
+);
+
 const Civ = ({ data, location }) => {
   const filter = createFilter(data);
   const civInfo = data.postgres.stats;
+  const previousStats = data.postgres.previousStats;
   const civWinRates = civInfo.series[CivSeries.win_rate_vs_civs];
   const flatCivWinRates = Object.entries(civWinRates)
     .map(([key, value]) => ({
@@ -55,6 +61,30 @@ const Civ = ({ data, location }) => {
     },
   ];
 
+  const winByPatch = [
+    {
+      data: [previousStats.winRate, civInfo.winRate].map(percentage),
+      label: Civs[civInfo.civNum].name,
+      color: 'rgb(36, 209, 248)',
+      backgroundColor: 'rgba(36, 209, 248, 0.3)',
+    },
+    {
+      data: Array(SortedPatches.length).fill(50),
+      label: `${filter.eloVal || 'All'} Avg`,
+      color: 'rgb(220, 220, 220)',
+      backgroundColor: 'rgba(220, 220, 220, 0.3)',
+    },
+  ];
+
+  const playByPatch = [
+    {
+      data: [previousStats.playRate, civInfo.playRate].map(percentage),
+      label: Civs[civInfo.civNum].name,
+      color: 'rgb(36, 209, 248)',
+      backgroundColor: 'rgba(36, 209, 248, 0.3)',
+    },
+  ];
+
   return (
     <Layout location={location} filter={filter}>
       <SEO
@@ -76,26 +106,50 @@ const Civ = ({ data, location }) => {
             <Rate
               title="Win Rate"
               value={percentage(civInfo.winRate)}
+              previousValue={percentage(previousStats.winRate)}
               games={civInfo.numWon}
               textColor={`text-${getWinRateClass(civInfo.winRate)}`}
             />
             <Rate
               title="Play Rate"
               value={percentage(civInfo.playRate)}
+              previousValue={percentage(previousStats.playRate)}
               games={civInfo.numPlayed}
               textColor="text-stats"
             />
           </div>
-          <div className="w-full lg:w-9/12 flex flex-col items-center mt-3 lg:mt-0">
-            <h3 className="text-xl text-stats-medium mb-3 font-bold">
-              Win Rate vs Game Length
-            </h3>
-            <LineGraph
-              datasets={datasets}
-              labels={SortedOverTimeBuckets}
-              xAxesLabel="game length (minutes)"
-              yAxesLabel="win rate (%)"
-            />
+          <div className="w-full lg:w-9/12 flex flex-wrap mt-3 lg:mt-0">
+            <div className="w-full flex flex-wrap">
+              <div className="w-full lg:w-6/12 flex flex-col items-center">
+                <GraphTitle>Win Rate vs Game Length</GraphTitle>
+                <LineGraph
+                  datasets={datasets}
+                  labels={SortedOverTimeBuckets}
+                  xAxesLabel="game length (minutes)"
+                  yAxesLabel="win rate (%)"
+                />
+              </div>
+              <div className="w-full lg:w-6/12 flex flex-col items-center">
+                <GraphTitle>Win Rate by Patch</GraphTitle>
+                <LineGraph
+                  datasets={winByPatch}
+                  labels={SortedPatches}
+                  xAxesLabel="patch"
+                  yAxesLabel="win rate (%)"
+                />
+              </div>
+            </div>
+            <div className="w-full flex">
+              <div className="w-full lg:w-6/12 flex flex-col items-center">
+                <GraphTitle>Play Rate by Patch</GraphTitle>
+                <LineGraph
+                  datasets={playByPatch}
+                  labels={SortedPatches}
+                  xAxesLabel="patch"
+                  yAxesLabel="play rate (%)"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div className="w-full flex flex-wrap">
@@ -121,7 +175,7 @@ const Civ = ({ data, location }) => {
 };
 
 export const query = graphql`
-  query($filterId: Int!, $civStatsId: Int!) {
+  query($filterId: Int!, $civStatsId: Int!, $previousCivStatsId: Int!) {
     postgres {
       filter: deFilterById(id: $filterId) {
         id
@@ -131,6 +185,19 @@ export const query = graphql`
         combined
       }
       stats: deCivilizationstatById(id: $civStatsId) {
+        civNum
+        playRate
+        winRate
+        series
+        numWon
+        numPlayed
+        gamesAnalyzed
+        avgGameLength {
+          seconds
+          minutes
+        }
+      }
+      previousStats: deCivilizationstatById(id: $previousCivStatsId) {
         civNum
         playRate
         winRate

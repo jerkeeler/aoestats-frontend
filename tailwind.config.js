@@ -30,6 +30,9 @@ module.exports = {
       inset: {
         '100': '100%',
       },
+      flexGrow: {
+        '2': 2,
+      },
     },
   },
   variants: {

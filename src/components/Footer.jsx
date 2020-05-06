@@ -18,10 +18,13 @@ const Footer = () => {
         last updated: {formatDate(lastUpdatedTime)}
       </p>
       <p className="text-xs">
-        aoestats isn't endorsed by Microsoft Inc. and doesn't reflect the views
-        or opinions of Microsoft Inc. or anyone officially involved in producing
-        or managing Age of Empires II DE. Age of Empires II DE, and its various
-        expansions, are trademarks or registered trademarks of Microsoft, Inc.
+        Age of Empires II DE © Microsoft Corporation. aoestats.io was created
+        under Microsoft's{' '}
+        <A to="https://www.xbox.com/en-us/developers/rules">
+          "Game Content Usage Rules"
+        </A>{' '}
+        using assets from Age of Empires II DE, and it is not endorsed by or
+        affiliated with Microsoft.
       </p>
     </footer>
   );

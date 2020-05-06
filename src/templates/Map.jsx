@@ -48,6 +48,7 @@ const StatsRow = ({ civData, filter }) => (
 const MapPage = ({ data, location }) => {
   const filter = createFilter(data);
   const mapStats = data.postgres.stats;
+  const previousMapStats = data.postgres.previousStats;
   const mapInfo = Maps[mapStats.mapNum];
   const civData = [];
   Object.entries(mapStats.series[MapSeries.win_rate_for_civs]).forEach(
@@ -56,6 +57,14 @@ const MapPage = ({ data, location }) => {
         winRate: value.value,
         playRate: mapStats.series[MapSeries.play_rate_for_civs][key].value,
         ...CivsByName[key],
+        previous: {
+          playRate: previousMapStats
+            ? previousMapStats.series[MapSeries.play_rate_for_civs][key].value
+            : null,
+          winRate: previousMapStats
+            ? previousMapStats.series[MapSeries.win_rate_for_civs][key].value
+            : null,
+        },
       });
     },
   );
@@ -63,6 +72,9 @@ const MapPage = ({ data, location }) => {
   const { onClick, tableStats, sortDirection, sortVal } = useSort({
     initialStats: civData,
   });
+  const previousPlayRate = previousMapStats
+    ? percentage(previousMapStats.playRate)
+    : null;
 
   return (
     <Layout filter={filter} location={location}>
@@ -75,6 +87,7 @@ const MapPage = ({ data, location }) => {
         } ELOs.`}
       />
       <H1>{mapInfo.displayName}</H1>
+      {previousMapStats === null && <h3>New to map pool!</h3>}
       <HR />
       <div className="flex flex-wrap">
         <div className="flex flex-col items-center w-full md:w-3/12">
@@ -82,6 +95,7 @@ const MapPage = ({ data, location }) => {
           <Rate
             title="Play Rate"
             value={percentage(mapStats.playRate)}
+            previousValue={previousPlayRate}
             games={mapStats.numPlayed}
             textColor="text-stats"
           />
@@ -139,7 +153,7 @@ const MapPage = ({ data, location }) => {
 };
 
 export const query = graphql`
-  query($filterId: Int!, $mapStatsId: Int!) {
+  query($filterId: Int!, $mapStatsId: Int!, $previousMapStatsId: Int!) {
     postgres {
       filter: deFilterById(id: $filterId) {
         id
@@ -149,6 +163,19 @@ export const query = graphql`
         combined
       }
       stats: deMapstatById(id: $mapStatsId) {
+        mapNum
+        playRate
+        winRate
+        series
+        numWon
+        numPlayed
+        gamesAnalyzed
+        avgGameLength {
+          seconds
+          minutes
+        }
+      }
+      previousStats: deMapstatById(id: $previousMapStatsId) {
         mapNum
         playRate
         winRate

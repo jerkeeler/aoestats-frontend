@@ -70,6 +70,13 @@ const Faq = ({ location }) => {
             .
           </p>
         </Item>
+        <Item question="What are the small percentage numbers everywhere?">
+          Those values indicate how much a certain value has changed since the
+          last patch. These indicate the <i>percentage change</i> of the value
+          since that last patch. A 1% change of a 50% win rate{' '}
+          <b>does not mean</b> the value went from 50% win rate to 51% win rate.
+          It means it went from 50% to 50.5%.
+        </Item>
         <Item question="What happened to the Voobly stats?">
           <p>
             Don't worry! The Voobly stats are still around! I'm still working on

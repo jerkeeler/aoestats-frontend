@@ -10,6 +10,7 @@ import { getWinRateClass, percentage } from '../formatting';
 import MapImage from './MapImage';
 import { getMapPath } from '../urls';
 import TableHeaderCell from './typography/TableHeaderCell';
+import ChangeIndicator from './ChangeIndicator';
 
 const MapRow = ({ filter, mapInfo }) => (
   <TableRow>
@@ -24,6 +25,12 @@ const MapRow = ({ filter, mapInfo }) => (
     </TableCell>
     <TableCell className={`text-${getWinRateClass(mapInfo.winRate)}`}>
       {percentage(mapInfo.winRate)}%
+      {mapInfo.previous && (
+        <ChangeIndicator
+          oldVal={mapInfo.previous.winRate}
+          newVal={mapInfo.winRate}
+        />
+      )}
     </TableCell>
   </TableRow>
 );

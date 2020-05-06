@@ -62,6 +62,8 @@ const Patch = Object.freeze({
   de_35584: '35584',
 });
 
+const SortedPatches = [Patch.de_36202, Patch.de_36906];
+
 const CURRENT_PATCH = Patch.de_36202;
 // const CURRENT_PATCH = Patch.de_36906;
 const PREVIOUS_PATCH = Patch.de_36202;
@@ -77,6 +79,7 @@ module.exports = {
   Ladder,
   LadderToShortname,
   Patch,
+  SortedPatches,
   CURRENT_PATCH,
   PREVIOUS_PATCH,
 };
