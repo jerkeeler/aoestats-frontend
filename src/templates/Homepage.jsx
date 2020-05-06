@@ -44,8 +44,8 @@ const Homepage = ({ data, location }) => {
           >
             36906
           </a>{' '}
-          has been released! We are gathering stats and will update this site
-          when enough matches have been played.
+          has been released! We have published <i>preliminary</i> stats for this
+          patch. Not enough data has been collected yet, values may be skewed.
         </p>
       </Info>
       <Hero />

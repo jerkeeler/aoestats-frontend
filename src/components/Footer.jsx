@@ -1,13 +1,26 @@
 import React from 'react';
 
 import A from './typography/A';
-import { formatDate } from '../formatting';
+import { formatDate, numberWithCommas } from '../formatting';
 import useLastUpdatedTime from '../hooks/useLastUpdatedTime';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const Seperator = () => <span className="mx-2">|</span>;
 
 const Footer = () => {
   const lastUpdatedTime = useLastUpdatedTime();
+
+  const data = useStaticQuery(graphql`
+    query {
+      matches: postgres {
+        allDeMatches(
+          condition: { flagged: false, leaderboardId: 3, addedToAverage: true }
+        ) {
+          totalCount
+        }
+      }
+    }
+  `);
 
   return (
     <footer className="flex flex-col items-center text-center pb-6">
@@ -15,7 +28,9 @@ const Footer = () => {
       <p className="mb-6">
         © aoestats 2019 <Seperator /> Made by{' '}
         <A to="https://twitter.com/jerkeeler">jerbot</A> <Seperator /> Stats
-        last updated: {formatDate(lastUpdatedTime)}
+        last updated: {formatDate(lastUpdatedTime)} <Seperator /> Over{' '}
+        {numberWithCommas(data.matches.allDeMatches.totalCount)} matches in the
+        database
       </p>
       <p className="text-xs">
         Age of Empires II DE © Microsoft Corporation. aoestats.io was created
