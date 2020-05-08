@@ -1,13 +1,15 @@
-import React from 'react';
 import { graphql } from 'gatsby';
-
+import React from 'react';
+import CivImage from '../components/CivImage';
+import CivMapRates from '../components/CivMapRates';
 import Layout from '../components/Layout';
+import LineGraph from '../components/LineGraph';
+import Rate from '../components/Rate';
 import SEO from '../components/SEO';
+import TopCivs from '../components/TopCivs';
 import H1 from '../components/typography/H1';
 import HR from '../components/typography/HR';
 import { Civs, CivsByName } from '../data';
-import CivImage from '../components/CivImage';
-import { getWinRateClass, percentage } from '../formatting';
 import {
   CivSeries,
   Ladder,
@@ -15,11 +17,8 @@ import {
   SortedOverTimeBuckets,
   SortedPatches,
 } from '../defs';
-import TopCivs from '../components/TopCivs';
-import CivMapRates from '../components/CivMapRates';
-import Rate from '../components/Rate';
+import { getWinRateClass, percentage } from '../formatting';
 import { createFilter } from '../utils';
-import LineGraph from '../components/LineGraph';
 
 const GraphTitle = ({ children }) => (
   <h3 className="text-xl text-stats-medium mb-3 mt-3 font-bold">{children}</h3>
