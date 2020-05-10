@@ -42,7 +42,7 @@ const Dropdown = ({ location, filter, ...rest }) => (
   <ul
     {...rest}
     className="absolute top-100 left-0 bg-white text-black min-w-full lg:min-w-0 text-center
-    mt-2 flex flex-col text-base rounded bg-gray-100 shadow border border-gray-200"
+    mt-2 flex flex-col text-base rounded bg-gray-100 shadow border border-gray-200 z-10"
   >
     <DropdownItem to={getUrl(location, filter)}>All</DropdownItem>
     {SortedEloBrackets.map((value) => (
