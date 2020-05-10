@@ -82,8 +82,8 @@ const MapPage = ({ data, location }) => {
         description={`Arabia: civ win rates and play rates for the map ${
           mapInfo.displayName
         } and ladder ${Ladder[filter.ladderVal]} across ${
-          filter.eloVal || 'All'
-        } Elos.`}
+          filter.eloVal || 'all'
+        } Elo.`}
       />
       <H1>{mapInfo.displayName}</H1>
       {previousMapStats === null && <h3>New to map pool!</h3>}

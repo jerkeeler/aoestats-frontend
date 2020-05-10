@@ -83,7 +83,7 @@ const Stats = ({ location, data }) => {
         title="Civs"
         description={`Side by side comparisons of Age of Empires II civilizations including win rate, play rate, and age timings for the ${
           Ladder[filter.ladderVal]
-        } ladder across ${filter.eloVal || 'All'} Elos.`}
+        } ladder across ${filter.eloVal || 'all'} Elo.`}
       />
       <H1>Civ Stats</H1>
       <HR />

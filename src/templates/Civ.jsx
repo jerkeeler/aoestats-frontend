@@ -93,8 +93,8 @@ const Civ = ({ data, location }) => {
         } civilization in Age of Empires II in the ${
           Ladder[filter.ladderVal]
         } ladder across ${
-          filter.eloVal || 'All'
-        } Elos. Current win rate: ${percentage(civInfo.winRate)}%`}
+          filter.eloVal || 'all'
+        } Elo. Current win rate: ${percentage(civInfo.winRate)}%`}
       />
       <H1>{Civs[civInfo.civNum].name}</H1>
       <HR />

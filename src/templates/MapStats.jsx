@@ -61,7 +61,7 @@ const MapStats = ({ data, location }) => {
         description={`Side by side comparisons of Age of Empires II civilizations by Map, including win rate, 
         play rate, and age timings for the ${
           Ladder[filter.ladderVal]
-        } ladder across ${filter.eloVal || 'All'} Elos.`}
+        } ladder across ${filter.eloVal || 'all'} Elo.`}
       />
       <H1>Map Stats</H1>
       <HR />
