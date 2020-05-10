@@ -86,7 +86,7 @@ const EloPicker = ({ location, filter }) => {
       tabIndex={0}
     >
       Elo: <b className="ml-1">{filter.eloVal || 'All'} </b>
-      <span className="inline-block ml-1 overflow-hidden">
+      <span className="inline-block w-2 h-4 ml-1 overflow-hidden">
         <FontAwesomeIcon
           icon={faCaretDown}
           className="text-primary"
