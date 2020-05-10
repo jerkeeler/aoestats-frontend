@@ -1,5 +1,8 @@
 import React from 'react';
+import classnames from 'classnames';
 
-const HR = () => <hr className="my-3 border-gray-800" />;
+const HR = ({ className, borderColor = 'border-gray-800' }) => (
+  <hr className={classnames('my-3', borderColor, className)} />
+);
 
 export default HR;

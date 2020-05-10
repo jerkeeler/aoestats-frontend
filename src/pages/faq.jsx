@@ -1,10 +1,9 @@
 import React from 'react';
-
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import HR from '../components/typography/HR';
-import H1 from '../components/typography/H1';
 import A from '../components/typography/A';
+import H1 from '../components/typography/H1';
+import HR from '../components/typography/HR';
 import { formatDate } from '../formatting';
 import useLastUpdatedTime from '../hooks/useLastUpdatedTime';
 
@@ -47,10 +46,14 @@ const Faq = ({ location }) => {
         </Item>
         <Item question="How can I support you?">
           <p>
-            Awwwww thanks! 😊 You can support me by buying me a coffee! Just
-            click the big orange button in the navbar. Any donations will go
-            strictly toward hosting costs. Right now I'm paying ~$20 a month to
-            maintain this website and update stats.
+            Awwwww thanks!{' '}
+            <span role="img" aria-label="smiley face">
+              😊
+            </span>{' '}
+            You can support me by buying me a coffee! Just click the big orange
+            button in the navbar. Any donations will go strictly toward hosting
+            costs. Right now I'm paying ~$20 a month to maintain this website
+            and update stats.
           </p>
         </Item>
         <Item question="Why do some stats look funky for 1650+?">

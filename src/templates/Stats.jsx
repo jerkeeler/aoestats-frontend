@@ -1,24 +1,23 @@
-import React from 'react';
 import { graphql, Link } from 'gatsby';
-
+import React from 'react';
+import ChangeIndicator from '../components/ChangeIndicator';
+import CivImage from '../components/CivImage';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import { Civs } from '../data';
-import Table from '../components/typography/Table';
-import TableRow from '../components/typography/TableRow';
-import TableCell from '../components/typography/TableCell';
-import CivImage from '../components/CivImage';
-import { getCivPath } from '../urls';
-import TableHeader from '../components/typography/TableHeader';
-import { getWinRateClass, leftPad } from '../formatting';
-import HR from '../components/typography/HR';
-import H1 from '../components/typography/H1';
-import { Ladder } from '../defs';
 import SortIndicator from '../components/SortIndicator';
-import useSort from '../hooks/useSort';
+import H1 from '../components/typography/H1';
+import HR from '../components/typography/HR';
+import Table from '../components/typography/Table';
+import TableCell from '../components/typography/TableCell';
+import TableHeader from '../components/typography/TableHeader';
 import TableHeaderCell from '../components/typography/TableHeaderCell';
+import TableRow from '../components/typography/TableRow';
+import { Civs } from '../data';
+import { Ladder } from '../defs';
+import { getWinRateClass, leftPad } from '../formatting';
+import useSort from '../hooks/useSort';
+import { getCivPath } from '../urls';
 import { createFilter } from '../utils';
-import ChangeIndicator from '../components/ChangeIndicator';
 
 const StatRow = ({ filter, civ }) => (
   <TableRow>
@@ -84,7 +83,7 @@ const Stats = ({ location, data }) => {
         title="Civs"
         description={`Side by side comparisons of Age of Empires II civilizations including win rate, play rate, and age timings for the ${
           Ladder[filter.ladderVal]
-        } ladder across ${filter.eloVal || 'All'} ELOs.`}
+        } ladder across ${filter.eloVal || 'All'} Elos.`}
       />
       <H1>Civ Stats</H1>
       <HR />

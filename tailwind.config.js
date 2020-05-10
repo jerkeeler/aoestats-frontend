@@ -33,6 +33,9 @@ module.exports = {
       flexGrow: {
         '2': 2,
       },
+      minHeight: {
+        '16': '4rem',
+      },
     },
   },
   variants: {

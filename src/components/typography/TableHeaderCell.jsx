@@ -1,10 +1,21 @@
+import classnames from 'classnames';
 import React from 'react';
-import TableCell from './TableCell';
 
-const TableHeaderCell = (props) => (
-  <TableCell border={false} {...props}>
-    {props.children}
-  </TableCell>
+const TableHeaderCell = ({ children, onClick, className }) => (
+  <th
+    className={classnames(
+      'flex-grow',
+      'flex-1',
+      'flex',
+      'items-center',
+      'px-2',
+      'py-3',
+      className,
+    )}
+    onClick={() => onClick && onClick()}
+  >
+    {children}
+  </th>
 );
 
 export default TableHeaderCell;

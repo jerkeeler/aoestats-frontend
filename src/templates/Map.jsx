@@ -1,25 +1,24 @@
-import React from 'react';
 import { graphql, Link } from 'gatsby';
-
-import { CivsByName, Maps } from '../data';
+import React from 'react';
+import CivImage from '../components/CivImage';
 import Layout from '../components/Layout';
-import H1 from '../components/typography/H1';
-import HR from '../components/typography/HR';
 import MapImage from '../components/MapImage';
 import Rate from '../components/Rate';
-import { getWinRateClass, percentage } from '../formatting';
+import SEO from '../components/SEO';
+import SortIndicator from '../components/SortIndicator';
+import H1 from '../components/typography/H1';
+import HR from '../components/typography/HR';
 import Table from '../components/typography/Table';
+import TableCell from '../components/typography/TableCell';
 import TableHeader from '../components/typography/TableHeader';
 import TableHeaderCell from '../components/typography/TableHeaderCell';
 import TableRow from '../components/typography/TableRow';
-import TableCell from '../components/typography/TableCell';
-import { createFilter } from '../utils';
+import { CivsByName, Maps } from '../data';
 import { Ladder, MapSeries } from '../defs';
-import CivImage from '../components/CivImage';
-import { getCivPath } from '../urls';
+import { getWinRateClass, percentage } from '../formatting';
 import useSort from '../hooks/useSort';
-import SortIndicator from '../components/SortIndicator';
-import SEO from '../components/SEO';
+import { getCivPath } from '../urls';
+import { createFilter } from '../utils';
 
 const StatsRow = ({ civData, filter }) => (
   <TableRow>
@@ -84,7 +83,7 @@ const MapPage = ({ data, location }) => {
           mapInfo.displayName
         } and ladder ${Ladder[filter.ladderVal]} across ${
           filter.eloVal || 'All'
-        } ELOs.`}
+        } Elos.`}
       />
       <H1>{mapInfo.displayName}</H1>
       {previousMapStats === null && <h3>New to map pool!</h3>}

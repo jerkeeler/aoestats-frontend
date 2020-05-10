@@ -94,7 +94,7 @@ const Civ = ({ data, location }) => {
           Ladder[filter.ladderVal]
         } ladder across ${
           filter.eloVal || 'All'
-        } ELOs. Current win rate: ${percentage(civInfo.winRate)}%`}
+        } Elos. Current win rate: ${percentage(civInfo.winRate)}%`}
       />
       <H1>{Civs[civInfo.civNum].name}</H1>
       <HR />

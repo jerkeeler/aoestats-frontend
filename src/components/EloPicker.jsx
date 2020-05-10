@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'gatsby';
+import React, { useEffect, useState } from 'react';
+import { KeyCode } from '../consts';
 import { LadderToShortname, SortedEloBrackets } from '../defs';
 
 const allowedPages = ['/civ', '/stats', '/maps', '/map'];
@@ -38,9 +38,10 @@ const DropdownItem = ({ children, to }) => (
   </li>
 );
 
-const Dropdown = ({ location, filter }) => (
+const Dropdown = ({ location, filter, ...rest }) => (
   <ul
-    className="absolute top-100 left-0 bg-white text-black min-w-ful text-center
+    {...rest}
+    className="absolute top-100 left-0 bg-white text-black min-w-full lg:min-w-0 text-center
     mt-2 flex flex-col text-base rounded bg-gray-100 shadow border border-gray-200"
   >
     <DropdownItem to={getUrl(location, filter)}>All</DropdownItem>
@@ -67,23 +68,38 @@ const EloPicker = ({ location, filter }) => {
     const newTimer = setTimeout(() => setModal(newVal), timeout);
     setTimer(newTimer);
   };
+
+  const onClick = () => setVal(!modal, 0);
+
+  const onKeyDown = (event) => {
+    if (event.keyCode !== KeyCode.enter) return;
+    onClick();
+  };
+
   return (
     <div
-      // style={{ top: -1 }}
       className="hover:cursor-pointer relative flex"
-      onMouseEnter={() => setVal(true, 0)}
       onMouseLeave={() => setVal(false)}
-      onClick={() => setVal(!modal, 0)}
+      onClick={onClick}
+      onKeyDown={onKeyDown}
+      role="button"
+      tabIndex={0}
     >
       Elo: <b className="ml-1">{filter.eloVal || 'All'} </b>
-      <span className="inline-block ml-1 w-4 h-4 overflow-hidden">
+      <span className="inline-block ml-1 overflow-hidden">
         <FontAwesomeIcon
           icon={faCaretDown}
           className="text-primary"
           size="sm"
         />
       </span>
-      {modal && <Dropdown location={location} filter={filter} />}
+      {modal && (
+        <Dropdown
+          location={location}
+          filter={filter}
+          onMouseEnter={() => setVal(true, 0)}
+        />
+      )}
     </div>
   );
 };

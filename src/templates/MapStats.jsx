@@ -1,23 +1,22 @@
-import React from 'react';
 import { graphql, Link } from 'gatsby';
-
+import React from 'react';
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
-import { Ladder } from '../defs';
-import H1 from '../components/typography/H1';
 import MapCard from '../components/MapCard';
-import { Maps } from '../data';
+import MapImage from '../components/MapImage';
+import SEO from '../components/SEO';
+import SortIndicator from '../components/SortIndicator';
+import H1 from '../components/typography/H1';
 import HR from '../components/typography/HR';
 import Table from '../components/typography/Table';
-import TableHeader from '../components/typography/TableHeader';
 import TableCell from '../components/typography/TableCell';
-import TableRow from '../components/typography/TableRow';
-import { leftPad, percentage } from '../formatting';
-import MapImage from '../components/MapImage';
-import { getMapPath } from '../urls';
-import useSort from '../hooks/useSort';
-import SortIndicator from '../components/SortIndicator';
+import TableHeader from '../components/typography/TableHeader';
 import TableHeaderCell from '../components/typography/TableHeaderCell';
+import TableRow from '../components/typography/TableRow';
+import { Maps } from '../data';
+import { Ladder } from '../defs';
+import { leftPad, percentage } from '../formatting';
+import useSort from '../hooks/useSort';
+import { getMapPath } from '../urls';
 import { createFilter } from '../utils';
 
 const StatsRow = ({ mapStats, filter }) => (
@@ -62,7 +61,7 @@ const MapStats = ({ data, location }) => {
         description={`Side by side comparisons of Age of Empires II civilizations by Map, including win rate, 
         play rate, and age timings for the ${
           Ladder[filter.ladderVal]
-        } ladder across ${filter.eloVal || 'All'} ELOs.`}
+        } ladder across ${filter.eloVal || 'All'} Elos.`}
       />
       <H1>Map Stats</H1>
       <HR />

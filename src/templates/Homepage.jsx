@@ -1,13 +1,11 @@
-import React from 'react';
 import { graphql } from 'gatsby';
-
-import Layout from '../components/Layout';
-import { Civs } from '../data';
-import SEO from '../components/SEO';
+import React from 'react';
 import CivCard from '../components/CivCard';
 import Hero from '../components/Hero';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import TopCivs from '../components/TopCivs';
-import Info from '../components/Info';
+import { Civs } from '../data';
 import { createFilter } from '../utils';
 
 const Homepage = ({ data, location }) => {
@@ -34,7 +32,7 @@ const Homepage = ({ data, location }) => {
   return (
     <Layout location={location} filter={filter}>
       <SEO />
-      <Info>
+      {/* <Info>
         <p>
           Patch{' '}
           <a
@@ -47,7 +45,7 @@ const Homepage = ({ data, location }) => {
           has been released! We have published <i>preliminary</i> stats for this
           patch. Not enough data has been collected yet, values may be skewed.
         </p>
-      </Info>
+      </Info> */}
       <Hero />
       <div className="flex flex-wrap mt-3">
         <div className="w-full lg:w-1/2 lg:pr-4">

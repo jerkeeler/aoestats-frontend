@@ -3,7 +3,8 @@
     {
       "id": 9,
       "displayName": "Arabia",
-      "name": "arabia"
+      "name": "arabia",
+      "active": true
     },
     {
       "id": 10,
@@ -53,7 +54,8 @@
     {
       "id": 19,
       "displayName": "Islands",
-      "name":  "islands"
+      "name":  "islands",
+      "active": true
     },
     {
       "id": 20,
@@ -103,7 +105,8 @@
     {
       "id": 29,
       "displayName": "Arena",
-      "name":  "arena"
+      "name":  "arena",
+      "active": true
     },
     {
       "id": 31,
@@ -118,7 +121,8 @@
     {
       "id": 33,
       "displayName": "Nomad",
-      "name":  "nomad"
+      "name":  "nomad",
+      "active": true
     },
     {
       "id": 49,
@@ -233,7 +237,8 @@
     {
       "id": 73,
       "displayName": "Hill Fort",
-      "name":  "hill_fort"
+      "name":  "hill_fort",
+      "active": true
     },
     {
       "id": 74,
@@ -253,7 +258,8 @@
     {
       "id": 77,
       "displayName": "MegaRandom",
-      "name":  "megarandom"
+      "name":  "megarandom",
+      "active": true
     },
     {
       "id": 78,
@@ -298,7 +304,8 @@
     {
       "id": 86,
       "displayName": "Serengeti",
-      "name":  "serengeti"
+      "name":  "serengeti",
+      "active": true
     },
     {
       "id": 87,
@@ -513,12 +520,14 @@
     {
       "id": 139,
       "displayName": "Golden Swamp",
-      "name":  "golden_swamp"
+      "name":  "golden_swamp",
+      "active": true
     },
     {
       "id": 140,
       "displayName": "Four Lakes",
-      "name":  "four_lakes"
+      "name":  "four_lakes",
+      "active": true
     }
   ]
 }
