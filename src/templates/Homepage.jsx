@@ -7,6 +7,7 @@ import SEO from '../components/SEO';
 import TopCivs from '../components/TopCivs';
 import { Civs } from '../data';
 import { createFilter } from '../utils';
+import Info from '../components/Info';
 
 const Homepage = ({ data, location }) => {
   const filter = createFilter(data);
@@ -32,20 +33,20 @@ const Homepage = ({ data, location }) => {
   return (
     <Layout location={location} filter={filter}>
       <SEO />
-      {/* <Info>
+      <Info>
         <p>
           Patch{' '}
           <a
-            href="https://www.ageofempires.com/news/aoe2de-update-36906/"
+            href="https://www.ageofempires.com/news/aoe2de-update-37650/"
             rel="noopener noreferrer"
             className="font-bold underline"
           >
-            36906
+            37650
           </a>{' '}
-          has been released! We have published <i>preliminary</i> stats for this
-          patch. Not enough data has been collected yet, values may be skewed.
+          has been released! We are currently collecting data from the new
+          patch. Check back in a few days for stats for updated stats...
         </p>
-      </Info> */}
+      </Info>
       <Hero />
       <div className="flex flex-wrap mt-3">
         <div className="w-full lg:w-1/2 lg:pr-4">
