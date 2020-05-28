@@ -45,7 +45,8 @@ const StatRow = ({ filter, civ }) => (
       <ChangeIndicator oldVal={civ.previous.playRate} newVal={civ.playRate} />
     </TableCell>
     <TableCell className="font-mono justify-end">
-      {civ.avgGameLength.minutes}:
+      {leftPad(`${civ.avgGameLength.hours || 0}`, 1, '0')}:
+      {leftPad(`${civ.avgGameLength.minutes || 0}`, 2, '0')}:
       {leftPad(`${civ.avgGameLength.seconds || 0}`, 2, '0')}
     </TableCell>
   </TableRow>
@@ -59,7 +60,9 @@ const Stats = ({ location, data }) => {
   data.postgres.previousFilter.deCivilizationstatsByFilterId.nodes.forEach(
     (p) => {
       p.totalSeconds =
-        p.avgGameLength.minutes * 60 + (p.avgGameLength.seconds || 0);
+        (p.avgGameLength.hours || 0) * 60 * 60 +
+        (p.avgGameLength.minutes || 0) * 60 +
+        (p.avgGameLength.seconds || 0);
       previousStats[p.civNum] = p;
     },
   );
@@ -68,7 +71,8 @@ const Stats = ({ location, data }) => {
     civStats.name = Civs[civStats.civNum].name;
     civStats.uniqueUnit = Civs[civStats.civNum].uniqueUnit;
     civStats.totalSeconds =
-      civStats.avgGameLength.minutes * 60 +
+      (civStats.avgGameLength.hours || 0) * 60 * 60 +
+      (civStats.avgGameLength.minutes || 0) * 60 +
       (civStats.avgGameLength.seconds || 0);
     civStats.previous = previousStats[civStats.civNum];
   });
@@ -171,6 +175,7 @@ export const query = graphql`
             avgGameLength {
               seconds
               minutes
+              hours
             }
           }
         }
@@ -185,6 +190,7 @@ export const query = graphql`
             avgGameLength {
               seconds
               minutes
+              hours
             }
           }
         }
