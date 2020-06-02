@@ -65,7 +65,6 @@ const Patch = Object.freeze({
 const SortedPatches = [Patch.de_36202, Patch.de_36906];
 
 const CURRENT_PATCH = Patch.de_36906;
-// const CURRENT_PATCH = Patch.de_36906;
 const PREVIOUS_PATCH = Patch.de_36202;
 
 module.exports = {

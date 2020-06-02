@@ -116,23 +116,15 @@ exports.createPages = async ({ graphql, actions }) => {
       const filteredStats = filter.deCivilizationstatsByFilterId.nodes.filter(
         (stats) => stats.civNum === civ.id,
       );
-      const previousFilteredStats = previousFilter.deCivilizationstatsByFilterId.nodes.filter(
-        (stats) => stats.civNum === civ.id,
-      );
       if (filteredStats.length !== 1)
         throw new Error('Multiple civ stats for filter!');
-      if (previousFilteredStats.length !== 1)
-        throw new Error('Multiple previous civ stats for filter!');
-      const filterStats = filteredStats[0];
-      const previousStats = previousFilteredStats[0];
 
       createPage({
         path: `/civ/${civ.name}${pagePath}`,
         component: path.resolve('./src/templates/Civ.jsx'),
         context: {
           ...context,
-          civStatsId: filterStats.id,
-          previousCivStatsId: previousStats.id,
+          civNum: civ.id,
         },
       });
     });

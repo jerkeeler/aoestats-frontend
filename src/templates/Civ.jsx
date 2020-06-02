@@ -12,13 +12,15 @@ import HR from '../components/typography/HR';
 import { Civs, CivsByName } from '../data';
 import {
   CivSeries,
+  CURRENT_PATCH,
+  PREVIOUS_PATCH,
   Ladder,
   OverTimeSeries,
   SortedOverTimeBuckets,
   SortedPatches,
 } from '../defs';
 import { getWinRateClass, percentage } from '../formatting';
-import { createFilter } from '../utils';
+import { getStatsByPatch, createFilter } from '../utils';
 
 const GraphTitle = ({ children }) => (
   <h3 className="text-xl text-stats-medium mb-3 mt-3 font-bold">{children}</h3>
@@ -26,21 +28,25 @@ const GraphTitle = ({ children }) => (
 
 const Civ = ({ data, location }) => {
   const filter = createFilter(data);
-  const civInfo = data.postgres.stats;
-  const previousStats = data.postgres.previousStats;
-  const civWinRates = civInfo.series[CivSeries.win_rate_vs_civs];
+  const stats = getStatsByPatch(data);
+
+  const currentStats = stats[CURRENT_PATCH];
+  const previousStats = stats[PREVIOUS_PATCH];
+
+  const civWinRates = currentStats.series[CivSeries.win_rate_vs_civs];
   const flatCivWinRates = Object.entries(civWinRates)
     .map(([key, value]) => ({
       winRate: value.value,
       name: key,
       civNum: CivsByName[key].id,
     }))
-    .filter((civ) => civInfo.civNum !== civ.civNum);
+    .filter((civ) => currentStats.civNum !== civ.civNum);
   flatCivWinRates.sort((a, b) => (a.winRate < b.winRate ? 1 : -1));
   const top5 = flatCivWinRates.slice(0, 5);
   const bottom5 = flatCivWinRates.slice(-5);
 
-  const winRatesOverTime = civInfo.series[OverTimeSeries.win_rate_over_time];
+  const winRatesOverTime =
+    currentStats.series[OverTimeSeries.win_rate_over_time];
   const overTimedata = SortedOverTimeBuckets.map((bucket) =>
     percentage(winRatesOverTime[bucket].value),
   );
@@ -48,7 +54,7 @@ const Civ = ({ data, location }) => {
   const datasets = [
     {
       data: overTimedata,
-      label: Civs[civInfo.civNum].name,
+      label: Civs[currentStats.civNum].name,
       color: 'rgb(36, 209, 248)',
       backgroundColor: 'rgba(36, 209, 248, 0.3)',
     },
@@ -62,8 +68,10 @@ const Civ = ({ data, location }) => {
 
   const winByPatch = [
     {
-      data: [previousStats.winRate, civInfo.winRate].map(percentage),
-      label: Civs[civInfo.civNum].name,
+      data: SortedPatches.map((patchVal) => stats[patchVal].winRate).map(
+        percentage,
+      ),
+      label: Civs[currentStats.civNum].name,
       color: 'rgb(36, 209, 248)',
       backgroundColor: 'rgba(36, 209, 248, 0.3)',
     },
@@ -77,8 +85,10 @@ const Civ = ({ data, location }) => {
 
   const playByPatch = [
     {
-      data: [previousStats.playRate, civInfo.playRate].map(percentage),
-      label: Civs[civInfo.civNum].name,
+      data: SortedPatches.map((patchVal) => stats[patchVal].playRate).map(
+        percentage,
+      ),
+      label: Civs[currentStats.civNum].name,
       color: 'rgb(36, 209, 248)',
       backgroundColor: 'rgba(36, 209, 248, 0.3)',
     },
@@ -87,33 +97,33 @@ const Civ = ({ data, location }) => {
   return (
     <Layout location={location} filter={filter}>
       <SEO
-        title={Civs[civInfo.civNum].name}
+        title={Civs[currentStats.civNum].name}
         description={`Detailed statistics, including win rate and play rate, on the ${
-          Civs[civInfo.civNum].name
+          Civs[currentStats.civNum].name
         } civilization in Age of Empires II in the ${
           Ladder[filter.ladderVal]
         } ladder across ${
           filter.eloVal || 'all'
-        } Elo. Current win rate: ${percentage(civInfo.winRate)}%`}
+        } Elo. Current win rate: ${percentage(currentStats.winRate)}%`}
       />
-      <H1>{Civs[civInfo.civNum].name}</H1>
+      <H1>{Civs[currentStats.civNum].name}</H1>
       <HR />
       <div className="flex flex-col">
         <div className="w-full flex flex-wrap">
           <div className="w-full lg:w-3/12 flex flex-col items-center">
-            <CivImage civId={civInfo.civNum} className="w-32 h-32" />
+            <CivImage civId={currentStats.civNum} className="w-32 h-32" />
             <Rate
               title="Win Rate"
-              value={percentage(civInfo.winRate)}
+              value={percentage(currentStats.winRate)}
               previousValue={percentage(previousStats.winRate)}
-              games={civInfo.numWon}
-              textColor={`text-${getWinRateClass(civInfo.winRate)}`}
+              games={currentStats.numWon}
+              textColor={`text-${getWinRateClass(currentStats.winRate)}`}
             />
             <Rate
               title="Play Rate"
-              value={percentage(civInfo.playRate)}
+              value={percentage(currentStats.playRate)}
               previousValue={percentage(previousStats.playRate)}
-              games={civInfo.numPlayed}
+              games={currentStats.numPlayed}
               textColor="text-stats"
             />
           </div>
@@ -165,7 +175,7 @@ const Civ = ({ data, location }) => {
           <h3 className="text-2xl mb-1">Win Rate by Map</h3>
           <CivMapRates
             filter={filter}
-            mapStats={civInfo.series[CivSeries.win_rate_for_maps]}
+            mapStats={currentStats.series[CivSeries.win_rate_for_maps]}
           />
         </div>
       </div>
@@ -174,7 +184,7 @@ const Civ = ({ data, location }) => {
 };
 
 export const query = graphql`
-  query($filterId: Int!, $civStatsId: Int!, $previousCivStatsId: Int!) {
+  query($filterId: Int!, $eloVal: String, $civNum: Int!) {
     postgres {
       filter: deFilterById(id: $filterId) {
         id
@@ -183,30 +193,22 @@ export const query = graphql`
         eloVal
         combined
       }
-      stats: deCivilizationstatById(id: $civStatsId) {
-        civNum
-        playRate
-        winRate
-        series
-        numWon
-        numPlayed
-        gamesAnalyzed
-        avgGameLength {
-          seconds
-          minutes
-        }
-      }
-      previousStats: deCivilizationstatById(id: $previousCivStatsId) {
-        civNum
-        playRate
-        winRate
-        series
-        numWon
-        numPlayed
-        gamesAnalyzed
-        avgGameLength {
-          seconds
-          minutes
+      allCivStats: allDeFilters(condition: { eloVal: $eloVal }) {
+        nodes {
+          patchVal
+          deCivilizationstatsByFilterIdList(condition: { civNum: $civNum }) {
+            civNum
+            playRate
+            winRate
+            series
+            numWon
+            numPlayed
+            gamesAnalyzed
+            avgGameLength {
+              seconds
+              minutes
+            }
+          }
         }
       }
     }

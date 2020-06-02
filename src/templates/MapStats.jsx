@@ -126,29 +126,9 @@ const MapStats = ({ data, location }) => {
 };
 
 export const query = graphql`
-  query($filterId: Int!, $previousFilterId: Int!) {
+  query($filterId: Int!) {
     postgres {
       filter: deFilterById(id: $filterId) {
-        id
-        patchVal
-        ladderVal
-        eloVal
-        combined
-        deMapstatsByFilterId {
-          nodes {
-            winRate
-            playRate
-            mapNum
-            series
-            numPlayed
-            avgGameLength {
-              seconds
-              minutes
-            }
-          }
-        }
-      }
-      previousFilter: deFilterById(id: $previousFilterId) {
         id
         patchVal
         ladderVal
