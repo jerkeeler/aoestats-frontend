@@ -193,7 +193,9 @@ export const query = graphql`
         eloVal
         combined
       }
-      allCivStats: allDeFilters(condition: { eloVal: $eloVal }) {
+      allCivStats: allDeFilters(
+        condition: { eloVal: $eloVal, removedAt: null }
+      ) {
         nodes {
           patchVal
           deCivilizationstatsByFilterIdList(condition: { civNum: $civNum }) {
