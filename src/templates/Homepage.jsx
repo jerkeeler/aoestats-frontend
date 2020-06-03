@@ -35,18 +35,32 @@ const Homepage = ({ data, location }) => {
       <SEO />
       <Info>
         <p>
-          Patch{' '}
+          We have published <strong>preliminary</strong> stats for patch{' '}
           <a
             href="https://www.ageofempires.com/news/aoe2de-update-37650/"
             rel="noopener noreferrer"
             className="font-bold underline"
           >
-            37650
-          </a>{' '}
-          has been released! We are currently collecting data from the new
-          patch. Check back in a few days for stats for updated stats...
+            37906
+          </a>
+          . Stats are likely to change over the next week as more match data is
+          collected.
         </p>
       </Info>
+      {/*<Info>*/}
+      {/*  <p>*/}
+      {/*    Patch{' '}*/}
+      {/*    <a*/}
+      {/*      href="https://www.ageofempires.com/news/aoe2de-update-37650/"*/}
+      {/*      rel="noopener noreferrer"*/}
+      {/*      className="font-bold underline"*/}
+      {/*    >*/}
+      {/*      37650*/}
+      {/*    </a>{' '}*/}
+      {/*    has been released! We are currently collecting data from the new*/}
+      {/*    patch. Check back in a few days for updated stats...*/}
+      {/*  </p>*/}
+      {/*</Info>*/}
       <Hero />
       <div className="flex flex-wrap mt-3">
         <div className="w-full lg:w-1/2 lg:pr-4">

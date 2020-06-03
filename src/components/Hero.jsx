@@ -20,7 +20,7 @@ const Hero = () => {
           condition: {
             flagged: false
             leaderboardId: 3
-            patchVal: "36906"
+            patchVal: "37906"
             addedToAverage: true
           }
         ) {
