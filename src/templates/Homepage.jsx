@@ -43,7 +43,7 @@ const Homepage = ({ data, location }) => {
           >
             37906
           </a>
-          . Stats are likely to change over the next week as more match data is
+          . Stats are likely to change over the next week as more data is
           collected.
         </p>
       </Info>

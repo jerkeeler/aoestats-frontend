@@ -4,6 +4,7 @@ import A from './typography/A';
 import { formatDate, numberWithCommas } from '../formatting';
 import useLastUpdatedTime from '../hooks/useLastUpdatedTime';
 import { graphql, useStaticQuery } from 'gatsby';
+import Link from './Link';
 
 const Seperator = () => <span className="mx-2">|</span>;
 
@@ -25,10 +26,13 @@ const Footer = () => {
   return (
     <footer className="flex flex-col items-center text-center pb-6">
       <hr className="my-6 w-9/12 border-gray-800" />
-      <p className="mb-6">
+      <p className="mb-1">
         © aoestats 2019 <Seperator /> Made by{' '}
-        <A to="https://twitter.com/jerkeeler">jerbot</A> <Seperator /> Stats
-        last updated: {formatDate(lastUpdatedTime)} <Seperator /> Over{' '}
+        <A to="https://twitter.com/jerkeeler">jerbot</A> <Seperator />{' '}
+        <Link to="/changelog">Changelog</Link>
+      </p>
+      <p className="mb-6">
+        Stats last updated: {formatDate(lastUpdatedTime)} <Seperator /> Over{' '}
         {numberWithCommas(data.matches.allDeMatches.totalCount)} matches in the
         database
       </p>

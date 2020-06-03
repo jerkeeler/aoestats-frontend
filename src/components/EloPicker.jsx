@@ -31,7 +31,7 @@ const getUrl = (location, filter, eloBracket = null) => {
 };
 
 const DropdownItem = ({ children, to }) => (
-  <li className="hover:bg-gray-300">
+  <li className="hover:bg-gray-300 whitespace-no-wrap">
     <Link to={to} className="w-full h-full py-1 px-2 block">
       {children}
     </Link>

@@ -6,6 +6,7 @@ import H1 from '../components/typography/H1';
 import HR from '../components/typography/HR';
 import { formatDate } from '../formatting';
 import useLastUpdatedTime from '../hooks/useLastUpdatedTime';
+import Link from '../components/Link';
 
 const Item = ({ question, children }) => (
   <div className="w-full md:w-1/2 p-6 text-gray-900 flex">
@@ -90,6 +91,12 @@ const Faq = ({ location }) => {
           <p>
             I'm working on a way to provide access to the raw data. Please stay
             tuned! I know I have gotten a lot of requests for this in the past.
+          </p>
+        </Item>
+        <Item question="What has changed on the site recently?">
+          <p>
+            Check out my <Link to="/changelog">changelog</Link> page to view a
+            list of notable changes and when the occurred.
           </p>
         </Item>
       </div>
