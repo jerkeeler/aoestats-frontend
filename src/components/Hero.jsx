@@ -17,12 +17,7 @@ const Hero = () => {
       }
       matches: postgres {
         allDeMatches(
-          condition: {
-            flagged: false
-            leaderboardId: 3
-            patchVal: "37906"
-            addedToAverage: true
-          }
+          condition: { flagged: false, leaderboardId: 3, patchVal: "37906" }
         ) {
           totalCount
         }

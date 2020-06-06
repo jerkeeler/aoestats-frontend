@@ -27,6 +27,9 @@ const Changelog = ({ location }) => (
           Updated how stats are calculated to be more performant and more
           accurate
         </ChangeItem>
+        <ChangeItem>
+          Updated to only show percentage change if greater than 5%
+        </ChangeItem>
       </DateItem>
       <DateItem date="June 3, 2020">
         <ChangeItem>Published preliminary results of patch 37906</ChangeItem>

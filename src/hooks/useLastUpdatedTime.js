@@ -4,7 +4,7 @@ const useLastUpdatedTime = () => {
   const data = useStaticQuery(graphql`
     query {
       postgres {
-        allDeLadderstats {
+        allDeCivilizationstats {
           nodes {
             lastUpdate
           }
@@ -12,7 +12,7 @@ const useLastUpdatedTime = () => {
       }
     }
   `);
-  return data.postgres.allDeLadderstats.nodes
+  return data.postgres.allDeCivilizationstats.nodes
     .filter((node) => node !== null)
     .map((node) => new Date(node.lastUpdate))
     .reduce((a, b) => (a > b ? a : b));

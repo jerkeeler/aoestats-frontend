@@ -14,9 +14,7 @@ const Footer = () => {
   const data = useStaticQuery(graphql`
     query {
       matches: postgres {
-        allDeMatches(
-          condition: { flagged: false, leaderboardId: 3, addedToAverage: true }
-        ) {
+        allDeMatches(condition: { flagged: false }) {
           totalCount
         }
       }
