@@ -23,6 +23,10 @@ const Changelog = ({ location }) => (
         <ChangeItem>
           Fixed bug where old maps were showing up in searchbar
         </ChangeItem>
+        <ChangeItem>
+          Updated how stats are calculated to be more performant and more
+          accurate
+        </ChangeItem>
       </DateItem>
       <DateItem date="June 3, 2020">
         <ChangeItem>Published preliminary results of patch 37906</ChangeItem>
