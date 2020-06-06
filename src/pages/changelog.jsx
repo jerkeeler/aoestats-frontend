@@ -19,6 +19,11 @@ const Changelog = ({ location }) => (
     <H1>Changelog</H1>
     <HR />
     <ul className="mt-6 list-disc pl-6">
+      <DateItem date="June 6, 2020">
+        <ChangeItem>
+          Fixed bug where old maps were showing up in searchbar
+        </ChangeItem>
+      </DateItem>
       <DateItem date="June 3, 2020">
         <ChangeItem>Published preliminary results of patch 37906</ChangeItem>
         <ChangeItem>
