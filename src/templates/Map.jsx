@@ -71,7 +71,7 @@ const MapPage = ({ data, location }) => {
     <Layout filter={filter} location={location}>
       <SEO
         title={mapInfo.displayName}
-        description={`Arabia: civ win rates and play rates for the map ${
+        description={`Arabia: data and statistics, including civ win rates and play rates, for the map ${
           mapInfo.displayName
         } and ladder ${Ladder[filter.ladderVal]} across ${
           filter.eloVal || 'all'

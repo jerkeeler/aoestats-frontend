@@ -84,7 +84,7 @@ const CivTeam = ({ data, location }) => {
     <Layout location={location} filter={filter}>
       <SEO
         title={Civs[currentStats.civNum].name}
-        description={`Detailed statistics, including win rate and play rate, on the ${
+        description={`Detailed data and statistics, including win rate and play rate, on the ${
           Civs[currentStats.civNum].name
         } civilization in Age of Empires II in the ${
           Ladder[filter.ladderVal]
