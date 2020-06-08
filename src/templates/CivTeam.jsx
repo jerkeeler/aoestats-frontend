@@ -6,18 +6,16 @@ import Layout from '../components/Layout';
 import LineGraph from '../components/LineGraph';
 import Rate from '../components/Rate';
 import SEO from '../components/SEO';
-import TopCivs from '../components/TopCivs';
 import H1 from '../components/typography/H1';
 import HR from '../components/typography/HR';
-import { Civs, CivsByName } from '../data';
+import { Civs } from '../data';
 import {
   CivSeries,
   CURRENT_PATCH,
-  PREVIOUS_PATCH,
   Ladder,
   OverTimeSeries,
   SortedOverTimeBuckets,
-  SortedPatches,
+  SortedPatchesTeam,
 } from '../defs';
 import { getWinRateClass, percentage } from '../formatting';
 import { getStatsByPatch, createFilter } from '../utils';
@@ -26,24 +24,12 @@ const GraphTitle = ({ children }) => (
   <h3 className="text-xl text-stats-medium mb-3 mt-3 font-bold">{children}</h3>
 );
 
-const Civ = ({ data, location }) => {
+const CivTeam = ({ data, location }) => {
   const filter = createFilter(data);
   const stats = getStatsByPatch(data);
 
   const currentStats = stats[CURRENT_PATCH];
-  const previousStats = stats[PREVIOUS_PATCH];
-
-  const civWinRates = currentStats.series[CivSeries.win_rate_vs_civs];
-  const flatCivWinRates = Object.entries(civWinRates)
-    .map(([key, value]) => ({
-      winRate: value.value,
-      name: key,
-      civNum: CivsByName[key].id,
-    }))
-    .filter((civ) => currentStats.civNum !== civ.civNum);
-  flatCivWinRates.sort((a, b) => (a.winRate < b.winRate ? 1 : -1));
-  const top5 = flatCivWinRates.slice(0, 5);
-  const bottom5 = flatCivWinRates.slice(-5);
+  // const previousStats = stats[PREVIOUS_PATCH];
 
   const winRatesOverTime =
     currentStats.series[OverTimeSeries.win_rate_over_time];
@@ -68,7 +54,7 @@ const Civ = ({ data, location }) => {
 
   const winByPatch = [
     {
-      data: SortedPatches.map((patchVal) => stats[patchVal].winRate).map(
+      data: SortedPatchesTeam.map((patchVal) => stats[patchVal].winRate).map(
         percentage,
       ),
       label: Civs[currentStats.civNum].name,
@@ -76,7 +62,7 @@ const Civ = ({ data, location }) => {
       backgroundColor: 'rgba(36, 209, 248, 0.3)',
     },
     {
-      data: Array(SortedPatches.length).fill(50),
+      data: Array(SortedPatchesTeam.length).fill(50),
       label: `${filter.eloVal || 'All'} Avg`,
       color: 'rgb(220, 220, 220)',
       backgroundColor: 'rgba(220, 220, 220, 0.3)',
@@ -85,7 +71,7 @@ const Civ = ({ data, location }) => {
 
   const playByPatch = [
     {
-      data: SortedPatches.map((patchVal) => stats[patchVal].playRate).map(
+      data: SortedPatchesTeam.map((patchVal) => stats[patchVal].playRate).map(
         percentage,
       ),
       label: Civs[currentStats.civNum].name,
@@ -115,14 +101,14 @@ const Civ = ({ data, location }) => {
             <Rate
               title="Win Rate"
               value={percentage(currentStats.winRate)}
-              previousValue={percentage(previousStats.winRate)}
+              // previousValue={percentage(previousStats.winRate)}
               games={currentStats.numWon}
               textColor={`text-${getWinRateClass(currentStats.winRate)}`}
             />
             <Rate
               title="Play Rate"
               value={percentage(currentStats.playRate)}
-              previousValue={percentage(previousStats.playRate)}
+              // previousValue={percentage(previousStats.playRate)}
               games={currentStats.numPlayed}
               textColor="text-stats"
             />
@@ -142,7 +128,7 @@ const Civ = ({ data, location }) => {
                 <GraphTitle>Win Rate by Patch</GraphTitle>
                 <LineGraph
                   datasets={winByPatch}
-                  labels={SortedPatches}
+                  labels={SortedPatchesTeam}
                   xAxesLabel="patch"
                   yAxesLabel="win rate (%)"
                 />
@@ -153,22 +139,12 @@ const Civ = ({ data, location }) => {
                 <GraphTitle>Play Rate by Patch</GraphTitle>
                 <LineGraph
                   datasets={playByPatch}
-                  labels={SortedPatches}
+                  labels={SortedPatchesTeam}
                   xAxesLabel="patch"
                   yAxesLabel="play rate (%)"
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div className="w-full flex flex-wrap">
-          <div className="w-full md:w-1/2 md:pr-4">
-            <h3 className="text-2xl mb-1">Highest Win Rates Against</h3>
-            <TopCivs filter={filter} civs={top5} />
-          </div>
-          <div className="w-full md:w-1/2 md:pl-4">
-            <h3 className="text-2xl mb-1">Lowest Win Rates Against</h3>
-            <TopCivs filter={filter} civs={bottom5} />
           </div>
         </div>
         <div className="w-full mt-3">
@@ -197,10 +173,7 @@ export const query = graphql`
         condition: { eloVal: $eloVal, removedAt: null, ladderVal: $ladderVal }
       ) {
         nodes {
-          id
           patchVal
-          eloVal
-          ladderVal
           deCivilizationstatsByFilterIdList(condition: { civNum: $civNum }) {
             civNum
             playRate
@@ -220,4 +193,4 @@ export const query = graphql`
   }
 `;
 
-export default Civ;
+export default CivTeam;

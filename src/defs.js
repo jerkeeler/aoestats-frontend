@@ -48,6 +48,11 @@ const Ladder = Object.freeze({
   4: 'Team Random Map',
 });
 
+const LadderToNum = Object.freeze({
+  RM_1v1: 3,
+  RM_TEAM: 4,
+});
+
 const LadderToShortname = Object.freeze({
   0: 'Unranked',
   1: 'DM_1v1',
@@ -55,6 +60,8 @@ const LadderToShortname = Object.freeze({
   3: 'RM_1v1',
   4: 'RM_TEAM',
 });
+
+const SortedLadders = [LadderToNum.RM_1v1, LadderToNum.RM_TEAM];
 
 const Patch = Object.freeze({
   de_37906: '37906',
@@ -64,6 +71,7 @@ const Patch = Object.freeze({
 });
 
 const SortedPatches = [Patch.de_36202, Patch.de_36906, Patch.de_37906];
+const SortedPatchesTeam = [Patch.de_36906, Patch.de_37906];
 
 const CURRENT_PATCH = Patch.de_37906;
 const PREVIOUS_PATCH = Patch.de_36906;
@@ -78,8 +86,11 @@ module.exports = {
   SortedEloBrackets,
   Ladder,
   LadderToShortname,
+  LadderToNum,
+  SortedLadders,
   Patch,
   SortedPatches,
+  SortedPatchesTeam,
   CURRENT_PATCH,
   PREVIOUS_PATCH,
 };

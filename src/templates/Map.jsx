@@ -56,14 +56,6 @@ const MapPage = ({ data, location }) => {
         winRate: value.value,
         playRate: mapStats.series[MapSeries.play_rate_for_civs][key].value,
         ...CivsByName[key],
-        previous: {
-          playRate: previousMapStats
-            ? previousMapStats.series[MapSeries.play_rate_for_civs][key].value
-            : null,
-          winRate: previousMapStats
-            ? previousMapStats.series[MapSeries.win_rate_for_civs][key].value
-            : null,
-        },
       });
     },
   );

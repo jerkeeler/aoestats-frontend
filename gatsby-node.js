@@ -2,11 +2,14 @@ const path = require(`path`);
 
 const { civilizations } = require('./src/data/civilizations.json');
 const { maps } = require('./src/data/maps.json');
-const { CURRENT_PATCH, PREVIOUS_PATCH } = require('./src/defs');
+const { CURRENT_PATCH, PREVIOUS_PATCH, LadderToNum } = require('./src/defs');
 const { getPathFromFilter } = require('./src/urls');
 
 const mapsById = {};
 maps.forEach((m) => (mapsById[m.id] = m));
+
+const oneVoneCivTemplate = path.resolve('./src/templates/Civ.jsx');
+const teamCivTemplate = path.resolve('./src/templates/CivTeam.jsx');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -68,16 +71,17 @@ exports.createPages = async ({ graphql, actions }) => {
         f.eloVal === filter.eloVal &&
         f.combined === filter.combined,
     );
-    if (filteredPreviousFilters.length !== 1)
-      throw new Error(`Could not find previous filter to match ${filter.id}`);
-    const previousFilter = filteredPreviousFilters[0];
+    if (filteredPreviousFilters.length > 1)
+      throw new Error(`Found more than 1 previous filter for ${filter.id}`);
+    const previousFilter =
+      filteredPreviousFilters.length === 1 ? filteredPreviousFilters[0] : null;
     const context = {
       patchVal: filter.patchVal,
       ladderVal: filter.ladderVal,
       eloVal: filter.eloVal,
       combined: filter.combined,
       filterId: filter.id,
-      previousFilterId: previousFilter.id,
+      previousFilterId: previousFilter && previousFilter.id,
     };
     const pagePath = getPathFromFilter(filter);
     console.log(`Creating page ${pagePath}`);
@@ -119,9 +123,14 @@ exports.createPages = async ({ graphql, actions }) => {
       if (filteredStats.length !== 1)
         throw new Error('Multiple civ stats for filter!');
 
+      const templatePath =
+        filter.ladderVal === LadderToNum.RM_TEAM
+          ? teamCivTemplate
+          : oneVoneCivTemplate;
+
       createPage({
         path: `/civ/${civ.name}${pagePath}`,
-        component: path.resolve('./src/templates/Civ.jsx'),
+        component: templatePath,
         context: {
           ...context,
           civNum: civ.id,
@@ -130,9 +139,11 @@ exports.createPages = async ({ graphql, actions }) => {
     });
 
     filter.deMapstatsByFilterId.nodes.forEach((mapStat) => {
-      const previousMapStats = previousFilter.deMapstatsByFilterId.nodes.filter(
-        (stats) => stats.mapNum === mapStat.mapNum,
-      );
+      let previousMapStats = [];
+      if (previousFilter)
+        previousMapStats = previousFilter.deMapstatsByFilterId.nodes.filter(
+          (stats) => stats.mapNum === mapStat.mapNum,
+        );
       if (previousMapStats.length > 1)
         throw new Error('Multiple previous map stats found!');
       const previousMapStatsId =

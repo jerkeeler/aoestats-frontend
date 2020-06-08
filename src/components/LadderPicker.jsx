@@ -4,10 +4,10 @@ import React, { useEffect, useState } from 'react';
 
 import Dropdown, { DropdownItem } from './Dropdown';
 import { KeyCode } from '../consts';
-import { SortedEloBrackets } from '../defs';
+import { Ladder, LadderToNum, SortedLadders } from '../defs';
 import { getPickerUrl } from '../urls';
 
-const EloPicker = ({ location, filter }) => {
+const LadderPicker = ({ location, filter }) => {
   const [modal, setModal] = useState(false);
   const [timer, setTimer] = useState(null);
 
@@ -40,7 +40,8 @@ const EloPicker = ({ location, filter }) => {
       role="button"
       tabIndex={0}
     >
-      Elo: <b className="ml-1">{filter.eloVal || 'All'} </b>
+      Ladder:{' '}
+      <b className="ml-1">{Ladder[filter.ladderVal || LadderToNum.RM_1v1]} </b>
       <span className="inline-block w-2 h-4 ml-1 overflow-hidden">
         <FontAwesomeIcon
           icon={faCaretDown}
@@ -54,13 +55,12 @@ const EloPicker = ({ location, filter }) => {
           filter={filter}
           onMouseEnter={() => setVal(true, 0)}
         >
-          <DropdownItem to={getPickerUrl(location, filter)}>All</DropdownItem>
-          {SortedEloBrackets.map((value) => (
+          {SortedLadders.map((value) => (
             <DropdownItem
-              to={getPickerUrl(location, filter, value)}
+              to={getPickerUrl(location, filter, filter.eloVal, value)}
               key={value}
             >
-              {value}
+              {Ladder[value]}
             </DropdownItem>
           ))}
         </Dropdown>
@@ -69,4 +69,4 @@ const EloPicker = ({ location, filter }) => {
   );
 };
 
-export default EloPicker;
+export default LadderPicker;

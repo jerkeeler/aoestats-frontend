@@ -3,8 +3,7 @@
     {
       "id": 9,
       "displayName": "Arabia",
-      "name": "arabia",
-      "active": true
+      "name": "arabia"
     },
     {
       "id": 10,
@@ -29,8 +28,7 @@
     {
       "id": 14,
       "displayName": "Continental",
-      "name":  "continental",
-      "active": true
+      "name":  "continental"
     },
     {
       "id": 15,
@@ -105,8 +103,7 @@
     {
       "id": 29,
       "displayName": "Arena",
-      "name":  "arena",
-      "active": true
+      "name":  "arena"
     },
     {
       "id": 31,
@@ -226,8 +223,7 @@
     {
       "id": 71,
       "displayName": "Golden Pit",
-      "name":  "golden_pit",
-      "active": true
+      "name":  "golden_pit"
     },
     {
       "id": 72,
@@ -237,8 +233,7 @@
     {
       "id": 73,
       "displayName": "Hill Fort",
-      "name":  "hill_fort",
-      "active": true
+      "name":  "hill_fort"
     },
     {
       "id": 74,
@@ -258,8 +253,7 @@
     {
       "id": 77,
       "displayName": "MegaRandom",
-      "name":  "megarandom",
-      "active": true
+      "name":  "megarandom"
     },
     {
       "id": 78,
@@ -289,14 +283,12 @@
     {
       "id": 83,
       "displayName": "Kilimanjaro",
-      "name":  "kilimanjaro",
-      "active": true
+      "name":  "kilimanjaro"
     },
     {
       "id": 84,
       "displayName": "Mountain Pass",
-      "name":  "mountain_pass",
-      "active": true
+      "name":  "mountain_pass"
     },
     {
       "id": 85,
@@ -436,8 +428,7 @@
     {
       "id": 112,
       "displayName": "Bog Islands",
-      "name":  "bog_islands",
-      "active": true
+      "name":  "bog_islands"
     },
     {
       "id": 113,
