@@ -33,20 +33,20 @@ const Homepage = ({ data, location }) => {
   return (
     <Layout location={location} filter={filter}>
       <SEO />
-      <Info>
-        <p>
-          We have published <strong>preliminary</strong> stats for patch{' '}
-          <a
-            href="https://www.ageofempires.com/news/aoe2de-update-37650/"
-            rel="noopener noreferrer"
-            className="font-bold underline"
-          >
-            37906
-          </a>
-          . Stats are likely to change over the next week as more data is
-          collected.
-        </p>
-      </Info>
+      {/*<Info>*/}
+      {/*  <p>*/}
+      {/*    We have published <strong>preliminary</strong> stats for patch{' '}*/}
+      {/*    <a*/}
+      {/*      href="https://www.ageofempires.com/news/aoe2de-update-37650/"*/}
+      {/*      rel="noopener noreferrer"*/}
+      {/*      className="font-bold underline"*/}
+      {/*    >*/}
+      {/*      37906*/}
+      {/*    </a>*/}
+      {/*    . Stats are likely to change over the next week as more data is*/}
+      {/*    collected.*/}
+      {/*  </p>*/}
+      {/*</Info>*/}
       {/*<Info>*/}
       {/*  <p>*/}
       {/*    Patch{' '}*/}
