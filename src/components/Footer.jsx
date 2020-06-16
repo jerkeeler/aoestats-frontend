@@ -27,7 +27,8 @@ const Footer = () => {
       <p className="mb-1">
         © aoestats 2019 <Seperator /> Made by{' '}
         <A to="https://twitter.com/jerkeeler">jerbot</A> <Seperator />{' '}
-        <Link to="/changelog">Changelog</Link>
+        <Link to="/changelog">Changelog</Link> <Seperator />{' '}
+        <A to="https://api.aoestats.io/de/">API</A>
       </p>
       <p className="mb-6">
         Stats last updated: {formatDate(lastUpdatedTime)} <Seperator /> Over{' '}

@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import H1 from '../components/typography/H1';
 import HR from '../components/typography/HR';
+import A from '../components/typography/A';
 
 const ChangeItem = ({ children }) => <li>{children}</li>;
 
@@ -19,6 +20,12 @@ const Changelog = ({ location }) => (
     <H1>Changelog</H1>
     <HR />
     <ul className="mt-6 list-disc pl-6">
+      <DateItem date="June 15, 2020">
+        <ChangeItem>
+          Added a developer API! It can be accessed at:{' '}
+          <A to="https://api.aoestats.io/de/">api.aoestats.io/de/</A>
+        </ChangeItem>
+      </DateItem>
       <DateItem date="June 8, 2020">
         <ChangeItem>Added team game stats!</ChangeItem>
       </DateItem>
