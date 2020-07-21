@@ -2,12 +2,12 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import CivCard from '../components/CivCard';
 import Hero from '../components/Hero';
+import Info from '../components/Info';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import TopCivs from '../components/TopCivs';
 import { Civs } from '../data';
 import { createFilter } from '../utils';
-import Info from '../components/Info';
 
 const Homepage = ({ data, location }) => {
   const filter = createFilter(data);
@@ -33,34 +33,34 @@ const Homepage = ({ data, location }) => {
   return (
     <Layout location={location} filter={filter}>
       <SEO />
-      {/*<Info>*/}
-      {/*  <p>*/}
-      {/*    We have published <strong>preliminary</strong> stats for patch{' '}*/}
-      {/*    <a*/}
-      {/*      href="https://www.ageofempires.com/news/aoe2de-update-37650/"*/}
-      {/*      rel="noopener noreferrer"*/}
-      {/*      className="font-bold underline"*/}
-      {/*    >*/}
-      {/*      37906*/}
-      {/*    </a>*/}
-      {/*    . Stats are likely to change over the next week as more data is*/}
-      {/*    collected.*/}
-      {/*  </p>*/}
-      {/*</Info>*/}
-      {/*<Info>*/}
-      {/*  <p>*/}
-      {/*    Patch{' '}*/}
-      {/*    <a*/}
-      {/*      href="https://www.ageofempires.com/news/aoe2de-update-37650/"*/}
-      {/*      rel="noopener noreferrer"*/}
-      {/*      className="font-bold underline"*/}
-      {/*    >*/}
-      {/*      37650*/}
-      {/*    </a>{' '}*/}
-      {/*    has been released! We are currently collecting data from the new*/}
-      {/*    patch. Check back in a few days for updated stats...*/}
-      {/*  </p>*/}
-      {/*</Info>*/}
+      {/* <Info>
+        <p>
+          We have published <strong>preliminary</strong> stats for patch{' '}
+          <a
+            href="https://www.ageofempires.com/news/aoe2de-update-37650/"
+            rel="noopener noreferrer"
+            className="font-bold underline"
+          >
+            37906
+          </a>
+          . Stats are likely to change over the next week as more data is
+          collected.
+        </p>
+      </Info> */}
+      <Info>
+        <p>
+          Patch{' '}
+          <a
+            href="https://www.ageofempires.com/news/aoe2de-update-39284/"
+            rel="noopener noreferrer"
+            className="font-bold underline"
+          >
+            39284
+          </a>{' '}
+          has been released! We are currently collecting data from the new
+          patch. Check back in a few days for updated stats...
+        </p>
+      </Info>
       <Hero />
       <div className="flex flex-wrap mt-3">
         <div className="w-full lg:w-1/2 lg:pr-4">
