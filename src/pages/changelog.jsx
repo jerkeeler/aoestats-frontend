@@ -1,9 +1,9 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
+import A from '../components/typography/A';
 import H1 from '../components/typography/H1';
 import HR from '../components/typography/HR';
-import A from '../components/typography/A';
 
 const ChangeItem = ({ children }) => <li>{children}</li>;
 
@@ -20,6 +20,18 @@ const Changelog = ({ location }) => (
     <H1>Changelog</H1>
     <HR />
     <ul className="mt-6 list-disc pl-6">
+      <DateItem date="July 20, 2020">
+        <ChangeItem>
+          Created a dump of the raw match and player data available{' '}
+          <A to="https://www.kaggle.com/jerkeeler/age-of-empires-ii-de-match-data">
+            on Kaggle
+          </A>
+          . Data is updated monthly.
+        </ChangeItem>
+        <ChangeItem>
+          Added maps to patch 37906 that were added mid-patch.
+        </ChangeItem>
+      </DateItem>
       <DateItem date="June 15, 2020">
         <ChangeItem>
           Added a developer API! It can be accessed at:{' '}
