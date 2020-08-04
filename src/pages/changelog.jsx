@@ -20,6 +20,12 @@ const Changelog = ({ location }) => (
     <H1>Changelog</H1>
     <HR />
     <ul className="mt-6 list-disc pl-6">
+      <DateItem date="August 4, 2020">
+        <ChangeItem>
+          Updated stats to new patch 39515 and merged matches from 39284 into it
+          since 39515 was a hotfix for 39284.
+        </ChangeItem>
+      </DateItem>
       <DateItem date="July 20, 2020">
         <ChangeItem>
           Created a dump of the raw match and player data available{' '}
