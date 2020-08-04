@@ -1,12 +1,12 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import Link from '../components/Link';
 import SEO from '../components/SEO';
 import A from '../components/typography/A';
 import H1 from '../components/typography/H1';
 import HR from '../components/typography/HR';
 import { formatDate } from '../formatting';
 import useLastUpdatedTime from '../hooks/useLastUpdatedTime';
-import Link from '../components/Link';
 
 const Item = ({ question, children }) => (
   <div className="w-full md:w-1/2 p-6 text-gray-900 flex">
@@ -51,10 +51,10 @@ const Faq = ({ location }) => {
             <span role="img" aria-label="smiley face">
               😊
             </span>{' '}
-            You can support me by buying me a coffee! Just click the big orange
-            button in the navbar. Any donations will go strictly toward hosting
-            costs. Right now I'm paying ~$20 a month to maintain this website
-            and update stats.
+            You can support me by{' '}
+            <A to="https://www.buymeacoffee.com/jerbot">buying me a "coffee"</A>
+            ! Any donations will go strictly toward hosting costs. Right now I'm
+            paying ~$20 a month to maintain this website and update stats.
           </p>
         </Item>
         <Item question="Why do some stats look funky for 1650+?">

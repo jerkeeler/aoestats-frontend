@@ -2,7 +2,6 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import CivCard from '../components/CivCard';
 import Hero from '../components/Hero';
-import Info from '../components/Info';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import TopCivs from '../components/TopCivs';
@@ -47,7 +46,7 @@ const Homepage = ({ data, location }) => {
           collected.
         </p>
       </Info> */}
-      <Info>
+      {/* <Info>
         <p>
           Patch{' '}
           <a
@@ -60,7 +59,7 @@ const Homepage = ({ data, location }) => {
           has been released! We are currently collecting data from the new
           patch. Check back in a few days for updated stats...
         </p>
-      </Info>
+      </Info> */}
       <Hero />
       <div className="flex flex-wrap mt-3">
         <div className="w-full lg:w-1/2 lg:pr-4">
