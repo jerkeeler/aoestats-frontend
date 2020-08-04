@@ -3,3 +3,5 @@ export const KeyCode = Object.freeze({
   arrowUp: 38,
   arrowDown: 40,
 });
+
+export const ChangeIndicatorAmount = 3;
