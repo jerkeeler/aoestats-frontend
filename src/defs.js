@@ -64,6 +64,7 @@ const LadderToShortname = Object.freeze({
 const SortedLadders = [LadderToNum.RM_1v1, LadderToNum.RM_TEAM];
 
 const Patch = Object.freeze({
+  de_40220: '40220',
   de_39515: '39515',
   de_37906: '37906',
   de_36906: '36906',
@@ -76,11 +77,12 @@ const SortedPatches = [
   Patch.de_36906,
   Patch.de_37906,
   Patch.de_39515,
+  Patch.de_40220,
 ];
 const SortedPatchesTeam = SortedPatches.slice(1); // All patches aside from the first
 
-const CURRENT_PATCH = Patch.de_39515;
-const PREVIOUS_PATCH = Patch.de_37906;
+const CURRENT_PATCH = Patch.de_40220;
+const PREVIOUS_PATCH = Patch.de_39515;
 
 module.exports = {
   OverTimeBuckets,

@@ -20,6 +20,11 @@ const Changelog = ({ location }) => (
     <H1>Changelog</H1>
     <HR />
     <ul className="mt-6 list-disc pl-6">
+      <DateItem date="September 12, 2020">
+        <ChangeItem>
+          Updated stats to new patch 40220.
+        </ChangeItem>
+      </DateItem>
       <DateItem date="August 4, 2020">
         <ChangeItem>
           Updated stats to new patch 39515 and merged matches from 39284 into it
