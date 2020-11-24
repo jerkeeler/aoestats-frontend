@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import CivCard from '../components/CivCard';
 import Hero from '../components/Hero';
+import Info from '../components/Info';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import TopCivs from '../components/TopCivs';
