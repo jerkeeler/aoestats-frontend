@@ -50,7 +50,7 @@ const Homepage = ({ data, location }) => {
         <p>
           Patch{' '}
           <a
-            href="https://www.ageofempires.com/news/aoe2de-update-40220/"
+            href="https://www.ageofempires.com/news/aoe2de-update-42848/"
             rel="noopener noreferrer"
             className="font-bold underline"
           >
