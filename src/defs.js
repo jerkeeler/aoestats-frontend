@@ -76,7 +76,6 @@ const Patch = Object.freeze({
 });
 
 const SortedPatches = [
-  Patch.de_43210,
   Patch.de_36202,
   Patch.de_36906,
   Patch.de_37906,
@@ -84,6 +83,7 @@ const SortedPatches = [
   Patch.de_40220,
   Patch.de_40874,
   Patch.de_41855,
+  Patch.de_43210,
 ];
 const SortedPatchesTeam = SortedPatches.slice(1); // All patches aside from the first
 
