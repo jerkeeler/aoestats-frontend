@@ -16,14 +16,14 @@ const Hero = () => {
       }
       teamOneMatches: postgres {
         allDeMatches(
-          condition: { flagged: false, patchVal: "41855", winningTeam: 1 }
+          condition: { flagged: false, patchVal: "43210", winningTeam: 1 }
         ) {
           totalCount
         }
       }
       teamTwoMatches: postgres {
         allDeMatches(
-          condition: { flagged: false, patchVal: "41855", winningTeam: 2 }
+          condition: { flagged: false, patchVal: "43210", winningTeam: 2 }
         ) {
           totalCount
         }
