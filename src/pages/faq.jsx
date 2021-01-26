@@ -89,8 +89,10 @@ const Faq = ({ location }) => {
         </Item>
         <Item question="How can I access the raw dataset?">
           <p>
-            I'm working on a way to provide access to the raw data. Please stay
-            tuned! I know I have gotten a lot of requests for this in the past.
+            You can download raw data in csv format
+            <A to="https://www.kaggle.com/jerkeeler/age-of-empires-ii-de-match-data">
+              here.
+            </A>
           </p>
         </Item>
         <Item question="What has changed on the site recently?">
