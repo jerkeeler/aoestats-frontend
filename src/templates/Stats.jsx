@@ -36,13 +36,17 @@ const StatRow = ({ filter, civ }) => (
       {(civ.winRate * 100).toFixed(2)}%
     </TableCell>
     <TableCell className={`font-mono`}>
-      <ChangeIndicator oldVal={civ.previous.winRate} newVal={civ.winRate} />
+      {civ.previous && (
+        <ChangeIndicator oldVal={civ.previous.winRate} newVal={civ.winRate} />
+      )}
     </TableCell>
     <TableCell className="font-mono justify-end">
       {(civ.playRate * 100).toFixed(2)}%
     </TableCell>
     <TableCell className={`font-mono`}>
-      <ChangeIndicator oldVal={civ.previous.playRate} newVal={civ.playRate} />
+      {civ.previous && (
+        <ChangeIndicator oldVal={civ.previous.playRate} newVal={civ.playRate} />
+      )}
     </TableCell>
     <TableCell className="font-mono justify-end">
       {leftPad(`${civ.avgGameLength.hours || 0}`, 1, '0')}:

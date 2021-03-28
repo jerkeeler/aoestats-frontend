@@ -40,7 +40,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        sitemap: `https://timkeeler.net/sitemap.xml`,
+        sitemap: `https://aoestats.io/sitemap.xml`,
         policy: [
           {
             userAgent: '*',

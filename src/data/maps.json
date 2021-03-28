@@ -524,6 +524,31 @@
       "id": 141,
       "displayName": "Land Nomad",
       "name": "land_nomad"
+    },
+    {
+      "id": 147,
+      "displayName": "Amazon Tunnel",
+      "name": "amazon_tunnel"
+    },
+    {
+      "id": 148,
+      "displayName": "Coastal Forest",
+      "name": "coastal_forest"
+    },
+    {
+      "id": 149,
+      "displayName": "African Clearing",
+      "name": "african_clearing"
+    },
+    {
+      "id": 150,
+      "displayName": "Atacama",
+      "name": "atacama"
+    },
+    {
+      "id": 151,
+      "displayName": "Seize the Mountain",
+      "name": "seize_the_mountain"
     }
   ]
 }

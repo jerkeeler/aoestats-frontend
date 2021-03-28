@@ -20,6 +20,13 @@ const Changelog = ({ location }) => (
     <H1>Changelog</H1>
     <HR />
     <ul className="mt-6 list-disc pl-6">
+      <DateItem date="March 28, 2021">
+        <ChangeItem>
+          Updated all civ IDs to match new IDs from aoe2.net
+        </ChangeItem>
+        <ChangeItem>Added Burgundians and Sicilians</ChangeItem>
+        <ChangeItem>Updated to latest patch, 46295</ChangeItem>
+      </DateItem>
       <DateItem date="December 8, 2020">
         <ChangeItem>
           Updated stats to patch 43210 and converted all "big november patch"

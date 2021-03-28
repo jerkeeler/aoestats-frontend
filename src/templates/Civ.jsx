@@ -13,14 +13,14 @@ import { Civs, CivsByName } from '../data';
 import {
   CivSeries,
   CURRENT_PATCH,
-  PREVIOUS_PATCH,
   Ladder,
   OverTimeSeries,
+  PREVIOUS_PATCH,
   SortedOverTimeBuckets,
   SortedPatches,
 } from '../defs';
 import { getWinRateClass, percentage } from '../formatting';
-import { getStatsByPatch, createFilter } from '../utils';
+import { createFilter, getStatsByPatch } from '../utils';
 
 const GraphTitle = ({ children }) => (
   <h3 className="text-xl text-stats-medium mb-3 mt-3 font-bold">{children}</h3>
@@ -115,14 +115,14 @@ const Civ = ({ data, location }) => {
             <Rate
               title="Win Rate"
               value={percentage(currentStats.winRate)}
-              previousValue={percentage(previousStats.winRate)}
+              previousValue={percentage(previousStats.winRate || 0)}
               games={currentStats.numWon}
               textColor={`text-${getWinRateClass(currentStats.winRate)}`}
             />
             <Rate
               title="Play Rate"
               value={percentage(currentStats.playRate)}
-              previousValue={percentage(previousStats.playRate)}
+              previousValue={percentage(previousStats.playRate || 0)}
               games={currentStats.numPlayed}
               textColor="text-stats"
             />
