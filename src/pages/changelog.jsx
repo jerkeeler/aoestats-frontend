@@ -20,12 +20,16 @@ const Changelog = ({ location }) => (
     <H1>Changelog</H1>
     <HR />
     <ul className="mt-6 list-disc pl-6">
-      <DateItem date="March 28, 2021">
+      <DateItem date="April 10, 2021">
         <ChangeItem>
-          Updated all civ IDs to match new IDs from aoe2.net
+          Rewrote backend, started using new API, greatly expanding match data
         </ChangeItem>
         <ChangeItem>Added Burgundians and Sicilians</ChangeItem>
         <ChangeItem>Updated to latest patch, 46295</ChangeItem>
+        <ChangeItem>Added persistent sorting to civ stats tables</ChangeItem>
+        <ChangeItem>
+          Updated all civ IDs to match new IDs from aoe2.net
+        </ChangeItem>
       </DateItem>
       <DateItem date="December 8, 2020">
         <ChangeItem>
