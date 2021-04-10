@@ -6,6 +6,8 @@ const ContextProvider = ({ children }) => {
   const [mapStatsSortVal, setMapStatsSortVal] = useState('name');
   const [civStatsSortDir, setCivStatsSortDir] = useState(-1);
   const [civStatsSortVal, setCivStatsSortVal] = useState('name');
+  const [mapCivStatsSortDir, setMapCivStatsSortDir] = useState(-1);
+  const [mapCivStatsSortVal, setMapCivStatsSortVal] = useState('name');
 
   return (
     <StoreContext.Provider
@@ -18,6 +20,10 @@ const ContextProvider = ({ children }) => {
         civStatsSortVal: civStatsSortVal,
         setCivStatsSortDir: setCivStatsSortDir,
         setCivStatsSortVal: setCivStatsSortVal,
+        mapCivStatsSortDir: mapCivStatsSortDir,
+        mapCivStatsSortVal: mapCivStatsSortVal,
+        setMapCivStatsSortDir: setMapCivStatsSortDir,
+        setMapCivStatsSortVal: setMapCivStatsSortVal,
       }}
     >
       {children}

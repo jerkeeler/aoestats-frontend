@@ -9,6 +9,10 @@ const defaultState = {
   civStatsSortVal: 'name',
   setCivStatsSortDir: () => {},
   setCivStatsSortVal: () => {},
+  mapCivStatsSortDir: -1,
+  mapCivStatsSortVal: 'name',
+  setMapCivStatsSortDir: () => {},
+  setMapCivStatsSortVal: () => {},
 };
 
 export const StoreContext = createContext(defaultState);
