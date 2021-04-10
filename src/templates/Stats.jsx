@@ -1,5 +1,5 @@
 import { graphql, Link } from 'gatsby';
-import React, { useContext } from 'react';
+import React from 'react';
 import ChangeIndicator from '../components/ChangeIndicator';
 import CivImage from '../components/CivImage';
 import Layout from '../components/Layout';
@@ -12,11 +12,11 @@ import TableCell from '../components/typography/TableCell';
 import TableHeader from '../components/typography/TableHeader';
 import TableHeaderCell from '../components/typography/TableHeaderCell';
 import TableRow from '../components/typography/TableRow';
-import StoreContext from '../context/store';
 import { Civs } from '../data';
 import { Ladder } from '../defs';
 import { getWinRateClass, leftPad } from '../formatting';
 import useSort from '../hooks/useSort';
+import useStore from '../hooks/useStore';
 import { getCivPath } from '../urls';
 import { createFilter } from '../utils';
 
@@ -78,7 +78,7 @@ const Stats = ({ location, data }) => {
     civStats.previous = previousStats[civStats.civNum];
   });
 
-  const storeValue = useContext(StoreContext);
+  const storeValue = useStore();
   const { onClick, tableStats, sortDirection, sortVal } = useSort({
     initialStats: stats,
     initialSortVal: storeValue.civStatsSortVal,

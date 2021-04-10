@@ -1,5 +1,5 @@
 import { graphql, Link } from 'gatsby';
-import React, { useContext } from 'react';
+import React from 'react';
 import CivImage from '../components/CivImage';
 import Layout from '../components/Layout';
 import MapImage from '../components/MapImage';
@@ -13,11 +13,11 @@ import TableCell from '../components/typography/TableCell';
 import TableHeader from '../components/typography/TableHeader';
 import TableHeaderCell from '../components/typography/TableHeaderCell';
 import TableRow from '../components/typography/TableRow';
-import StoreContext from '../context/store';
 import { CivsByName, Maps } from '../data';
 import { Ladder, MapSeries } from '../defs';
 import { getWinRateClass, percentage } from '../formatting';
 import useSort from '../hooks/useSort';
+import useStore from '../hooks/useStore';
 import { getCivPath } from '../urls';
 import { createFilter } from '../utils';
 
@@ -61,7 +61,7 @@ const MapPage = ({ data, location }) => {
     },
   );
 
-  const storeValue = useContext(StoreContext);
+  const storeValue = useStore();
   const { onClick, tableStats, sortDirection, sortVal } = useSort({
     initialStats: civData,
     initialSortVal: storeValue.mapCivStatsSortVal,
