@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import CivCard from '../components/CivCard';
 import Hero from '../components/Hero';
-// import Info from '../components/Info';
+import Info from '../components/Info';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import TopCivs from '../components/TopCivs';
@@ -61,6 +61,13 @@ const Homepage = ({ data, location }) => {
           patch. Check back in a few days for updated stats...
         </p>
       </Info> */}
+      <Info>
+        <p>
+          Site is now updated with the Lords of the West expansion. Backend has
+          been rewritten and dataset expanded significantly! Over 1 million
+          matches for just this patch!
+        </p>
+      </Info>
       <Hero />
       <div className="flex flex-wrap mt-3">
         <div className="w-full lg:w-1/2 lg:pr-4">
