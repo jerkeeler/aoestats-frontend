@@ -1,16 +1,14 @@
-import React from 'react';
 import { Link } from 'gatsby';
-
+import React from 'react';
 import { MapsByName } from '../data';
-import Table from './typography/Table';
-import TableHeader from './typography/TableHeader';
-import TableCell from './typography/TableCell';
-import TableRow from './typography/TableRow';
 import { getWinRateClass, percentage } from '../formatting';
-import MapImage from './MapImage';
 import { getMapPath } from '../urls';
+import MapImage from './MapImage';
+import Table from './typography/Table';
+import TableCell from './typography/TableCell';
+import TableHeader from './typography/TableHeader';
 import TableHeaderCell from './typography/TableHeaderCell';
-import ChangeIndicator from './ChangeIndicator';
+import TableRow from './typography/TableRow';
 
 const MapRow = ({ filter, mapInfo }) => (
   <TableRow>
@@ -25,12 +23,6 @@ const MapRow = ({ filter, mapInfo }) => (
     </TableCell>
     <TableCell className={`text-${getWinRateClass(mapInfo.winRate)}`}>
       {percentage(mapInfo.winRate)}%
-      {mapInfo.previous && (
-        <ChangeIndicator
-          oldVal={mapInfo.previous.winRate}
-          newVal={mapInfo.winRate}
-        />
-      )}
     </TableCell>
   </TableRow>
 );

@@ -96,6 +96,7 @@ export const query = graphql`
             playRate
             civNum
             numPlayed
+            position
           }
         }
       }
@@ -106,6 +107,7 @@ export const query = graphql`
             playRate
             civNum
             numPlayed
+            position
           }
         }
       }

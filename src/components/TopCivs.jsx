@@ -1,15 +1,14 @@
-import React from 'react';
 import { Link } from 'gatsby';
-
+import React from 'react';
+import { getWinRateClass } from '../formatting';
 import { getCivPath } from '../urls';
-import TableRow from './typography/TableRow';
+import ChangeIndicator from './ChangeIndicator';
+import CivImage from './CivImage';
+import Table from './typography/Table';
 import TableCell from './typography/TableCell';
 import TableHeader from './typography/TableHeader';
-import Table from './typography/Table';
-import CivImage from './CivImage';
-import { getWinRateClass } from '../formatting';
 import TableHeaderCell from './typography/TableHeaderCell';
-import ChangeIndicator from './ChangeIndicator';
+import TableRow from './typography/TableRow';
 
 const CivRow = ({ filter, civ }) => (
   <TableRow>
@@ -26,8 +25,8 @@ const CivRow = ({ filter, civ }) => (
       <span>{(civ.winRate * 100).toFixed(2)}%</span>
       {civ.previous && (
         <ChangeIndicator
-          newVal={civ.winRate}
-          oldVal={civ.previous.winRate}
+          newVal={civ.position}
+          oldVal={civ.previous.position}
           className="ml-4"
         />
       )}

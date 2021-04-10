@@ -14,26 +14,13 @@ const Hero = () => {
           }
         }
       }
-      teamOneMatches: postgres {
-        allDeMatches(
-          condition: { flagged: false, patchVal: "43210", winningTeam: 1 }
-        ) {
-          totalCount
-        }
-      }
-      teamTwoMatches: postgres {
-        allDeMatches(
-          condition: { flagged: false, patchVal: "43210", winningTeam: 2 }
-        ) {
-          totalCount
+      matches: postgres {
+        deDatabasestatById(id: 1) {
+          latestPatchMatches
         }
       }
     }
   `);
-
-  const totalCount =
-    data.teamOneMatches.allDeMatches.totalCount +
-    data.teamTwoMatches.allDeMatches.totalCount;
 
   return (
     <div className="h-56 overflow-hidden rounded relative">
@@ -43,8 +30,13 @@ const Hero = () => {
       >
         <h1 className="text-6xl">aoestats</h1>
         <p className="text-xl">
-          Over <u>{numberWithCommas(totalCount)}</u> DE matches on patch{' '}
-          {CURRENT_PATCH} analyzed!
+          Over{' '}
+          <u>
+            {numberWithCommas(
+              data.matches.deDatabasestatById.latestPatchMatches,
+            )}
+          </u>{' '}
+          DE matches on patch {CURRENT_PATCH} analyzed!
         </p>
       </div>
       <Img

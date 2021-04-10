@@ -36,6 +36,9 @@ module.exports = {
       minHeight: {
         '16': '4rem',
       },
+      padding: {
+        xsm: '0.125rem',
+      },
     },
   },
   variants: {

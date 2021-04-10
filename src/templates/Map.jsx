@@ -63,9 +63,9 @@ const MapPage = ({ data, location }) => {
   const { onClick, tableStats, sortDirection, sortVal } = useSort({
     initialStats: civData,
   });
-  const previousPlayRate = previousMapStats
-    ? percentage(previousMapStats.playRate)
-    : null;
+  // const previousPlayRate = previousMapStats
+  //   ? percentage(previousMapStats.playRate)
+  //   : null;
 
   return (
     <Layout filter={filter} location={location}>
@@ -86,7 +86,6 @@ const MapPage = ({ data, location }) => {
           <Rate
             title="Play Rate"
             value={percentage(mapStats.playRate)}
-            previousValue={previousPlayRate}
             games={mapStats.numPlayed}
             textColor="text-stats"
           />

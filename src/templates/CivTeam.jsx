@@ -18,7 +18,7 @@ import {
   SortedPatchesTeam,
 } from '../defs';
 import { getWinRateClass, percentage } from '../formatting';
-import { getStatsByPatch, createFilter } from '../utils';
+import { createFilter, getStatsByPatch } from '../utils';
 
 const GraphTitle = ({ children }) => (
   <h3 className="text-xl text-stats-medium mb-3 mt-3 font-bold">{children}</h3>
@@ -101,14 +101,12 @@ const CivTeam = ({ data, location }) => {
             <Rate
               title="Win Rate"
               value={percentage(currentStats.winRate)}
-              // previousValue={percentage(previousStats.winRate)}
               games={currentStats.numWon}
               textColor={`text-${getWinRateClass(currentStats.winRate)}`}
             />
             <Rate
               title="Play Rate"
               value={percentage(currentStats.playRate)}
-              // previousValue={percentage(previousStats.playRate)}
               games={currentStats.numPlayed}
               textColor="text-stats"
             />
@@ -182,6 +180,7 @@ export const query = graphql`
             numWon
             numPlayed
             gamesAnalyzed
+            position
             avgGameLength {
               seconds
               minutes

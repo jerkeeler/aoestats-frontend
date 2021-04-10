@@ -77,9 +77,9 @@ const Patch = Object.freeze({
 });
 
 const SortedPatches = [
-  Patch.de_36202,
-  Patch.de_36906,
-  Patch.de_37906,
+  // Patch.de_36202,
+  // Patch.de_36906,
+  // Patch.de_37906,
   Patch.de_39515,
   Patch.de_40220,
   Patch.de_40874,

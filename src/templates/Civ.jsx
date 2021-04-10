@@ -66,17 +66,21 @@ const Civ = ({ data, location }) => {
     },
   ];
 
+  const newSortedPatches = SortedPatches.filter((patchVal) =>
+    Object.keys(stats).includes(patchVal),
+  );
+
   const winByPatch = [
     {
-      data: SortedPatches.map((patchVal) => stats[patchVal].winRate).map(
-        percentage,
-      ),
+      data: newSortedPatches
+        .map((patchVal) => stats[patchVal].winRate)
+        .map(percentage),
       label: Civs[currentStats.civNum].name,
       color: 'rgb(36, 209, 248)',
       backgroundColor: 'rgba(36, 209, 248, 0.3)',
     },
     {
-      data: Array(SortedPatches.length).fill(50),
+      data: Array(newSortedPatches.length).fill(50),
       label: `${filter.eloVal || 'All'} Avg`,
       color: 'rgb(220, 220, 220)',
       backgroundColor: 'rgba(220, 220, 220, 0.3)',
@@ -85,9 +89,9 @@ const Civ = ({ data, location }) => {
 
   const playByPatch = [
     {
-      data: SortedPatches.map((patchVal) => stats[patchVal].playRate).map(
-        percentage,
-      ),
+      data: newSortedPatches
+        .map((patchVal) => stats[patchVal].playRate)
+        .map(percentage),
       label: Civs[currentStats.civNum].name,
       color: 'rgb(36, 209, 248)',
       backgroundColor: 'rgba(36, 209, 248, 0.3)',
@@ -115,14 +119,14 @@ const Civ = ({ data, location }) => {
             <Rate
               title="Win Rate"
               value={percentage(currentStats.winRate)}
-              previousValue={percentage(previousStats.winRate || 0)}
+              position={currentStats.position}
+              previousPosition={previousStats && previousStats.position}
               games={currentStats.numWon}
               textColor={`text-${getWinRateClass(currentStats.winRate)}`}
             />
             <Rate
               title="Play Rate"
               value={percentage(currentStats.playRate)}
-              previousValue={percentage(previousStats.playRate || 0)}
               games={currentStats.numPlayed}
               textColor="text-stats"
             />
@@ -209,6 +213,7 @@ export const query = graphql`
             numWon
             numPlayed
             gamesAnalyzed
+            position
             avgGameLength {
               seconds
               minutes

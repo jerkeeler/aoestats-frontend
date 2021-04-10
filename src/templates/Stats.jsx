@@ -37,17 +37,13 @@ const StatRow = ({ filter, civ }) => (
     </TableCell>
     <TableCell className={`font-mono`}>
       {civ.previous && (
-        <ChangeIndicator oldVal={civ.previous.winRate} newVal={civ.winRate} />
+        <ChangeIndicator oldVal={civ.previous.position} newVal={civ.position} />
       )}
     </TableCell>
     <TableCell className="font-mono justify-end">
       {(civ.playRate * 100).toFixed(2)}%
     </TableCell>
-    <TableCell className={`font-mono`}>
-      {civ.previous && (
-        <ChangeIndicator oldVal={civ.previous.playRate} newVal={civ.playRate} />
-      )}
-    </TableCell>
+    <TableCell />
     <TableCell className="font-mono justify-end">
       {leftPad(`${civ.avgGameLength.hours || 0}`, 1, '0')}:
       {leftPad(`${civ.avgGameLength.minutes || 0}`, 2, '0')}:
@@ -176,6 +172,7 @@ export const query = graphql`
             playRate
             civNum
             numPlayed
+            position
             avgGameLength {
               seconds
               minutes
@@ -191,6 +188,7 @@ export const query = graphql`
             playRate
             civNum
             numPlayed
+            position
             avgGameLength {
               seconds
               minutes

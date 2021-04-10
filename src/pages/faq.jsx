@@ -74,22 +74,22 @@ const Faq = ({ location }) => {
             .
           </p>
         </Item>
-        <Item question="What are the small percentage numbers everywhere?">
-          Those values indicate how much a certain value has changed since the
-          last patch. These indicate the <i>percentage change</i> of the value
-          since that last patch. A 1% change of a 50% win rate{' '}
-          <b>does not mean</b> the value went from 50% win rate to 51% win rate.
-          It means it went from 50% to 50.5%.
+        <Item question="What are the small numbers everywhere?">
+          Those indicate <i>positional</i> change of a civilization's win rate
+          compared to the last patch. For example, if Franks used to have the
+          highest win rate, but now have the second highest win rate you will
+          see a down arrow with a 1 next to it. This indicates that it moved one
+          position down in the "rankings".
         </Item>
-        <Item question="What happened to the Voobly stats?">
+        {/* <Item question="What happened to the Voobly stats?">
           <p>
             Don't worry! The Voobly stats are still around! I'm still working on
             the best way for those stats to live in harmony with DE stats.
           </p>
-        </Item>
+        </Item> */}
         <Item question="How can I access the raw dataset?">
           <p>
-            You can download raw data in csv format
+            You can download raw data in csv format{' '}
             <A to="https://www.kaggle.com/jerkeeler/age-of-empires-ii-de-match-data">
               here.
             </A>
@@ -98,7 +98,7 @@ const Faq = ({ location }) => {
         <Item question="What has changed on the site recently?">
           <p>
             Check out my <Link to="/changelog">changelog</Link> page to view a
-            list of notable changes and when the occurred.
+            list of notable changes and when they occurred.
           </p>
         </Item>
       </div>

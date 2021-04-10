@@ -90,7 +90,6 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve('./src/templates/Homepage.jsx'),
       context,
     });
-
     if (
       filter.combined &&
       filter.patchVal === CURRENT_PATCH &&
