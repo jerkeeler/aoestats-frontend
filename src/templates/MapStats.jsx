@@ -1,5 +1,5 @@
 import { graphql, Link } from 'gatsby';
-import React from 'react';
+import React, { useContext } from 'react';
 import Layout from '../components/Layout';
 import MapCard from '../components/MapCard';
 import MapImage from '../components/MapImage';
@@ -12,6 +12,7 @@ import TableCell from '../components/typography/TableCell';
 import TableHeader from '../components/typography/TableHeader';
 import TableHeaderCell from '../components/typography/TableHeaderCell';
 import TableRow from '../components/typography/TableRow';
+import StoreContext from '../context/store';
 import { Maps } from '../data';
 import { Ladder } from '../defs';
 import { leftPad, percentage } from '../formatting';
@@ -50,15 +51,20 @@ const MapStats = ({ data, location }) => {
   }));
   mapStats.sort((a, b) => (a.name > b.name ? 1 : -1));
 
+  const storeValue = useContext(StoreContext);
   const { onClick, tableStats, sortVal, sortDirection } = useSort({
     initialStats: mapStats,
+    initialSortVal: storeValue.mapStatsSortVal,
+    initialSortDir: storeValue.mapStatsSortDir,
+    setContextSortVal: storeValue.setMapStatsSortVal,
+    setContextSortDir: storeValue.setMapStatsSortDir,
   });
 
   return (
     <Layout filter={filter} location={location}>
       <SEO
         title="Maps"
-        description={`Side by side comparisons of Age of Empires II civilizations by Map, including win rate, 
+        description={`Side by side comparisons of Age of Empires II civilizations by Map, including win rate,
         play rate, and age timings for the ${
           Ladder[filter.ladderVal]
         } ladder across ${filter.eloVal || 'all'} Elo.`}
