@@ -87,7 +87,6 @@ const SortedPatches = [
   Patch.de_43210,
   Patch.de_46295,
 ];
-const SortedPatchesTeam = SortedPatches.slice(1); // All patches aside from the first
 
 const CURRENT_PATCH = Patch.de_46295;
 const PREVIOUS_PATCH = Patch.de_43210;
@@ -106,7 +105,6 @@ module.exports = {
   SortedLadders,
   Patch,
   SortedPatches,
-  SortedPatchesTeam,
   CURRENT_PATCH,
   PREVIOUS_PATCH,
 };

@@ -15,7 +15,7 @@ import {
   Ladder,
   OverTimeSeries,
   SortedOverTimeBuckets,
-  SortedPatchesTeam,
+  SortedPatches,
 } from '../defs';
 import { getWinRateClass, percentage } from '../formatting';
 import { createFilter, getStatsByPatch } from '../utils';
@@ -27,6 +27,10 @@ const GraphTitle = ({ children }) => (
 const CivTeam = ({ data, location }) => {
   const filter = createFilter(data);
   const stats = getStatsByPatch(data);
+
+  const newSortedPatches = SortedPatches.filter((patchVal) =>
+    Object.keys(stats).includes(patchVal),
+  );
 
   const currentStats = stats[CURRENT_PATCH];
   // const previousStats = stats[PREVIOUS_PATCH];
@@ -45,7 +49,7 @@ const CivTeam = ({ data, location }) => {
       backgroundColor: 'rgba(36, 209, 248, 0.3)',
     },
     {
-      data: Array(SortedOverTimeBuckets.length).fill(50),
+      data: Array(newSortedPatches.length).fill(50),
       label: `${filter.eloVal || 'All'} Avg`,
       color: 'rgb(220, 220, 220)',
       backgroundColor: 'rgba(220, 220, 220, 0.3)',
@@ -54,15 +58,15 @@ const CivTeam = ({ data, location }) => {
 
   const winByPatch = [
     {
-      data: SortedPatchesTeam.map((patchVal) => stats[patchVal].winRate).map(
-        percentage,
-      ),
+      data: newSortedPatches
+        .map((patchVal) => stats[patchVal].winRate)
+        .map(percentage),
       label: Civs[currentStats.civNum].name,
       color: 'rgb(36, 209, 248)',
       backgroundColor: 'rgba(36, 209, 248, 0.3)',
     },
     {
-      data: Array(SortedPatchesTeam.length).fill(50),
+      data: Array(newSortedPatches.length).fill(50),
       label: `${filter.eloVal || 'All'} Avg`,
       color: 'rgb(220, 220, 220)',
       backgroundColor: 'rgba(220, 220, 220, 0.3)',
@@ -71,9 +75,9 @@ const CivTeam = ({ data, location }) => {
 
   const playByPatch = [
     {
-      data: SortedPatchesTeam.map((patchVal) => stats[patchVal].playRate).map(
-        percentage,
-      ),
+      data: newSortedPatches
+        .map((patchVal) => stats[patchVal].playRate)
+        .map(percentage),
       label: Civs[currentStats.civNum].name,
       color: 'rgb(36, 209, 248)',
       backgroundColor: 'rgba(36, 209, 248, 0.3)',
@@ -126,7 +130,7 @@ const CivTeam = ({ data, location }) => {
                 <GraphTitle>Win Rate by Patch</GraphTitle>
                 <LineGraph
                   datasets={winByPatch}
-                  labels={SortedPatchesTeam}
+                  labels={newSortedPatches}
                   xAxesLabel="patch"
                   yAxesLabel="win rate (%)"
                 />
@@ -137,7 +141,7 @@ const CivTeam = ({ data, location }) => {
                 <GraphTitle>Play Rate by Patch</GraphTitle>
                 <LineGraph
                   datasets={playByPatch}
-                  labels={SortedPatchesTeam}
+                  labels={newSortedPatches}
                   xAxesLabel="patch"
                   yAxesLabel="play rate (%)"
                 />
