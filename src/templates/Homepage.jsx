@@ -47,25 +47,18 @@ const Homepage = ({ data, location }) => {
           collected.
         </p>
       </Info> */}
-      {/* <Info>
+      <Info>
         <p>
           Patch{' '}
           <a
-            href="https://www.ageofempires.com/news/aoe2de-update-42848/"
+            href="https://www.ageofempires.com/news/aoe2de-update-47820/"
             rel="noopener noreferrer"
             className="font-bold underline"
           >
-            42848
+            47820
           </a>{' '}
           has been released! We are currently collecting data from the new
           patch. Check back in a few days for updated stats...
-        </p>
-      </Info> */}
-      <Info>
-        <p>
-          Site is now updated with the Lords of the West expansion. Backend has
-          been rewritten and dataset expanded significantly! Over 1 million
-          matches for just this patch!
         </p>
       </Info>
       <Hero />
