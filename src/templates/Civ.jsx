@@ -146,7 +146,7 @@ const Civ = ({ data, location }) => {
                 <GraphTitle>Win Rate by Patch</GraphTitle>
                 <LineGraph
                   datasets={winByPatch}
-                  labels={SortedPatches}
+                  labels={newSortedPatches}
                   xAxesLabel="patch"
                   yAxesLabel="win rate (%)"
                 />
@@ -157,7 +157,7 @@ const Civ = ({ data, location }) => {
                 <GraphTitle>Play Rate by Patch</GraphTitle>
                 <LineGraph
                   datasets={playByPatch}
-                  labels={SortedPatches}
+                  labels={newSortedPatches}
                   xAxesLabel="patch"
                   yAxesLabel="play rate (%)"
                 />

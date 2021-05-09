@@ -20,6 +20,9 @@ const Changelog = ({ location }) => (
     <H1>Changelog</H1>
     <HR />
     <ul className="mt-6 list-disc pl-6">
+      <DateItem date="May 9, 2021">
+        <ChangeItem>Updated to latest patch, 47820</ChangeItem>
+      </DateItem>
       <DateItem date="April 10, 2021">
         <ChangeItem>
           Rewrote backend, started using new API, greatly expanding match data
