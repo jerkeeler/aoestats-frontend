@@ -98,6 +98,15 @@ const Civ = ({ data, location }) => {
     },
   ];
 
+  const positionByPatch = [
+    {
+      data: newSortedPatches.map((patchVal) => stats[patchVal].position),
+      label: Civs[currentStats.civNum].name,
+      color: 'rgb(36, 209, 248)',
+      backgroundColor: 'rgba(36, 209, 248, 0.3)',
+    },
+  ];
+
   return (
     <Layout location={location} filter={filter}>
       <SEO
@@ -152,7 +161,7 @@ const Civ = ({ data, location }) => {
                 />
               </div>
             </div>
-            <div className="w-full flex">
+            <div className="w-full flex flex-wrap">
               <div className="w-full lg:w-6/12 flex flex-col items-center">
                 <GraphTitle>Play Rate by Patch</GraphTitle>
                 <LineGraph
@@ -160,6 +169,18 @@ const Civ = ({ data, location }) => {
                   labels={newSortedPatches}
                   xAxesLabel="patch"
                   yAxesLabel="play rate (%)"
+                />
+              </div>
+              <div className="w-full lg:w-6/12 flex flex-col items-center">
+                <GraphTitle>Position by Patch</GraphTitle>
+                <LineGraph
+                  datasets={positionByPatch}
+                  labels={newSortedPatches}
+                  xAxesLabel="patch"
+                  yAxesLabel="position"
+                  invertY={true}
+                  yMin={0}
+                  yMax={Object.keys(Civs).length + 1}
                 />
               </div>
             </div>

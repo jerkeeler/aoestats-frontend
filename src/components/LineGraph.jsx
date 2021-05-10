@@ -1,11 +1,18 @@
 import React from 'react';
-
 import { defaults, Line } from 'react-chartjs-2';
 
 defaults.global.animation = false;
 defaults.global.defaultFontColor = '#fff';
 
-const LineGraph = ({ datasets, labels, yAxesLabel, xAxesLabel }) => {
+const LineGraph = ({
+  datasets,
+  labels,
+  yAxesLabel,
+  xAxesLabel,
+  invertY = false,
+  yMin = null,
+  yMax = null,
+}) => {
   const graphData = {
     labels: labels,
     datasets: datasets.map((data) => ({
@@ -30,6 +37,12 @@ const LineGraph = ({ datasets, labels, yAxesLabel, xAxesLabel }) => {
     })),
   };
 
+  const yTick = {
+    reverse: invertY,
+  };
+  if (yMin !== null) yTick['min'] = yMin;
+  if (yMax !== null) yTick['max'] = yMax;
+
   const graphOptions = {
     animation: false,
     responsive: true,
@@ -42,6 +55,7 @@ const LineGraph = ({ datasets, labels, yAxesLabel, xAxesLabel }) => {
           },
           ticks: {
             maxTicksLimit: 6,
+            ...yTick,
           },
         },
       ],

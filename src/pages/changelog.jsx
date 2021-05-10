@@ -20,10 +20,16 @@ const Changelog = ({ location }) => (
     <H1>Changelog</H1>
     <HR />
     <ul className="mt-6 list-disc pl-6">
+      <DateItem date="May 10, 2021">
+        <ChangeItem>
+          Added positions by patch graph to civ detail page
+        </ChangeItem>
+      </DateItem>
       <DateItem date="May 9, 2021">
         <ChangeItem>Updated to latest patch, 47820</ChangeItem>
       </DateItem>
       <DateItem date="April 10, 2021">
+        <ChangeItem>Removed backend API</ChangeItem>
         <ChangeItem>
           Rewrote backend, started using new API, greatly expanding match data
         </ChangeItem>
@@ -71,8 +77,11 @@ const Changelog = ({ location }) => (
       </DateItem>
       <DateItem date="June 15, 2020">
         <ChangeItem>
-          Added a developer API! It can be accessed at:{' '}
-          <A to="https://api.aoestats.io/de/">api.aoestats.io/de/</A>
+          <strike>
+            Added a developer API! It can be accessed at:{' '}
+            <A to="https://api.aoestats.io/de/">api.aoestats.io/de/</A>
+          </strike>{' '}
+          Removed on April 10, 2021
         </ChangeItem>
       </DateItem>
       <DateItem date="June 8, 2020">
