@@ -549,6 +549,31 @@
       "id": 151,
       "displayName": "Seize the Mountain",
       "name": "seize_the_mountain"
+    },
+    {
+      "id": 152,
+      "displayName": "Crater",
+      "name": "crater"
+    },
+    {
+      "id": 153,
+      "displayName": "Crossroads",
+      "name": "crossroads"
+    },
+    {
+      "id": 154,
+      "displayName": "Michi",
+      "name": "michi"
+    },
+    {
+      "id": 155,
+      "displayName": "Team Moats",
+      "name": "team_moats"
+    },
+    {
+      "id": 156,
+      "displayName": "Volcanic Island",
+      "name": "volcanic_island"
     }
   ]
 }
