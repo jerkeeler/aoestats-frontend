@@ -574,6 +574,61 @@
       "id": 156,
       "displayName": "Volcanic Island",
       "name": "volcanic_island"
+    },
+    {
+      "id": 157,
+      "displayName": "Acclivity",
+      "name": "acclivity"
+    },
+    {
+      "id": 158,
+      "displayName": "Eruption",
+      "name": "eruption"
+    },
+    {
+      "id": 159,
+      "displayName": "Frigid Lake",
+      "name": "frigid_lake"
+    },
+    {
+      "id": 160,
+      "displayName": "Greenland",
+      "name": "greenland"
+    },
+    {
+      "id": 161,
+      "displayName": "Lowland",
+      "name": "lowland"
+    },
+    {
+      "id": 162,
+      "displayName": "Marketplace",
+      "name": "marketplace"
+    },
+    {
+      "id": 163,
+      "displayName": "Meadow",
+      "name": "meadow"
+    },
+    {
+      "id": 164,
+      "displayName": "Mountain Range",
+      "name": "mountain_range"
+    },
+    {
+      "id": 165,
+      "displayName": "Northern Isles",
+      "name": "northern_isles"
+    },
+    {
+      "id": 166,
+      "displayName": "Ring Fortress",
+      "name": "ring_fortress"
+    },
+    {
+      "id": 167,
+      "displayName": "Runestones",
+      "name": "runestones"
     }
   ]
 }

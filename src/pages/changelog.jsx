@@ -20,6 +20,11 @@ const Changelog = ({ location }) => (
     <H1>Changelog</H1>
     <HR />
     <ul className="mt-6 list-disc pl-6">
+      <DateItem date="August 4, 2021">
+        <ChangeItem>
+          Updated to latest patch, 50292
+        </ChangeItem>
+      </DateItem>
       <DateItem date="May 10, 2021">
         <ChangeItem>
           Added positions by patch graph to civ detail page
