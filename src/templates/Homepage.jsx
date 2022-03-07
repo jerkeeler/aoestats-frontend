@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import CivCard from '../components/CivCard';
 import Hero from '../components/Hero';
-// import Info from '../components/Info';
+import Warning from '../components/Warning';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import TopCivs from '../components/TopCivs';
@@ -33,20 +33,13 @@ const Homepage = ({ data, location }) => {
   return (
     <Layout location={location} filter={filter}>
       <SEO />
-      {/*<Info>*/}
-      {/*  <p>*/}
-      {/*    We have published <strong>preliminary</strong> stats for patch{' '}*/}
-      {/*    <a*/}
-      {/*      href="https://www.ageofempires.com/news/aoe2de-update-50292/"*/}
-      {/*      rel="noopener noreferrer"*/}
-      {/*      className="font-bold underline"*/}
-      {/*    >*/}
-      {/*      50292*/}
-      {/*    </a>*/}
-      {/*    . Stats are likely to change over the next week as more data is*/}
-      {/*    collected.*/}
-      {/*  </p>*/}
-      {/*</Info>*/}
+      <Warning>
+        <p>
+          Due to life, this site will no longer be maintained for the forseeable future. Thank you to everyone for the
+          interest and support you have provided. This site might come back in the future if I find more time. Thanks
+          for your understanding. - jerbot
+        </p>
+      </Warning>
       {/*<Info>*/}
       {/*  <p>*/}
       {/*    Patch{' '}*/}

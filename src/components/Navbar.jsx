@@ -43,9 +43,6 @@ const Navbar = ({ location, filter }) => (
       </NavGroup>
       <MobileNav>
         <HR className="w-full lg:hidden" borderColor="border-gray-500" />
-        <NavItemRight>
-          <BuyMeACoffee />
-        </NavItemRight>
         <NavItemRight className="md:text-xs">
           Patch: <b>{CURRENT_PATCH}</b>
         </NavItemRight>
