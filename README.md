@@ -1,3 +1,8 @@
+# DEPRECATED REPO SEE https://github.com/jerkeeler/aoestats-redux-issues
+
+aoestats.io is relaunched! Head over to the other repo to report any issues and see project planning.
+
+
 # aoestats-frontend
 
 This is the frontend for [aoestats.io](https://aoestats.io). The entire site is a single page app written using [React](https://reactjs.org/) and [GatsbyJS](https://www.gatsbyjs.org/). This allows for the ultimate flexibility in user performance and SEO. I've also opt'd to make this a client only application in order to reduce hosting cost and provide a better experience for overseas users by distributing all static files on a CDN. Right now host is done on [Netlify](https://www.netlify.com/), however I've thought about switching to [Vercel](https://vercel.com/) for unlimited bandwidth.
