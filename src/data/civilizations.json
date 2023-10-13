@@ -12,176 +12,186 @@
     },
     {
       "id": 2,
+      "name": "Bohemians",
+      "uniqueUnit": "old value not needed anymore"
+    },
+    {
+      "id": 3,
       "name": "Britons",
       "uniqueUnit": "longbowman"
     },
     {
-      "id": 3,
+      "id": 4,
       "name": "Bulgarians",
       "uniqueUnit": "konnik"
     },
     {
-      "id": 4,
+      "id": 5,
       "name": "Burgundians",
       "uniqueUnit": "old value not needed anymore"
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "Burmese",
       "uniqueUnit": "arambai"
     },
     {
-      "id": 6,
+      "id": 7,
       "name": "Byzantines",
       "uniqueUnit": "cataphract"
     },
     {
-      "id": 7,
+      "id": 8,
       "name": "Celts",
       "uniqueUnit": "woad_raider"
     },
     {
-      "id": 8,
+      "id": 9,
       "name": "Chinese",
       "uniqueUnit": "chu_ko_nu"
     },
     {
-      "id": 9,
+      "id": 10,
       "name": "Cumans",
       "uniqueUnit": "kipchak"
     },
     {
-      "id": 10,
+      "id": 11,
       "name": "Ethiopians",
       "uniqueUnit": "shotel_warrior"
     },
     {
-      "id": 11,
+      "id": 12,
       "name": "Franks",
       "uniqueUnit": "throwing_axeman"
     },
     {
-      "id": 12,
+      "id": 13,
       "name": "Goths",
       "uniqueUnit": "huskarl"
     },
     {
-      "id": 13,
+      "id": 14,
       "name": "Huns",
       "uniqueUnit": "tarkan"
     },
     {
-      "id": 14,
+      "id": 15,
       "name": "Incas",
       "uniqueUnit": "kamayuk"
     },
     {
-      "id": 15,
+      "id": 16,
       "name": "Indians",
       "uniqueUnit": "elephant_archer"
     },
     {
-      "id": 16,
+      "id": 17,
       "name": "Italians",
       "uniqueUnit": "genoese_crossbowman"
     },
     {
-      "id": 17,
+      "id": 18,
       "name": "Japanese",
       "uniqueUnit": "samurai"
     },
     {
-      "id": 18,
+      "id": 19,
       "name": "Khmer",
       "uniqueUnit": "ballista_elephant"
     },
     {
-      "id": 19,
+      "id": 20,
       "name": "Koreans",
       "uniqueUnit": "war_wagon"
     },
     {
-      "id": 20,
+      "id": 21,
       "name": "Lithuanians",
       "uniqueUnit": "leitis"
     },
     {
-      "id": 21,
+      "id": 22,
       "name": "Magyars",
       "uniqueUnit": "magyar_huszar"
     },
     {
-      "id": 22,
+      "id": 23,
       "name": "Malay",
       "uniqueUnit": "karambit_warrior"
     },
     {
-      "id": 23,
+      "id": 24,
       "name": "Malians",
       "uniqueUnit": "gbeto"
     },
     {
-      "id": 24,
+      "id": 25,
       "name": "Mayans",
       "uniqueUnit": "plumed_archer"
     },
     {
-      "id": 25,
+      "id": 26,
       "name": "Mongols",
       "uniqueUnit": "mangudai"
     },
     {
-      "id": 26,
+      "id": 27,
       "name": "Persians",
       "uniqueUnit": "war_elephant"
     },
     {
-      "id": 27,
+      "id": 28,
+      "name": "Poles",
+      "uniqueUnit": "old value not needed anymore"
+    },
+    {
+      "id": 29,
       "name": "Portuguese",
       "uniqueUnit": "organ_gun"
     },
     {
-      "id": 28,
+      "id": 30,
       "name": "Saracens",
       "uniqueUnit": "mameluke"
     },
     {
-      "id": 29,
+      "id": 31,
       "name": "Sicilians",
       "uniqueUnit": "old value not needed anymore"
     },
     {
-      "id": 30,
+      "id": 32,
       "name": "Slavs",
       "uniqueUnit": "boyar"
     },
     {
-      "id": 31,
+      "id": 33,
       "name": "Spanish",
       "uniqueUnit": "conquistador"
     },
     {
-      "id": 32,
+      "id": 34,
       "name": "Tatars",
       "uniqueUnit": "keshik"
     },
     {
-      "id": 33,
+      "id": 35,
       "name": "Teutons",
       "uniqueUnit": "teutonic_knight"
     },
     {
-      "id": 34,
+      "id": 36,
       "name": "Turks",
       "uniqueUnit": "janissary"
     },
     {
-      "id": 35,
+      "id": 37,
       "name": "Vietnamese",
       "uniqueUnit": "rattan_archer"
     },
     {
-      "id": 36,
+      "id": 38,
       "name": "Vikings",
       "uniqueUnit": "berserk"
     }
